@@ -5,17 +5,21 @@ class About extends Component {
   render() {
     return (
       <div>
-      <h1>About Tab Works!</h1>
+      
 
-      <h2>Testing skeleton Pollinate application.</h2>
+    <h1>Testing Skeleton Pollinate Application</h1>
+
+      <h2> _________________________________________________________________________________ </h2>
 
       <h4> Successfully able to clone repo, edit and run on local machine, and push to GitHub. </h4>
-      <i>Bailey Metz </i>
+      Here is a small change for other members to git pull.
+      
+      <br /> <i>Bailey Metz </i>
 
 	<h2> _________________________________________________________________________________ </h2>
 
-          <h1>About Jacob's Change</h1>
-          <h2> Spooky scary skeleton</h2>
+          <h2>About Jacob's Change</h2>
+          <h3> Spooky scary skeleton</h3>
           <i>Jacob Miller</i>
       </div>
 
