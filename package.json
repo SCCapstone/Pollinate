@@ -1,0 +1,16 @@
+{
+  "name": "pollinate-personal-example",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "*",
+    "serve-favicon": "*",
+    "body-parser": "*"
+  },
+  "engines": {
+    "node": "*",
+    "npm": "*"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}
