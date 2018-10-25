@@ -3,13 +3,13 @@ import React, { Component } from 'react';
 import { BrowserRouter, Switch } from 'react-router-dom';
 import { Route } from 'react-router';
 
-import Home from './components/Home';
+import Home from './components/Home/index';
 import About from './components/About';
-import Header from './components/Header'
-import Login from './components/Login'
-import Category from './components/Category'
-import Profile from './components/Profile'
-import Product from './components/Product'
+import Header from './components/Header/index'
+import Login from './components/Login/index'
+import Category from './components/Category/index'
+import Profile from './components/Profile/index'
+import Product from './components/Product/index'
 
 
 import './App.css';
