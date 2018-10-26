@@ -28,6 +28,15 @@ class About extends Component {
           <i>Michael Afrin</i>
 
         </div>
+_________________________________________________________________________________
+</h2>
+
+          <h2>About Blake's Change</h2>
+          <h3>Added the initial commit for the commit for the skeletons</h3>
+          <i>Blake Pathammavong</i>
+
+        </div>
+_________________________________________________________________________________
     )
   }
 }
