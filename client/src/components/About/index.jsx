@@ -31,7 +31,7 @@ class About extends Component {
 	  <h2> _________________________________________________________________________________ </h2>
 
           <h2>About Blake's Change</h2>
-          <h3>Added the initial commit for the commit for the skeletons</h3>
+          <h3>Added commit for the skeleton</h3>
           <i>Blake Pathammavong</i>
 
         
