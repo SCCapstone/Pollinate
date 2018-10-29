@@ -24,7 +24,7 @@ class About extends Component {
           <h2> _________________________________________________________________________________ </h2>
 
           <h2>About Michael's Change</h2>
-          <h3>Added the initial commit for the skeleton</h3>
+          <h3>Added the initial commit for the skeleton and helped solve merge conflicts</h3>
           <i>Michael Afrin</i>
 
         </div>
