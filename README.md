@@ -2,7 +2,7 @@
 
 To run this project...
 
-1.  `Mkdir Pollinate` on your desktop
+1.  `mkdir Pollinate` on your desktop
 2.  `git clone https://github.com/SCCapstone/Pollinate.git` inside Pollinate
 3.  `npm install` in main folder
 4.  `npm install` in client folder (edited)
