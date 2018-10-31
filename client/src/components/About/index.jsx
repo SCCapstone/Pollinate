@@ -13,7 +13,7 @@ class About extends Component {
           <h4> Successfully able to clone repo, edit and run on local machine, and push to GitHub. </h4>
           Here is a small change for other members to git pull.
 
-          <br/> <i>Bailey Metz </i>
+          <br/> <i>Bailey Metz  </i>
 
           <h2> _________________________________________________________________________________ </h2>
 
