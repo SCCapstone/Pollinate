@@ -3,13 +3,14 @@ import React, { Component } from 'react';
 import { BrowserRouter, Switch } from 'react-router-dom';
 import { Route } from 'react-router';
 
-import Home from './components/Home/index';
+import Home from './components/Home';
 import About from './components/About';
-import Header from './components/Header/index'
-import Login from './components/Login/index'
-import Category from './components/Category/index'
-import Profile from './components/Profile/index'
-import Product from './components/Product/index'
+import Header from './components/Header'
+import Login from './components/Login'
+import Category from './components/Category'
+import Profile from './components/Profile'
+import Product from './components/Product'
+import Signup from './components/Signup'
 
 
 import './App.css';
@@ -24,6 +25,7 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={Home}/>
                 <Route path="/login" component={Login}/>
+                <Route path="/signup" component={Signup}/>
                 <Route path="/category" component={Category}/>
                 <Route path="/product" component={Product}/>
                 <Route path="/profile" component={Profile}/>

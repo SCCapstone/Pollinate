@@ -8,6 +8,7 @@ class Header extends Component {
       <div id={'navBar'}>
           <Link to="/">Home</Link>
           <Link to="/login">Login</Link>
+          <Link to="/signup">Signup</Link>
           <Link to="/profile">Profile</Link>
           <Link to="/product">Product</Link>
           <Link to="/category">Category</Link>
