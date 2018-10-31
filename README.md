@@ -10,3 +10,4 @@ To run this project...
 *Front end test:* Inside client folder --> `npm start`
 <br /> _OR_
 <br> *Back end test:* Server run inside main folder --> `npm start` (edited)
+
