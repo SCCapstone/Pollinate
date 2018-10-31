@@ -1,6 +1,6 @@
 ## Pollinate - A Full-Stack JavaScript E-commerce Web Application 
 
-To run this project...
+To run this project, follows these steps...
 
 1.  `mkdir Pollinate` on your desktop
 2.  `git clone https://github.com/SCCapstone/Pollinate.git` inside Pollinate
