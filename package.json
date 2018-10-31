@@ -2,9 +2,10 @@
   "name": "pollinate-personal-example",
   "version": "1.0.0",
   "dependencies": {
-    "express": "*",
-    "serve-favicon": "*",
-    "body-parser": "*"
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mysql2": "^1.6.1",
+    "serve-favicon": "^2.5.0"
   },
   "engines": {
     "node": "*",

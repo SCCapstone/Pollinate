@@ -2,13 +2,14 @@
  * Module dependencies.
  */
 
-var express = require('express'),
+const express = require('express'),
     http = require('http'),
     path = require('path'),
     bodyParser = require('body-parser'),
-    favicon = require('serve-favicon');
+    favicon = require('serve-favicon'),
+    mysql = require('mysql2');
 
-var app = express();
+const app = express();
 
 app.set('port', process.env.PORT || 8080);
 //app.use(favicon(__dirname + '/public/images/favicon.png'));
