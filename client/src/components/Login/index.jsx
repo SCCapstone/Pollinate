@@ -16,7 +16,7 @@ class Login extends Component {
         }
     }
 
-    //signUp helper method
+    //LogIn helper method
     Login() {
         console.log('this.state', this.state);
         //Placeholder firebase utilization
