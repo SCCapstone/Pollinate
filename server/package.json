@@ -1,15 +1,11 @@
 {
-  "name": "pollinate-personal-example",
+  "name": "pollinate",
   "version": "1.0.0",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "mysql2": "^1.6.1",
     "serve-favicon": "^2.5.0"
-  },
-  "engines": {
-    "node": "*",
-    "npm": "*"
   },
   "scripts": {
     "start": "node app.js"

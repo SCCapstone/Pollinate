@@ -1,23 +1,20 @@
-/**
- * Module dependencies.
- */
-
 const express = require('express'),
-    http = require('http'),
     path = require('path'),
     bodyParser = require('body-parser'),
-    favicon = require('serve-favicon'),
-    mysql = require('mysql2');
+    favicon = require('serve-favicon');
 
 const app = express();
 
 app.set('port', process.env.PORT || 8080);
 //app.use(favicon(__dirname + '/public/images/favicon.png'));
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, '../client/build')));
+
+app.use('/users', require('./routes/users'));
+app.use('/auth', require('./routes/auth'));
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/client/build/index.html'));
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
 app.listen(app.get('port'), function () {
