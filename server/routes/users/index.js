@@ -4,38 +4,16 @@ const express = require('express'),
 const router = express.Router();
 
 /**
-Code goes here
+ Code goes here
  **/
 
-//create
-router.post('/signup', function(req, res){
-    var name = req.body.name;
-    var email = req.body.email;
-    var password = req.body.password;
-
-    if(name != null && email != null && password != null) {
-        create(name, email, password);
-        res.status(201);
-    }
-});
+//getAll
+router.get('/', users.getAll);
 
 //getById
-router.get('/login', function(req, res){
-    var email = req.body.email; //could change to id in the future
+router.get('/:id', users.getById);
 
-    if(email != null) {
-        getById(email);
-        res.status(200);
-    }
-    else {
-        res.status(401);
-    }
-});
-
-//getAll
-router.get(function(req, res){
-    getAll();
-    res.status(200);
-});
+//create
+router.post('/', users.create);
 
 module.exports = router;

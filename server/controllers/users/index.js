@@ -4,30 +4,36 @@ const db = require('../../utils/database');
 * The code that goes here is what actually connects to the database and runs queries
 * */
 
-db.connect(function(err) {
+//takes in name, email, password; could add more variables later if needed
+exports.create = function(req, res) {
+  var name = req.body.name;
+  var email = req.body.email;
+  var password = req.body.password;
+
+  if(name != null && email != null && password != null) {
+    db.query("INSERT INTO users SET ?", {name, email, password}, function (err, result, fields) {
+      if (err) throw err;
+
+      res.status(201).end();
+    }); //"create" query
+  }
+};
+
+exports.getById = function (req, res) {
+  var id = req.params.id;
+  db.query("SELECT * FROM users WHERE id = ?", [id], function (err, result, fields) {
     if (err) throw err;
 
-    //takes in name, email, password; could add more variables later if needed
-    function create(name, emailAddress, password) {
-        db.query("INSERT INTO pollinate VALUES ?", [name, emailAddress, password], function(err, result, fields) {
-            if(err) throw err;
-            console.log(result);
-        }); //"create" query
-    }
+    res.status(200).send(result);
+  }); //selects by id
+};
 
-    function getById(id){
-        db.query("SELECT * FROM pollinate WHERE accountID = ?", [id], function(err, result, fields){
-            if(err) throw err;
-            console.log(result);
-        }); //selects by id
-    }
+exports.getAll = function(req, res) {
+  db.query("SELECT * FROM users", function (err, result, fields) {
+    if (err) throw err;
 
-    function getAll() {
-        db.query("SELECT * FROM pollinate", function(err, result, fields) {
-            if(err) throw err;
-            console.log(result);
-        }); //getAll
-    }
-});
+    res.status(200).send(result);
+  }); //getAll
+};
 
 
