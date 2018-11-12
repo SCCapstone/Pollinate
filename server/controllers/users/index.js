@@ -12,7 +12,7 @@ exports.create = function(req, res) {
 
   if(values.email && values.password) {
     db.query("INSERT INTO users SET ?", values, function (err, result, fields) {
-      if (err) throw err;
+      if (err) res.status(500).end();
 
       res.status(201).end();
     }); //"create" query
@@ -22,7 +22,7 @@ exports.create = function(req, res) {
 exports.getById = function (req, res) {
   var id = req.params.id;
   db.query("SELECT * FROM users WHERE id = ?", [id], function (err, result, fields) {
-    if (err) throw err;
+    if (err) res.status(500).end();
 
     res.status(200).send(result);
   }); //selects by id
@@ -30,7 +30,7 @@ exports.getById = function (req, res) {
 
 exports.getAll = function(req, res) {
   db.query("SELECT * FROM users", function (err, result, fields) {
-    if (err) throw err;
+    if (err) res.status(500).end();
 
     res.status(200).send(result);
   }); //getAll
