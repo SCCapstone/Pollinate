@@ -18,14 +18,20 @@ class Login extends Component {
 
     //LogIn helper method
     Login() {
-        console.log('this.state', this.state);
-        //Placeholder firebase utilization
-        /*const { email, password } = this.state;
-        firebaseApp.auth().createUserWithEmailAndPassword(email, password)
-            .catch(error => {
-                console.log('error', error);
-                this.setState({error})
-            })*/
+      const body = {email: this.state.email, password: this.state.password};
+      fetch("http://localhost:8080/auth/login", {method: 'post', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)})
+          .then(
+              (result) => {
+                console.log(result);
+                if (result.status === 200)
+                  this.props.history.push("/");
+              },
+              (error) => {
+                this.setState({
+                  error
+                });
+              }
+          )
     }
 
     render() {

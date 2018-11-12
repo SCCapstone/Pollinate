@@ -16,16 +16,22 @@ class Signup extends Component {
         }
     }
 
-  //signUp helper method
-  signUp() {
-        console.log('this.state', this.state);
-        //Placeholder firebase utilization
-        /*const { email, password } = this.state;
-        firebaseApp.auth().createUserWithEmailAndPassword(email, password)
-            .catch(error => {
-                console.log('error', error);
-                this.setState({error})
-            })*/
+  //signup helper method
+  signup() {
+      const body = {email: this.state.email, password: this.state.password};
+    fetch("http://localhost:8080/auth/signup", {method: 'post', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)})
+        .then(
+            (result) => {
+              console.log(result);
+              if (result.status === 201)
+                this.props.history.push("/login");
+            },
+            (error) => {
+              this.setState({
+                error
+              });
+            }
+        )
   }
 
   render() {
@@ -51,7 +57,7 @@ class Signup extends Component {
                   className="btn btn-primary"
                   type="button"
                   //Attach helper method to click of button
-                  onClick={() => this.signUp()}
+                  onClick={() => this.signup()}
                   >
                   Sign Up
               </button>
