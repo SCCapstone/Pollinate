@@ -6,12 +6,12 @@ const db = require('../../utils/database');
 
 //takes in name, email, password; could add more variables later if needed
 exports.create = function(req, res) {
-  var name = req.body.name;
-  var email = req.body.email;
-  var password = req.body.password;
+  var values = {email: req.body.email, password: req.body.password};
+  if (req.body.name)
+    values.name = req.body.name;
 
-  if(name != null && email != null && password != null) {
-    db.query("INSERT INTO users SET ?", {name, email, password}, function (err, result, fields) {
+  if(values.email && values.password) {
+    db.query("INSERT INTO users SET ?", values, function (err, result, fields) {
       if (err) throw err;
 
       res.status(201).end();
