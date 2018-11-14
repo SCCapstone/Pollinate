@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
-//Placeholder importing using firebase
-// import { firebaseApp } from '../firebase';
+
 
 class Login extends Component {
     //Creating a state for our react class

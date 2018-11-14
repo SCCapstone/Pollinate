@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './style.css';
-//Placeholder importing using firebase
-// import { firebaseApp } from '../firebase';
 
 class Signup extends Component {
     //Creating a state for our react class
@@ -41,7 +39,7 @@ class Signup extends Component {
           <div className="form-group">
             <input
                 className="form-control"
-                type="text"
+                type="email"
                 style={{marginRight: '5px'}}
                 placeholder="email"
                 onChange={event => this.setState({email: event.target.value})}
@@ -51,7 +49,7 @@ class Signup extends Component {
                   type="password"
                   style={{marginRight: '5px'}}
                   placeholder="password"
-                  onChange={event => this.setState({password: event.target.value})}
+                  onChange={(event => this.setState({password: event.target.value})}
                   />
               <button
                   className="btn btn-primary"
