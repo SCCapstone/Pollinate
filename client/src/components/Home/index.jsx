@@ -4,10 +4,18 @@ import './style.css';
 class Home extends Component {
   render() {
     return (
-        <div>
-            <h1>Home</h1>
 
-            <Title> Welcome To Pollinate </Title>
+
+        <div class= "topbav" >
+            <a class="active" href="#Deals">Deals</a>
+
+            <a href= "#Stores">Stores</a>
+
+            <a href= "#Categories">Categories</a>
+
+            <a href= "#Login">Login</a>
+
+            <a href= "#SignUp">Signup</a>
 
         </div>
     )
