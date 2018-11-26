@@ -49,7 +49,7 @@ class Signup extends Component {
                   type="password"
                   style={{marginRight: '5px'}}
                   placeholder="password"
-                  onChange={event => this.setState({password: event.target.value})}
+                  onChange={ event => this.setState({password: event.target.value})}
                   />
               <button
                   className="btn btn-primary"
