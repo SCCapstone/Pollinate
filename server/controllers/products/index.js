@@ -1,20 +1,17 @@
-const db = require('../../utils/database');
+const db = require('../../utils/database'),
+    helper = require('../../utils/helper');
 
 exports.create = function (req, res) {
-    var name = req.body.name;
-    var price = req.body.price;
-    var image = req.body.image;
-    var link = req.body.link;
-    var description = req.body.description;
-    db.query("INSERT * FROM products SET name = ? AND" +
-        "price = ? AND image = ? AND link = ? AND" +
-        "description = ?", [name,price,image,link,description], function (err,result, fields) {
+    let values = {name: req.body.name, price: req.body.price,
+      imageUrl: req.body.imageUrl, link: req.body.link, description: req.body.description};
+    values = helper.prepareValuesForDatabase(values);
+    db.query("INSERT INTO products SET ?", values, function (err,result, fields) {
         if (err) res.status(500).end();
 
         if (result.length === 0)
             res.status(401).send("Incorrect entry");
         else
-            res.status(200).send(result);
+            res.status(201).end();
     });
 };
 
@@ -28,15 +25,11 @@ exports.deletePost = function (req, res) {
 };
 /*Need to add productID*/
 exports.updatePost = function (req, res){
-    var productID = req.params.id;
-    var name = req.body.name;
-    var price = req.body.price;
-    var image = req.body.image;
-    var link = req.body.link;
-    var description = req.body.description;
-    db.query("UPDATE products SET name = ? AND" +
-        "price = ? AND image = ? AND link = ? AND" +
-        "description = ? WHERE id = ?", [name,price,image,link,description, productID], function (err,result, fields) {
+  let productId = req.params.id;
+  let values = {name: req.body.name, price: req.body.price,
+    imageUrl: req.body.imageUrl, link: req.body.link, description: req.body.description};
+  values = helper.prepareValuesForDatabase(values);
+    db.query("UPDATE products SET ? WHERE id = ?", [values, productId], function (err,result, fields) {
         if (err) res.status(500).end();
 
         if (result.length === 0)
@@ -48,7 +41,7 @@ exports.updatePost = function (req, res){
 
 exports.getPost = function (req, res) {
     var productID = req.params.id;
-    db.query("SELECT * FROM products WHERE productID = ?", [productID], function (err, result, fields) {
+    db.query("SELECT * FROM products WHERE id = ?", [productID], function (err, result, fields) {
         if (err) return res.status(500).end();
 
         res.status(200).send(result);

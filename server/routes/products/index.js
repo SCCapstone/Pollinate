@@ -7,7 +7,7 @@ router.delete('/:id',product.deletePost);
 
 router.put('/:id',product.updatePost);
 
-router.get('/:id',prodcut.getPost);
+router.get('/:id',product.getPost);
 
 router.get('/',product.getAllPosts);
 

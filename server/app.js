@@ -13,6 +13,7 @@ app.use(express.static(path.join(__dirname, '../client/build')));
 
 app.use('/users', require('./routes/users'));
 app.use('/auth', require('./routes/auth'));
+app.use('/products', require('./routes/products'));
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
