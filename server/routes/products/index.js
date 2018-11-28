@@ -1,13 +1,13 @@
 const express = require('express'),
-    product = require('../../controllers/product');
+    product = require('../../controllers/products');
 
 const router = express.Router();
 
-router.delete('/',product.deletePost);
+router.delete('/:id',product.deletePost);
 
-router.put('/',product.updatePost);
+router.put('/:id',product.updatePost);
 
-router.get('/id',prodcut.getPost);
+router.get('/:id',prodcut.getPost);
 
 router.get('/',product.getAllPosts);
 
