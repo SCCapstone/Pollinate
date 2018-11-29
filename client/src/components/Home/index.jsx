@@ -3,21 +3,27 @@ import './style.css';
 
 class Home extends Component {
   render() {
-    return (
+
+      return (
+
+        <div className="text-center">
+
+            <h2> Popular Deals </h2>
 
 
-        <div class= "topbav" >
-            <a class="active" href="#Deals">Deals</a>
+            <button color="primary"> Post A Deal </button>
 
-            <a href= "#Stores">Stores</a>
 
-            <a href= "#Categories">Categories</a>
 
-            <a href= "#Login">Login</a>
-
-            <a href= "#SignUp">Signup</a>
 
         </div>
+
+
+
+
+
+
+
     )
   }
 }
