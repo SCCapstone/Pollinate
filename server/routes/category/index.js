@@ -11,4 +11,8 @@ router.get('/', category.highToLow);
 
 router.get('/', category.lowToHigh);
 
+router.get('/', category.newestToOldest);
+
+router.get('/', category.oldestToNewest);
+
 module.exports = router;
