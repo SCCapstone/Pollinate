@@ -8,9 +8,9 @@ class Product extends Component{
     }
 
     componentDidMount() {
-        fetch("http://localhost:8080/products")
+        const { id } = this.props.match.params;
+        fetch(`http://localhost:8080/products/${id}`)
             .then(res => res.json())
-            .then(data => data[0])
             .then(item => this.setState(item));
     }
 
