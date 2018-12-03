@@ -6,13 +6,16 @@ const express = require('express'),
 const app = express();
 
 app.set('port', process.env.PORT || 8080);
+app.use(require("cors")());
 //app.use(favicon(__dirname + '/public/images/favicon.png'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../client/build')));
+app.use('/static', express.static(path.join(__dirname, './public')));
 
 app.use('/users', require('./routes/users'));
 app.use('/auth', require('./routes/auth'));
+app.use('/products', require('./routes/products'));
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
