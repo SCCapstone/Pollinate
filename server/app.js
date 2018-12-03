@@ -11,6 +11,7 @@ app.use(require("cors")());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../client/build')));
+app.use('/static', express.static(path.join(__dirname, './public')));
 
 app.use('/users', require('./routes/users'));
 app.use('/auth', require('./routes/auth'));
