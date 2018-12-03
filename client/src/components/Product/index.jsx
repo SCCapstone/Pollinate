@@ -4,24 +4,21 @@ import './style.css';
 class Product extends Component{
     constructor(props) {
         super(props);
-        this.state = {items: []};
+        this.state = {};
     }
 
     componentDidMount() {
         fetch("http://localhost:8080/products")
             .then(res => res.json())
-            .then(data => this.setState({items: data}));
+            .then(data => data[0])
+            .then(item => this.setState(item));
     }
 
     render() {
-        let items = this.state.items.map(item => {
-          return <Item url={item.imageUrl} name={item.name}
-                price={item.price} description={item.description}/>
-        });
-
         return(
             <div className="App">
-                 {items}
+              <Item url={this.state.imageUrl} name={this.state.name}
+                    price={this.state.price} description={this.state.description}/>
             </div>
         );
     }
