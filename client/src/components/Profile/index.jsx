@@ -5,6 +5,7 @@ class App extends Component{
   constructor(props) {
     super(props);
     this.state = {
+      person: {},
       image: {
         link: 'https://i.imgur.com/iy4Eo4j.jpg',
         alt: ''
@@ -27,7 +28,7 @@ class App extends Component{
     console.log(this.state);
     return(
         <div className="App">
-          <Profile person={this.state.person || {}} quote={this.state.quote} image={this.state.image}/>
+          <Profile person={this.state.person} quote={this.state.quote} image={this.state.image}/>
         </div>
     );
   }
