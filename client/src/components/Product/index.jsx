@@ -1,15 +1,50 @@
 import React, { Component } from 'react';
 import './style.css';
 
-class Product extends Component {
-  render() {
+class Product extends Component{
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
+
+    render() {
+        return(
+            <div className="App">
+                <Image src={this.state.image.link} />
+                <Product productid={this.state.productid} comment={this.state.comment} /> /Add things if needed*/
+            </div>
+        );
+    }
+}
+function Item (props){
     return (
-      <div>
-          <h1>Product</h1>
-          <img src="https://camo.githubusercontent.com/a8f84f2e68976316c70ce3e95abafd14fd4b0d3a/68747470733a2f2f692e696d6775722e636f6d2f67304347615a6c2e706e67" alt=""/>
-      </div>
-    )
-  }
+        <div id="item">
+            <div className="productid">
+                <div id="productPhoto">
+                    <img src="" alt="" width="200" height="200"/>
+                </div>
+                <h2 className="Name">{props.item.name}</h2>
+                <h3 className="price">{props.item.price}</h3>
+                <hr />
+                <div id="bottom">
+                    <h4>Description</h4>
+                    <p className="Description">{props.item.description}</p>
+                    <div className="comment">
+                        <blockquote>&ldquo; {props.comment.content} &rdquo;</blockquote>
+                        <div className="byline">&mdash; {props.comement.source}</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    );
+}
+
+function Image(props){
+    return (
+        <div className="Image" style={{backgroundImage: 'url(' + props.src + ')'}}></div>
+
+    );
 }
 
 export default Product;
