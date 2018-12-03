@@ -1,9 +1,31 @@
-
-.color
-
-{
-
-    background-color: #FFFFFF;
-    overflow: hidden;
+body {
+    background-color: white;
 }
 
+h1 {
+    color: black;
+    text-align: left;
+}
+
+h3 {
+    color: black;
+    font-family: verdana;
+    text-align: left;
+}
+
+div.categories {
+    font-family: verdana;
+    font-size: 12px;
+    border: 2px solid #3B945E;
+    width: 20%;
+    text-align: left;
+    text-indent: 10px;
+}
+div.filters {
+
+    font-family: verdana;
+    font-size: 12px;
+    border: 2px solid #3B945E;
+    width: 20%;
+    text-align: left;
+}
