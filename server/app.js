@@ -6,6 +6,7 @@ const express = require('express'),
 const app = express();
 
 app.set('port', process.env.PORT || 8080);
+app.use(require("cors")());
 //app.use(favicon(__dirname + '/public/images/favicon.png'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

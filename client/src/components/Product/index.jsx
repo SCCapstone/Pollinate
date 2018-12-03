@@ -4,46 +4,45 @@ import './style.css';
 class Product extends Component{
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {items: []};
+    }
+
+    componentDidMount() {
+        fetch("http://localhost:8080/products")
+            .then(res => res.json())
+            .then(data => this.setState({items: data}));
     }
 
     render() {
+        let items = this.state.items.map(item => {
+          return <Item url={item.imageUrl} name={item.name}
+                price={item.price} description={item.description}/>
+        });
+
         return(
             <div className="App">
-                <Image src={this.state.image.link} />
-                <Product productid={this.state.productid} comment={this.state.comment} /> /Add things if needed*/
+                 {items}
             </div>
         );
     }
 }
+
 function Item (props){
     return (
         <div id="item">
             <div className="productid">
                 <div id="productPhoto">
-                    <img src="" alt="" width="200" height="200"/>
+                    <img src={props.url} alt="" width="100" height="100"/>
                 </div>
-                <h2 className="Name">{props.item.name}</h2>
-                <h3 className="price">{props.item.price}</h3>
+                <h2 className="Name">{props.name}</h2>
+                <h3 className="price">{props.price}</h3>
                 <hr />
                 <div id="bottom">
                     <h4>Description</h4>
-                    <p className="Description">{props.item.description}</p>
-                    <div className="comment">
-                        <blockquote>&ldquo; {props.comment.content} &rdquo;</blockquote>
-                        <div className="byline">&mdash; {props.comement.source}</div>
-                    </div>
+                    <p className="Description">{props.description}</p>
                 </div>
-
             </div>
         </div>
-    );
-}
-
-function Image(props){
-    return (
-        <div className="Image" style={{backgroundImage: 'url(' + props.src + ')'}}></div>
-
     );
 }
 
