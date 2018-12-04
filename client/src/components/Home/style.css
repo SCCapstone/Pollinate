@@ -2,18 +2,30 @@ body {
     background-color: white;
 }
 
-h1 {
+h1
+{
     color: black;
     text-align: left;
 }
 
-h3 {
+h3
+{
     color: black;
     font-family: verdana;
     text-align: left;
 }
 
-div.categories {
+div.images
+{
+    width: 10%;
+    height: 10%;
+    font-family: verdana;
+    font-size: 12px;
+
+}
+
+div.size
+{
     font-family: verdana;
     font-size: 12px;
     border: 2px solid #3B945E;
@@ -21,8 +33,9 @@ div.categories {
     text-align: left;
     text-indent: 10px;
 }
-div.filters {
 
+div.itemBorder
+{
     font-family: verdana;
     font-size: 12px;
     border: 2px solid #3B945E;
