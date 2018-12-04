@@ -2,14 +2,54 @@ import React, { Component } from 'react';
 import './style.css';
 
 class Home extends Component {
-  render() {
-    return (
+
+    constructor(props){
+        super(props);
+        this.state = {
+            posts: []
+        }
+    }
+
+    componentDidMount() {
+        fetch("http://localhost:8080/api/products")
+            .then(res => res.json())
+            .then(posts => this.setState({posts}))
+
+    }
+
+
+    render() {
+      var posts = this.state.posts.map(post => {
+          return (
+              <Post post={post}/>
+          )
+      })
+      return (
+
         <div>
-            <h1>Home</h1>
-            <img src="https://camo.githubusercontent.com/7d56c7ba725a6a4f5743c39526606ccce7c904dd/68747470733a2f2f692e696d6775722e636f6d2f754e53506b6c552e6a7067" alt=""/>
+
+            <h1> Popular Deals </h1>
+
+            <p> <button onClick=""> Post A Deal </button> </p>
+
+            <div>
+                {posts}
+            </div>
+
         </div>
+
+
     )
   }
 }
 
+function Post(props)
+{
+    return(
+        <div className="itemBorder" onClick={this.props.history.push("/product/"+ props.post.id)}>
+            <img src={props.post.imageUrl}/>
+            <h3>{props.post.name}</h3> <h2>{props.post.price}</h2>
+        </div>
+    )
+}
 export default Home;
