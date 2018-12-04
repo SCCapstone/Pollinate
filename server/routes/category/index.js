@@ -3,16 +3,6 @@ const express = require('express'),
 
 const router = express.Router();
 
-router.get('/', category.getAll);
-
-router.get('/', category.getById);
-
-router.get('/', category.highToLow);
-
-router.get('/', category.lowToHigh);
-
-router.get('/', category.newestToOldest);
-
-router.get('/', category.oldestToNewest);
+router.get('/:category', category.getAll);
 
 module.exports = router;
