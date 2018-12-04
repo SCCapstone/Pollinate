@@ -10,3 +10,7 @@ To run this project...
 *Front end test:* Inside client folder --> `npm start`
 <br /> _OR_
 <br> *Back end test:* Inside server folder --> `npm start`
+
+<p align="center">
+  <img src="http://www.dcoss.org/dcoss12/resources/usc.jpg" width="350">
+ </p>
