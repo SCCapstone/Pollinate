@@ -1,11 +1,11 @@
 ## Pollinate - A Full-Stack JavaScript E-commerce Web Application 
 
-<p align="center"> To run this project...</p>
+<p align="center"> <b>To run this project...</b> </p>
 
-1.  `mkdir Pollinate` on your desktop
-2.  `git clone https://github.com/SCCapstone/Pollinate.git` inside Pollinate
-3.  `npm install` in server directory
-4.  `npm install` in client directory
+<b> 1.  `mkdir Pollinate`</b> on your desktop
+<b><br> 2.  `git clone https://github.com/SCCapstone/Pollinate.git`</b> inside Pollinate
+<b><br> 3.  `npm install`</b> in server directory
+<b><br> 4.  `npm install`</b> in client directory
 
 *Front end test:* Inside client directory --> `npm start`
 <br /> **OR**
