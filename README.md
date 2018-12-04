@@ -7,9 +7,9 @@
 <b><br> 3.  `npm install`</b> in server directory
 <b><br> 4.  `npm install`</b> in client directory
 
-*Front end test:* Inside client directory --> `npm start`
+*Front end test:* Inside client directory --> <b>`npm start`</b>
 <br /> **OR**
-<br> *Back end test:* Inside server directory --> `npm start`
+  <br> *Back end test:* Inside server directory --> <b>`npm start`</b>
 
 <p align="center">
   <img src="http://www.dcoss.org/dcoss12/resources/usc.jpg" width="300">
