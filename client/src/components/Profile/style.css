@@ -15,7 +15,12 @@
   box-shadow: 2px 2px 5px #000;
   border: 1px solid #000;
 }
-hr {
+
+#user-profile .Location {
+  text-align: center;
+}
+
+#user-profile hr {
   margin: 20px auto;
   width: 50px;
   border: 1px solid green;
@@ -30,24 +35,30 @@ hr {
   border: 1px solid #000;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+#user-profile h1,
+#user-profile h2,
+#user-profile h3,
+#user-profile h4,
+#user-profile h5,
+#user-profile h6,
+#user-profile p {
   margin: 0;
 }
 
-h2 {
+#user-profile h2 {
   font-size: 30px;
 }
 
-h3 {
+#user-profile h3 {
   font-size: 18px;
 }
 
-h4 {
+#user-profile h4 {
   font-size: 16px;
 
 }
 
-p {
+#user-profile p {
   font-size: 14px;
 }
 

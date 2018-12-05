@@ -19,8 +19,9 @@ exports.getById = function (req, res) {
   var id = req.params.id;
   db.query("SELECT * FROM users WHERE id = ?", [id], function (err, result, fields) {
     if (err) return res.status(500).end();
+    if (result.length === 0) return res.status(404).end();
 
-    res.status(200).send(result);
+    res.status(200).send(result[0]);
   }); //selects by id
 };
 

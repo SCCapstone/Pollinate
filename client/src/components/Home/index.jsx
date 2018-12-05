@@ -17,13 +17,17 @@ class Home extends Component {
 
     }
 
+    navigate(id) {
+      this.props.history.push("/product/" + id);
+    }
 
     render() {
       var posts = this.state.posts.map(post => {
           return (
-              <Post post={post}/>
+              <Post post={post} navigate={() => this.navigate(post.id)} key={post.id}/>
           )
-      })
+      });
+
       return (
 
         <div>
@@ -46,8 +50,8 @@ class Home extends Component {
 function Post(props)
 {
     return(
-        <div className="itemBorder" onClick={this.props.history.push("/product/"+ props.post.id)}>
-            <img src={props.post.imageUrl}/>
+        <div className="itemBorder" onClick={props.navigate}>
+            <img src={props.post.imageUrl} alt="" height="200" width="200"/>
             <h3>{props.post.name}</h3> <h2>{props.post.price}</h2>
         </div>
     )

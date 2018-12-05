@@ -13,9 +13,9 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../client/build')));
 app.use('/static', express.static(path.join(__dirname, './public')));
 
-app.use('/users', require('./routes/users'));
-app.use('/auth', require('./routes/auth'));
-app.use('/products', require('./routes/products'));
+app.use('/api/users', require('./routes/users'));
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/products', require('./routes/products'));
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));

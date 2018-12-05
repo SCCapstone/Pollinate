@@ -17,7 +17,7 @@ class Signup extends Component {
     //signup helper method
     signup() {
         const body = {email: this.state.email, password: this.state.password};
-        fetch("http://localhost:8080/auth/signup", {method: 'post', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)})
+        fetch("http://localhost:8080/api/auth/signup", {method: 'post', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)})
             .then(
                 (result) => {
                     console.log(result);

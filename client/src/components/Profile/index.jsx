@@ -5,21 +5,12 @@ class App extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      person: {},
-      image: {
-        link: 'https://i.imgur.com/iy4Eo4j.jpg',
-        alt: ''
-      },
-      quote: {
-        content: 'Not all those who wander are lost',
-        source: 'J. R. R. Tolkien'
-      }
-
+      person: {}
     };
   }
 
   componentDidMount() {
-    fetch("http://localhost:8080/users/me")
+    fetch("http://localhost:8080/api/users/1")
         .then(res => res.json())
         .then(person => this.setState({person}))
   }
@@ -28,7 +19,7 @@ class App extends Component{
     console.log(this.state);
     return(
         <div className="App">
-          <Profile person={this.state.person} quote={this.state.quote} image={this.state.image}/>
+          <Profile person={this.state.person}/>
         </div>
     );
   }
@@ -39,7 +30,7 @@ function Profile(props){
         <div className="Profile">
           {/*Until I can get the constructor to work img src is here*/}
           <div id="avatar">
-            <img id="profilePic" src="https://i.imgur.com/iy4Eo4j.jpg" alt="" width="200" height="200"/>
+            <img id="profilePic" src={props.person.profileImgUrl} alt="" width="200" height="200"/>
           </div>
           <h2 className="Name">{props.person.name}</h2>
           <h3 className="Location">{props.person.location}</h3>
@@ -47,10 +38,6 @@ function Profile(props){
           <div id="bottom">
             <h4>Biography</h4>
             <p className="Bio">{props.person.biography}</p>
-            <div className="Quote">
-              <blockquote>&ldquo; {props.quote.content} &rdquo;</blockquote>
-              <div className="byline">&mdash; {props.quote.source}</div>
-            </div>
           </div>
 
         </div>
