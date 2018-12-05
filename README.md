@@ -4,8 +4,8 @@
 
 <b>To run this project locally...</b>
 
-<b><br> 1. mkdir Pollinate on your desktop 
-<b><br> 2. git clone https://github.com/SCCapstone/Pollinate.git inside Pollinate 
+<b><br> 1. `mkdir Pollinate` on your desktop 
+<b><br> 2. `git clone https://github.com/SCCapstone/Pollinate.git` inside Pollinate 
 <b><br> 3. `npm run install`</b> inside Pollinate
 <b><br> 4.  `npm run build`</b>
 <b><br> 5.  `npm start`</b> 
