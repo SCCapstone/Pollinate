@@ -9,7 +9,7 @@
     "server:start": "cd server && npm start",
     "install": "npm run client:install && npm run server:install",
     "build": "npm run client:build",
-    "postinstall": "npm run install && npm run build",
+    "heroku-postbuild": "npm run install && npm run build",
     "start": "npm run server:start"
   }
 }
