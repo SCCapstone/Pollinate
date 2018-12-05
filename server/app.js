@@ -16,6 +16,7 @@ app.use('/static', express.static(path.join(__dirname, './public')));
 app.use('/api/users', require('./routes/users'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/products', require('./routes/products'));
+app.use('/api/category', require('./routes/category'));
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
