@@ -1,6 +1,6 @@
 <h1 align="center"> Pollinate </h1>
 <h3 align="center"> A Full-Stack JavaScript E-commerce Web Application </h3>
-<h4 align="center"> <i>React, Node.js, Express.js, Firebase, MySQL</i> </h4>
+<h4 align="center"> <i>React, Node.js, Express.js, Heroku, MySQL</i> </h4>
 
 <b>To run this project locally...</b>
 
