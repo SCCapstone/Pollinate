@@ -7,7 +7,7 @@ class Header extends Component {
   render() {
     return (
       <div id={'navBar'}>
-          <img src={pic} height="90" alt="" />
+          <img src={pic} height="100" alt="" />
           <Link to="/">Home</Link>
           <Link to="/login">Login</Link>
           <Link to="/signup">Signup</Link>
