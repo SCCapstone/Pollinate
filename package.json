@@ -1,0 +1,14 @@
+{
+  "name": "Pollinate",
+  "version": "1.0.0",
+  "dependencies": {},
+  "scripts": {
+    "client:install": "cd client && npm install",
+    "client:build": "cd client && npm run build",
+    "server:install": "cd server && npm install",
+    "server:start": "cd server && npm start",
+    "install": "npm run client:install && npm run server:install",
+    "build": "npm run client:build",
+    "start": "npm run install && npm run build && npm run server:start"
+  }
+}
