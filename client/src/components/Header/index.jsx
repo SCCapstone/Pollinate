@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './style.css';
+import pic from "./Pollinate.JPG"
 
 class Header extends Component {
   render() {
     return (
       <div id={'navBar'}>
+          <img src={pic} height="90" alt="" />
           <Link to="/">Home</Link>
           <Link to="/login">Login</Link>
           <Link to="/signup">Signup</Link>
