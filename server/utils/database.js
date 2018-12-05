@@ -1,10 +1,11 @@
 const mysql = require('mysql2');
 
+console.log(process.env);
 const pool = mysql.createPool({
   connectionLimit: 10,
-  host: 'localhost',
-  user: 'root',
-  password: 'password',
+  host: process.env['DB_HOST'],
+  user: process.env['DB_USERNAME'],
+  password: process.env['DB_PASSWORD'],
   database: 'pollinate'
 });
 
