@@ -18,7 +18,7 @@ class Category extends Component {
   render() {
         var items = this.state.data.map(item => {
             return (
-                <Item name={item.name} url={item.imageUrl} price={item.price}
+                <Item title={item.title} url={item.imageUrl} price={item.price}
                 description={item.description}> </Item>
             )
         });
@@ -43,7 +43,7 @@ function Item (props){
             <div className="product">
                 <div className="flex">
                     <div className="details column">
-                        <h2 className="Name">{props.name}</h2>
+                        <h2 className="Name">{props.title}</h2>
                         <h3 className="price">{props.price}</h3>
                     </div>
                     <div id="productPhoto" className="column">

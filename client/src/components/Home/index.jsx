@@ -34,7 +34,7 @@ class Home extends Component {
 
             <h1> Popular Deals </h1>
 
-            <p> <button onClick=""> Post A Deal </button> </p>
+            <p> <button onClick={() => this.props.history.push("/post/new")}> Post A Deal </button> </p>
 
             <div>
                 {posts}
@@ -52,7 +52,7 @@ function Post(props)
     return(
         <div className="itemBorder" onClick={props.navigate}>
             <img src={props.post.imageUrl} alt="" height="200" width="200"/>
-            <h3>{props.post.name}</h3> <h2>{props.post.price}</h2>
+            <h3>{props.post.title}</h3> <h2>{props.post.price}</h2>
         </div>
     )
 }

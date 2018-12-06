@@ -2,8 +2,10 @@ const db = require('../../utils/database'),
     helper = require('../../utils/helper');
 
 exports.create = function (req, res) {
-    let values = {name: req.body.name, price: req.body.price,
-      imageUrl: req.body.imageUrl, link: req.body.link, description: req.body.description};
+    let values = {title: req.body.title, price: req.body.price,
+      imageUrl: req.body.imageUrl, link: req.body.link, description: req.body.description,
+      category: req.body.category, "created_at": new Date()};
+    console.log(values);
     values = helper.prepareValuesForDatabase(values);
     db.query("INSERT INTO posts SET ?", values, function (err,result, fields) {
         if (err) res.status(500).end();
@@ -26,8 +28,9 @@ exports.deletePost = function (req, res) {
 /*Need to add productID*/
 exports.updatePost = function (req, res){
   let productId = req.params.id;
-  let values = {name: req.body.name, price: req.body.price,
-    imageUrl: req.body.imageUrl, link: req.body.link, description: req.body.description};
+  let values = {title: req.body.title, price: req.body.price,
+    imageUrl: req.body.imageUrl, link: req.body.link, description: req.body.description,
+    category: req.body.category};
   values = helper.prepareValuesForDatabase(values);
     db.query("UPDATE posts SET ? WHERE id = ?", [values, productId], function (err,result, fields) {
         if (err) res.status(500).end();

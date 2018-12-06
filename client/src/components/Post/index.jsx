@@ -21,7 +21,7 @@ class Product extends Component{
     render() {
         return(
             <div className="App">
-              <Item url={this.getImageUrl()} name={this.state.name}
+              <Item url={this.getImageUrl()} title={this.state.title}
                     price={this.state.price} description={this.state.description}/>
             </div>
         );
@@ -34,7 +34,7 @@ function Item (props){
             <div className="product">
               <div className="flex">
                 <div className="details column">
-                  <h2 className="Name">{props.name}</h2>
+                  <h2 className="Name">{props.title}</h2>
                   <h3 className="price">{props.price}</h3>
                 </div>
                 <div id="productPhoto" className="column">

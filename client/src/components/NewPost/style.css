@@ -1,0 +1,21 @@
+#NewPost {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#NewPost #title {
+  text-align: center;
+}
+
+#NewPostForm .input * {
+  width: 350px;
+  display: block;
+  margin: 10px;
+}
+
+#NewPostForm .input textarea[name="description"] {
+  max-width: 350px;
+  min-width: 350px;
+}

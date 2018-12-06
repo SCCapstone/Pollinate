@@ -11,7 +11,7 @@ import Category from './components/Category'
 import Profile from './components/Profile'
 import Post from './components/Post'
 import Signup from './components/Signup'
-
+import NewPost from "./components/NewPost";
 
 import './App.css';
 
@@ -27,6 +27,7 @@ class App extends Component {
                 <Route path="/login" component={Login}/>
                 <Route path="/signup" component={Signup}/>
                 <Route path="/category/:category" component={Category}/>
+                <Route path="/post/new" component={NewPost}/>
                 <Route path="/post/:id" component={Post}/>
                 <Route path="/profile" component={Profile}/>
                 <Route path="/about" component={About}/>
