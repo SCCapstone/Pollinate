@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './style.css';
+import {capitalize} from "../../utils/helper";
+
 
 class Category extends Component {
     constructor(props) {
@@ -15,49 +17,38 @@ class Category extends Component {
             .then(data => this.setState({data}));
     }
 
+  navigate(id) {
+    this.props.history.push("/post/" + id);
+  }
+
   render() {
-        var items = this.state.data.map(item => {
+        var posts = this.state.data.map(post => {
             return (
-                <Item title={item.title} url={item.imageUrl} price={item.price}
-                description={item.description}> </Item>
+                <Post post={post} key={post.id} navigate={() => this.navigate(post.id)}/>
             )
         });
     return (
-      <div>
-          <h1>Category</h1>
-          {/*<div className="filters">
-              <h3>Filters:</h3>
-              <p> Date: Oldest to Newest </p>
-              <p> Date: Newest to Oldest </p>
-              <p> Price: Highest to Lowest </p>
-              <p> Price: Lowest to Highest </p>
-          </div> */}
-          {items}
+      <div id="CategoryPage">
+          <h1>{capitalize(this.state.category)}</h1>
+          <div id="posts">
+            {posts}
+          </div>
       </div>
     )
   }
 }
-function Item (props){
-    return (
-        <div id="item">
-            <div className="product">
-                <div className="flex">
-                    <div className="details column">
-                        <h2 className="Name">{props.title}</h2>
-                        <h3 className="price">{props.price}</h3>
-                    </div>
-                    <div id="productPhoto" className="column">
-                        <img src={props.url} alt="" width="100" height="100"/>
-                    </div>
-                </div>
-                <div className="divider"/>
-                <div id="bottom">
-                    <h4>Description</h4>
-                    <p className="Description">{props.description}</p>
-                </div>
-            </div>
+
+function Post(props)
+{
+  return(
+      <div className="post" onClick={props.navigate}>
+        <img className="thumbnail" src={props.post.imageUrl || "https://pollinate-usc.herokuapp.com/static/images/no-image-icon.png"} alt="" height="150"/>
+        <div className="details">
+          <span className="title">{props.post.title}</span>
+          <span className="price">${props.post.price}</span>
         </div>
-    );
+      </div>
+  )
 }
 
 export default Category;

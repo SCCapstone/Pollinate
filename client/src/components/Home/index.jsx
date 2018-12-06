@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './style.css';
 
+
 class Home extends Component {
 
     constructor(props){
@@ -30,13 +31,13 @@ class Home extends Component {
 
       return (
 
-        <div>
+        <div id="HomePage">
 
             <h1> Popular Deals </h1>
 
             <p> <button onClick={() => this.props.history.push("/post/new")}> Post A Deal </button> </p>
 
-            <div>
+            <div id="posts">
                 {posts}
             </div>
 
@@ -50,9 +51,12 @@ class Home extends Component {
 function Post(props)
 {
     return(
-        <div className="itemBorder" onClick={props.navigate}>
-            <img src={props.post.imageUrl} alt="" height="200" width="200"/>
-            <h3>{props.post.title}</h3> <h2>{props.post.price}</h2>
+        <div className="post" onClick={props.navigate}>
+            <img className="thumbnail" src={props.post.imageUrl || "https://pollinate-usc.herokuapp.com/static/images/no-image-icon.png"} alt="" height="150"/>
+            <div className="details">
+              <span className="title">{props.post.title}</span>
+              <span className="price">${props.post.price}</span>
+            </div>
         </div>
     )
 }

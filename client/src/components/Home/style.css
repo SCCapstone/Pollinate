@@ -15,30 +15,38 @@ h3
     text-align: left;
 }
 
-div.images
+#HomePage #posts
 {
-    width: 10%;
-    height: 10%;
-    font-family: verdana;
-    font-size: 12px;
-
+    display: flex;
+    flex-wrap: wrap;
 }
 
-div.size
+#HomePage #posts .post
 {
-    font-family: verdana;
+    flex: 10%;
+    margin: 10px;
+    font-family: verdana, serif;
     font-size: 12px;
-    border: 2px solid #3B945E;
-    width: 20%;
+    border: 2px solid #2f6e43;
     text-align: left;
-    text-indent: 10px;
+    cursor: hand;
 }
 
-div.itemBorder
-{
-    font-family: verdana;
-    font-size: 12px;
-    border: 2px solid #3B945E;
-    width: 20%;
-    text-align: left;
+#HomePage #posts .post .thumbnail {
+    padding: 20px;
+}
+
+#HomePage #posts .post .details {
+    padding: 0 10px 10px 10px;
+}
+
+#HomePage #posts .post .details * {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    display: block;
+}
+
+#HomePage #posts .post .details .price {
+    font-weight: bold;
 }

@@ -61,7 +61,13 @@ class NewPost extends Component {
                   </div>
                   <div className="input">
                     <label htmlFor="category">Category</label>
-                    <input type="text" name="category" required onInput={e => this.setState({category: e.target.value})}/>
+                    <select name="category" required onInput={e => this.setState({category: e.target.value})}>
+                      <option disabled selected value="" style={{display: "none"}}> -- select an option -- </option>
+                      <option value="technology">Technology</option>
+                      <option value="apparel">Apparel</option>
+                      <option value="tools">Tools</option>
+                      <option value="other">Other</option>
+                    </select>
                   </div>
                   <input type="submit" value="Submit"/>
                 </form>

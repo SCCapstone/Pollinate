@@ -1,29 +1,41 @@
-body {
-    background-color: white;
+#CategoryPage {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
 }
 
-h1 {
-    color: black;
-    text-align: left;
+#CategoryPage #posts
+{
+    display: flex;
+    flex-wrap: wrap;
 }
 
-h3 {
-    color: black;
-    font-family: verdana;
-}
-
-div.categories {
-    font-family: verdana;
+#CategoryPage #posts .post
+{
+    flex: 10%;
+    margin: 10px;
+    font-family: verdana, serif;
     font-size: 12px;
-    border: 2px solid #3B945E;
-    width: 20%;
+    border: 2px solid #2f6e43;
     text-align: left;
-    text-indent: 10px;
+    cursor: hand;
 }
-div.filters {
-    font-family: verdana;
-    font-size: 12px;
-    border: 2px solid #3B945E;
-    width: 20%;
-    text-align: left;
+
+#CategoryPage #posts .post .thumbnail {
+    padding: 20px;
+}
+
+#CategoryPage #posts .post .details {
+    padding: 0 10px 10px 10px;
+}
+
+#CategoryPage #posts .post .details * {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    display: block;
+}
+
+#CategoryPage #posts .post .details .price {
+    font-weight: bold;
 }

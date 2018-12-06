@@ -35,10 +35,10 @@ function Item (props){
               <div className="flex">
                 <div className="details column">
                   <h2 className="Name">{props.title}</h2>
-                  <h3 className="price">{props.price}</h3>
+                  <h3 className="price">${props.price}</h3>
                 </div>
                 <div id="productPhoto" className="column">
-                  <img src={props.url} alt="" width="100" height="100"/>
+                  <img src={props.url} alt="" height="100"/>
                 </div>
               </div>
               <div className="divider"/>
