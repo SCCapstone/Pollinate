@@ -23,15 +23,14 @@ class NewPost extends Component {
     createNewPost(e) {
       e.preventDefault();
       const body = this.parseToBody();
-      console.log(body);
       fetch("https://pollinate-usc.herokuapp.com/api/posts", {method: 'post', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)})
           .then(res => {
                 console.log(res);
-                if (res.status === 200)
+                if (res.status === 201)
                   this.props.history.push("/");
               }
           )
-          .catch(err => console.log(err));
+          .catch(err => console.error(err));
     }
 
     render() {
