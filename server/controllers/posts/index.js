@@ -2,7 +2,7 @@ const db = require('../../utils/database'),
     helper = require('../../utils/helper');
 
 exports.create = function (req, res) {
-    let values = {title: req.body.title, price: req.body.price,
+    let values = {title: req.body.title, price: helper.round(req.body.price, 2),
       imageUrl: req.body.imageUrl, link: req.body.link, description: req.body.description,
       category: req.body.category, "created_at": new Date()};
     console.log(values);
@@ -28,7 +28,7 @@ exports.deletePost = function (req, res) {
 /*Need to add productID*/
 exports.updatePost = function (req, res){
   let productId = req.params.id;
-  let values = {title: req.body.title, price: req.body.price,
+  let values = {title: req.body.title, price: helper.round(req.body.price, 2),
     imageUrl: req.body.imageUrl, link: req.body.link, description: req.body.description,
     category: req.body.category};
   values = helper.prepareValuesForDatabase(values);
