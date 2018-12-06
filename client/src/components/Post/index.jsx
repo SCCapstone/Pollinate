@@ -9,7 +9,7 @@ class Product extends Component{
 
     componentDidMount() {
         const { id } = this.props.match.params;
-        fetch(`https://pollinate-usc.herokuapp.com/api/products/${id}`)
+        fetch(`https://pollinate-usc.herokuapp.com/api/posts/${id}`)
             .then(res => res.json())
             .then(item => this.setState(item));
     }
