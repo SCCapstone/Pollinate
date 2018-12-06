@@ -8,7 +8,9 @@
 <b><br> 2. `git clone https://github.com/SCCapstone/Pollinate.git` </b>inside Pollinate 
 <b><br> 3. `npm run install`</b> inside Pollinate
 <b><br> 4.  `npm run build`</b>
-<b><br> 5.  `npm start`</b> 
+<b><br> 5.  `npm start`</b>
+
+<b>This project has been deployed online here: http://pollinate-usc.herokuapp.com</b>
 
 <p align="center">
   <img src="http://www.dcoss.org/dcoss12/resources/usc.jpg" width="300">
