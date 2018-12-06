@@ -5,7 +5,7 @@ exports.create = function (req, res) {
     let values = {name: req.body.name, price: req.body.price,
       imageUrl: req.body.imageUrl, link: req.body.link, description: req.body.description};
     values = helper.prepareValuesForDatabase(values);
-    db.query("INSERT INTO products SET ?", values, function (err,result, fields) {
+    db.query("INSERT INTO posts SET ?", values, function (err,result, fields) {
         if (err) res.status(500).end();
 
         if (result.length === 0)
@@ -17,7 +17,7 @@ exports.create = function (req, res) {
 
 exports.deletePost = function (req, res) {
     var productID = req.params.id;
-    db.query("DELETE FROM products WHERE id = ?", [productID], function (err, result, fields) {
+    db.query("DELETE FROM posts WHERE id = ?", [productID], function (err, result, fields) {
         if (err) return res.status(500).end();
 
         res.status(204).end();
@@ -29,7 +29,7 @@ exports.updatePost = function (req, res){
   let values = {name: req.body.name, price: req.body.price,
     imageUrl: req.body.imageUrl, link: req.body.link, description: req.body.description};
   values = helper.prepareValuesForDatabase(values);
-    db.query("UPDATE products SET ? WHERE id = ?", [values, productId], function (err,result, fields) {
+    db.query("UPDATE posts SET ? WHERE id = ?", [values, productId], function (err,result, fields) {
         if (err) res.status(500).end();
 
         if (result.length === 0)
@@ -41,7 +41,7 @@ exports.updatePost = function (req, res){
 
 exports.getPost = function (req, res) {
     var productID = req.params.id;
-    db.query("SELECT * FROM products WHERE id = ?", [productID], function (err, result, fields) {
+    db.query("SELECT * FROM posts WHERE id = ?", [productID], function (err, result, fields) {
         if (err) return res.status(500).end();
         if (result.length > 0)
           result = result[0];
@@ -51,7 +51,7 @@ exports.getPost = function (req, res) {
 };
 
 exports.getAllPosts = function (req, res) {
-    db.query("SELECT * FROM products", function (err, result, fields) {
+    db.query("SELECT * FROM posts", function (err, result, fields) {
         if (err) return res.status(500).end();
         res.status(200).send(result);
     }); //getAllPosts

@@ -9,7 +9,7 @@ import Header from './components/Header'
 import Login from './components/Login'
 import Category from './components/Category'
 import Profile from './components/Profile'
-import Product from './components/Product'
+import Post from './components/Post'
 import Signup from './components/Signup'
 
 
@@ -27,7 +27,7 @@ class App extends Component {
                 <Route path="/login" component={Login}/>
                 <Route path="/signup" component={Signup}/>
                 <Route path="/category/:category" component={Category}/>
-                <Route path="/product/:id" component={Product}/>
+                <Route path="/post/:id" component={Post}/>
                 <Route path="/profile" component={Profile}/>
                 <Route path="/about" component={About}/>
               </Switch>

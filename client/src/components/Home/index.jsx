@@ -11,14 +11,14 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:8080/api/products")
+        fetch("https://pollinate-usc.herokuapp.com/api/posts")
             .then(res => res.json())
             .then(posts => this.setState({posts}))
 
     }
 
     navigate(id) {
-      this.props.history.push("/product/" + id);
+      this.props.history.push("/post/" + id);
     }
 
     render() {

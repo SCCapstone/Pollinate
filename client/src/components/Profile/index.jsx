@@ -10,7 +10,7 @@ class App extends Component{
   }
 
   componentDidMount() {
-    fetch("http://localhost:8080/api/users/1")
+    fetch("https://pollinate-usc.herokuapp.com/api/users/1")
         .then(res => res.json())
         .then(person => this.setState({person}))
   }

@@ -10,7 +10,7 @@ class Category extends Component {
         }
     }
     componentDidMount() {
-        fetch("http://localhost:8080/api/category/" + this.state.category)
+        fetch("https://pollinate-usc.herokuapp.com/api/category/" + this.state.category)
             .then(res => res.json())
             .then(data => this.setState({data}));
     }
