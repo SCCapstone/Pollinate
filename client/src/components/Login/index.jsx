@@ -18,7 +18,7 @@ class Login extends Component {
     //LogIn helper method
     Login() {
       const body = {email: this.state.email, password: this.state.password};
-      fetch("https://pollinate-usc.herokuapp.com/api/auth/login", {method: 'post', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)})
+      fetch("/api/auth/login", {method: 'post', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)})
           .then(
               (result) => {
                 console.log(result);

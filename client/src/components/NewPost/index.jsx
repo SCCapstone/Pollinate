@@ -6,7 +6,7 @@ class NewPost extends Component {
     //Creating a state for our react class
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {};
     }
 
     parseToBody() {
@@ -23,7 +23,7 @@ class NewPost extends Component {
     createNewPost(e) {
       e.preventDefault();
       const body = this.parseToBody();
-      fetch("https://pollinate-usc.herokuapp.com/api/posts", {method: 'post', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)})
+      fetch("/api/posts", {method: 'post', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)})
           .then(res => {
                 console.log(res);
                 if (res.status === 201)
@@ -33,35 +33,53 @@ class NewPost extends Component {
           .catch(err => console.error(err));
     }
 
+    isPriceValid(e) {
+      if(/^[0-9]*([.][0-9]*)?$/.test(e.target.value)) {
+        this.setState({price: e.target.value});
+        e.target.setCustomValidity("");
+      }
+      else
+        e.target.setCustomValidity("Must be a number");
+    }
+
     render() {
         return (
             <div id="NewPost">
               <div className="center">
                 <h2 id="title">Create New Post</h2>
                 <form id="NewPostForm" onSubmit={e => this.createNewPost(e)}>
-                  <div className="input">
-                    <label htmlFor="title">Title</label>
-                    <input type="text" name="title" required onInput={e => this.setState({title: e.target.value})}/>
+                  <label htmlFor="title">Title</label>
+                  <div className="input-group mb-1">
+                    <input className="form-control" type="text" name="title" required
+                           onInput={e => this.setState({title: e.target.value})}/>
                   </div>
-                  <div className="input">
-                    <label htmlFor="price">Price</label>
-                    <input type="text" name="price" required onInput={e => this.setState({price: e.target.value})}/>
+                  <label htmlFor="price">Price</label>
+                  <div className="input-group mb-1">
+                    <div className="input-group-prepend">
+                      <span className="input-group-text">$</span>
+                    </div>
+                    <input className="form-control" type="text" name="price" required
+                           onInput={e => this.isPriceValid(e)}/>
                   </div>
-                  <div className="input">
-                    <label htmlFor="imageUrl">Image Url</label>
-                    <input type="text" name="imageUrl" onInput={e => this.setState({imageUrl: e.target.value})}/>
+                  <label htmlFor="imageUrl">Image Url</label>
+                  <div className="input-group mb-1">
+                    <input className="form-control" type="text" name="imageUrl"
+                           onInput={e => this.setState({imageUrl: e.target.value})}/>
                   </div>
-                  <div className="input">
-                    <label htmlFor="link">Link</label>
-                    <input type="text" name="link" required onInput={e => this.setState({link: e.target.value})}/>
+                  <label htmlFor="link">Link</label>
+                  <div className="input-group mb-1">
+                    <input className="form-control" type="text" name="link" required
+                           onInput={e => this.setState({link: e.target.value})}/>
                   </div>
-                  <div className="input">
-                    <label htmlFor="description">Description</label>
-                    <textarea rows="4" maxLength="1000" name="description" onInput={e => this.setState({description: e.target.value})}/>
+                  <label htmlFor="description">Description</label>
+                  <div className="input-group mb-1">
+                    <textarea className="form-control" rows="4" maxLength="1000" name="description"
+                              onInput={e => this.setState({description: e.target.value})}/>
                   </div>
-                  <div className="input">
-                    <label htmlFor="category">Category</label>
-                    <select name="category" required onInput={e => this.setState({category: e.target.value})}>
+                  <label htmlFor="category">Category</label>
+                  <div className="input-group mb-4">
+                    <select className="form-control" name="category" required
+                            onInput={e => this.setState({category: e.target.value})}>
                       <option disabled selected value="" style={{display: "none"}}> -- select an option -- </option>
                       <option value="technology">Technology</option>
                       <option value="apparel">Apparel</option>
@@ -69,7 +87,9 @@ class NewPost extends Component {
                       <option value="other">Other</option>
                     </select>
                   </div>
-                  <input type="submit" value="Submit"/>
+                  <div className="input-group">
+                    <input className="form-control btn btn-primary" type="submit" value="Submit"/>
+                  </div>
                 </form>
               </div>
             </div>

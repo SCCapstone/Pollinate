@@ -1,22 +1,72 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import {withRouter} from 'react-router'
 import './style.css';
-import pic from "./Pollinate.JPG"
+import pic from "./pollinate logo.png"
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  search(e) {
+    e.preventDefault();
+    console.log(this.state.search);
+  }
+
   render() {
     return (
-      <div id={'navBar'}>
-          <img src={pic} height="100" alt="" />
-          <Link to="/">Home</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Signup</Link>
-          <Link to="/profile">Profile</Link>
-          <Link to="/category">Category</Link>
-          <Link to="/about">About</Link>
-      </div>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <Link className="navbar-brand" to="/">
+            <img className="pb-2" src={pic} height="45" alt=""/>
+          </Link>
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item px-2">
+                <Link className="nav-link" to="/">Home</Link>
+              </li>
+              <li className="nav-item px-2">
+                <Link className="nav-link" to="/login">Login</Link>
+              </li>
+              <li className="nav-item px-2">
+                <Link className="nav-link" to="/signup">Signup</Link>
+              </li>
+              <li className="nav-item px-2">
+                <Link className="nav-link" to="/profile">Profile</Link>
+              </li>
+              <li className="nav-item px-2 dropdown">
+                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category</a>
+                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <Link className="dropdown-item" to="/category/apparel">Apparel</Link>
+                  <Link className="dropdown-item" to="/category/technology">Technology</Link>
+                  <Link className="dropdown-item" to="/category/tools">Tools</Link>
+                  <Link className="dropdown-item" to="/category/other">Other</Link>
+                </div>
+              </li>
+            </ul>
+            <form className="form-inline my-2 my-lg-0 mr-3" onSubmit={e => this.search(e)}>
+              <div className="input-group">
+                <input type="text" className="form-control" placeholder="Search"
+                       onInput={e => this.setState({search: e.target.value})}/>
+                <div className="input-group-append">
+                  <button className="btn" type="submit">
+                    <i className="fa fa-search"/>
+                  </button>
+                </div>
+              </div>
+            </form>
+            <button className="btn btn-primary" onClick={() => this.props.history.push("/post/new")}>Post a Deal
+            </button>
+          </div>
+        </nav>
     )
   }
 }
 
-export default Header;
+export default withRouter(Header);

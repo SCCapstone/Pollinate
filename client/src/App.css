@@ -1,0 +1,22 @@
+.app {
+  padding: 20px 40px;
+  background-color: #eaeded;
+  height: 100%;
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: #347d4d;
+  border-color: #347d4d;
+}
+
+.btn-primary:hover {
+  background-color: #306e42;
+  border-color: #2f693e;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+  background-color: #306e42;
+  border-color: #2f693e;
+}
+

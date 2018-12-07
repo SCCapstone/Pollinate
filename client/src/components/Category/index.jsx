@@ -7,14 +7,23 @@ class Category extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            category:props.match.params.category,
             data:[]
         }
     }
     componentDidMount() {
-        fetch("https://pollinate-usc.herokuapp.com/api/category/" + this.state.category)
-            .then(res => res.json())
-            .then(data => this.setState({data}));
+        this.fetchData(this.props.match.params.category);
+    }
+
+    componentDidUpdate(prevProps) {
+      if (prevProps.match.params.category !== this.props.match.params.category) {
+        this.fetchData(this.props.match.params.category);
+      }
+    }
+
+    fetchData(category) {
+      fetch("/api/category/" + category)
+          .then(res => res.json())
+          .then(data => this.setState({data}));
     }
 
   navigate(id) {
@@ -29,7 +38,7 @@ class Category extends Component {
         });
     return (
       <div id="CategoryPage">
-          <h1>{capitalize(this.state.category)}</h1>
+          <h3>{capitalize(this.props.match.params.category)}</h3>
           <div id="posts">
             {posts}
           </div>
@@ -42,7 +51,9 @@ function Post(props)
 {
   return(
       <div className="post" onClick={props.navigate}>
-        <img className="thumbnail" src={props.post.imageUrl || "https://pollinate-usc.herokuapp.com/static/images/no-image-icon.png"} alt="" height="150"/>
+        <div className="thumbnail">
+          <img src={props.post.imageUrl || "/static/images/no-image-icon.png"} alt=""/>
+        </div>
         <div className="details">
           <span className="title">{props.post.title}</span>
           <span className="price">${props.post.price}</span>

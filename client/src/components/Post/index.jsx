@@ -9,13 +9,13 @@ class Product extends Component{
 
     componentDidMount() {
         const { id } = this.props.match.params;
-        fetch(`https://pollinate-usc.herokuapp.com/api/posts/${id}`)
+        fetch(`/api/posts/${id}`)
             .then(res => res.json())
             .then(item => this.setState(item));
     }
 
     getImageUrl() {
-      return this.state.imageUrl || "https://pollinate-usc.herokuapp.com/static/images/no-image-icon.png";
+      return this.state.imageUrl || "/static/images/no-image-icon.png";
     }
 
     render() {

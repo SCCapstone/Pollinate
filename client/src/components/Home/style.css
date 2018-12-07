@@ -1,18 +1,6 @@
-body {
-    background-color: white;
-}
+#HomePage .deal-title {
+    color: #333;
 
-h1
-{
-    color: black;
-    text-align: left;
-}
-
-h3
-{
-    color: black;
-    font-family: verdana;
-    text-align: left;
 }
 
 #HomePage #posts
@@ -23,27 +11,46 @@ h3
 
 #HomePage #posts .post
 {
-    flex: 10%;
-    margin: 10px;
+    background-color: white;
+    display: flex;
+    flex-basis: 16%;
+    flex-direction: column;
+    margin: 3px;
     font-family: verdana, serif;
-    font-size: 12px;
-    border: 2px solid #2f6e43;
+    border: 1px solid #bfbfbf;
+    border-bottom: 3px solid #bfbfbf;
+    border-radius: 3px;
     text-align: left;
     cursor: hand;
 }
 
+#HomePage #posts .post:first-child {
+    margin-left: 0;
+}
+
 #HomePage #posts .post .thumbnail {
-    padding: 20px;
+    flex: 1 1 auto;
+    padding: 10px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+#HomePage #posts .post .thumbnail img {
+    max-width: 65%;
+    align-self: center;
 }
 
 #HomePage #posts .post .details {
+    flex: 0 1 40px;
     padding: 0 10px 10px 10px;
 }
 
 #HomePage #posts .post .details * {
     margin: 0;
     padding: 0;
-    font-size: 18px;
+    font-size: 14px;
+    font-family: verdana, sans-serif;
     display: block;
 }
 

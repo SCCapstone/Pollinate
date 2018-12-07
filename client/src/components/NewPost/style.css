@@ -5,17 +5,12 @@
   justify-content: center;
 }
 
+#NewPost .center {
+  width: 50%;
+  min-width: 250px;
+  max-width: 600px;
+}
+
 #NewPost #title {
   text-align: center;
-}
-
-#NewPostForm .input * {
-  width: 350px;
-  display: block;
-  margin: 10px;
-}
-
-#NewPostForm .input textarea[name="description"] {
-  max-width: 350px;
-  min-width: 350px;
 }

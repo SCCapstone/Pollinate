@@ -12,7 +12,7 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        fetch("https://pollinate-usc.herokuapp.com/api/posts")
+        fetch("/api/posts")
             .then(res => res.json())
             .then(posts => this.setState({posts}))
 
@@ -33,9 +33,7 @@ class Home extends Component {
 
         <div id="HomePage">
 
-            <h1> Popular Deals </h1>
-
-            <p> <button onClick={() => this.props.history.push("/post/new")}> Post A Deal </button> </p>
+            <h3 className="deal-title"> Popular Deals </h3>
 
             <div id="posts">
                 {posts}
@@ -52,7 +50,9 @@ function Post(props)
 {
     return(
         <div className="post" onClick={props.navigate}>
-            <img className="thumbnail" src={props.post.imageUrl || "https://pollinate-usc.herokuapp.com/static/images/no-image-icon.png"} alt="" height="150"/>
+            <div className="thumbnail">
+              <img src={props.post.imageUrl || "/static/images/no-image-icon.png"} alt=""/>
+            </div>
             <div className="details">
               <span className="title">{props.post.title}</span>
               <span className="price">${props.post.price}</span>
