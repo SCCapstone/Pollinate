@@ -6,4 +6,4 @@
 
 # Custom
 /client/build/
-.env
+server/.env
