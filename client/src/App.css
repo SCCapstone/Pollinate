@@ -1,6 +1,9 @@
+body {
+  background-color: #eaeded;
+}
+
 .app {
   padding: 20px 40px;
-  background-color: #eaeded;
   height: 100%;
   width: 100%;
 }

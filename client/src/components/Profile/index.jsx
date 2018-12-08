@@ -10,9 +10,15 @@ class App extends Component{
   }
 
   componentDidMount() {
-    fetch("/api/users/1")
+    fetch("/api/users/me")
         .then(res => res.json())
         .then(person => this.setState({person}))
+  }
+
+  static formatDate(date) {
+    console.log(date);
+    if (date)
+      return new Date(date).toDateString();
   }
 
   render() {
@@ -30,7 +36,8 @@ function Profile(props){
         <div className="Profile">
           {/*Until I can get the constructor to work img src is here*/}
           <div id="avatar">
-            <img id="profilePic" src={props.person.profileImgUrl} alt="" width="200" height="200"/>
+            <img id="profilePic" src={props.person.profileImgUrl || "/static/images/no-image-icon.png"}
+                 alt="" width="200" height="200"/>
           </div>
           <h2 className="Name">{props.person.name}</h2>
           <h3 className="Location">{props.person.location}</h3>
@@ -42,9 +49,9 @@ function Profile(props){
 
         </div>
         <hr />
-        <b>Account Type</b><p className="accountType">{props.person.accountType}</p>
+        <b>Account Type</b><p className="accountType">{props.person.accountType || 'User'}</p>
 
-        <b>Join Date</b><p className="joinDate">{props.person.joinDate}</p>
+        <b>Join Date</b><p className="joinDate">{App.formatDate(props.person.created_at)}</p>
 
         {/*<b>Favorite Category</b><p className="favoriteCategory">{props.person.favoriteCategory}</p>*/}
 

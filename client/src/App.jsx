@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import { BrowserRouter, Switch } from 'react-router-dom';
 import { Route } from 'react-router';
+import auth from './utils/auth';
 
 import Home from './components/Home';
 import About from './components/About';
@@ -20,7 +21,7 @@ class App extends Component {
     return (
         <BrowserRouter>
           <div>
-            <Header/>
+            <Header auth={auth}/>
             <div className="app">
               <Switch>
                 <Route exact path="/" component={Home}/>

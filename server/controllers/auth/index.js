@@ -19,11 +19,18 @@ exports.login = function (req, res) {
     const hash = hashPassword(user.salt, password);
 
     // If user's hash equals generated hash, the password is correct
-    if (user.hash === hash)
+    if (user.hash === hash) {
+      req.session.user = user;
       return res.status(200).end();
+    }
     else
       return res.status(401).send("Incorrect username or password");
   });
+};
+
+exports.logout = function (req, res) {
+  delete req.session.user;
+  res.status(200).end();
 };
 
 exports.signup = function (req, res) {

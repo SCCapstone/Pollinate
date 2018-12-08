@@ -1,10 +1,11 @@
-const db = require('../../utils/database');
+const db = require('../../utils/database'),
+    helper = require('../../utils/helper');
 
 //takes in name, email, password; could add more variables later if needed
 exports.create = function(req, res) {
-  var values = {email: req.body.email, hash: req.body.hash, salt: req.body.salt};
-  if (req.body.name)
-    values.name = req.body.name;
+  let values = {email: req.body.email, hash: req.body.hash, salt: req.body.salt, name: req.body.name,
+    location: req.body.location, biography: req.body.biography, profileImgUrl: req.body.profileImgUrl};
+  values = helper.prepareValuesForDatabase(values);
 
   if(values.email && values.hash && values.salt) {
     db.query("INSERT INTO users SET ?", values, function (err, result, fields) {
@@ -31,6 +32,15 @@ exports.getAll = function(req, res) {
 
     res.status(200).send(result);
   }); //getAll
+};
+
+exports.me = function(req, res) {
+  const user = req.session.user;
+  if (!user) {
+    return res.status(403).end();
+  }
+
+  return res.status(200).send(user);
 };
 
 

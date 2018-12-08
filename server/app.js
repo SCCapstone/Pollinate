@@ -6,6 +6,11 @@ const express = require('express'),
 //require('dotenv').config();
 
 const app = express();
+app.use(require('express-session')({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false
+}));
 
 app.use(require("cors")());
 //app.use(favicon(__dirname + '/public/images/favicon.png'));

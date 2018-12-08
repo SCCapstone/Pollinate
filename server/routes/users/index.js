@@ -10,6 +10,9 @@ const router = express.Router();
 //getAll
 router.get('/', users.getAll);
 
+//me
+router.get('/me', users.me);
+
 //getById
 router.get('/:id', users.getById);
 

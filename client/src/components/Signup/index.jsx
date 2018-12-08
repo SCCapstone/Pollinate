@@ -6,8 +6,6 @@ class Signup extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: '',
-            password: '',
             error: {
                 message: ''
             }
@@ -15,8 +13,10 @@ class Signup extends Component {
     }
 
     //signup helper method
-    signup() {
-        const body = {email: this.state.email, password: this.state.password};
+    signup(e) {
+        e.preventDefault();
+        const body = {email: this.state.email, password: this.state.password, name: this.state.name,
+        location: this.state.location, biography: this.state.biography, profileImgUrl: this.state.profileImgUrl};
         fetch("/api/auth/signup", {method: 'post', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)})
             .then(
                 (result) => {
@@ -34,34 +34,51 @@ class Signup extends Component {
 
   render() {
     return (
-      <div className="form-inline" style={{margin: '5%'}}>
-          <h2>Join Pollinate</h2>
-          <div className="form-group">
-            <input
-                className="form-control"
-                type="email"
-                style={{marginRight: '5px'}}
-                placeholder="email"
-                onChange={event => this.setState({email: event.target.value})}
-                />
-              <input
-                  className="form-control"
-                  type="password"
-                  style={{marginRight: '5px'}}
-                  placeholder="password"
-                  onChange={event => this.setState({password: event.target.value})}
-                  />
-              <button
-                  className="btn btn-primary"
-                  type="button"
-                  //Attach helper method to click of button
-                  onClick={() => this.signup()}
-                  >
-                  Sign Up
-              </button>
-          </div>
+        <div id="SignupPage">
+          <h2 className="text-center mb-3">Welcome Back</h2>
+          <form id="SignupForm" className="mx-auto" onSubmit={e => this.signup(e)}>
+            <label htmlFor="name">Name</label>
+            <div className="input-group mb-1">
+              <input className="form-control" type="text" name="name" required
+                     onInput={e => this.setState({name: e.target.value})}/>
+            </div>
+
+            <label htmlFor="email">Email</label>
+            <div className="input-group mb-1">
+              <input className="form-control" type="email" name="email" required
+                     onInput={e => this.setState({email: e.target.value})}/>
+            </div>
+
+            <label htmlFor="password">Password</label>
+            <div className="input-group mb-1">
+              <input className="form-control" type="password" name="password" required
+                     onInput={e => this.setState({password: e.target.value})}/>
+            </div>
+
+            <label htmlFor="location">Location</label>
+            <div className="input-group mb-1">
+              <input className="form-control" type="text" name="location"
+                     onInput={e => this.setState({location: e.target.value})}/>
+            </div>
+
+            <label htmlFor="biography">Biography</label>
+            <div className="input-group mb-1">
+              <input className="form-control" type="text" name="biography"
+                     onInput={e => this.setState({biography: e.target.value})}/>
+            </div>
+
+            <label htmlFor="profileImg">Profile Image Url</label>
+            <div className="input-group mb-1">
+              <input className="form-control" type="text" name="profileImg"
+                     onInput={e => this.setState({profileImgUrl: e.target.value})}/>
+            </div>
+
+            <div className="input-group mt-3">
+              <input className="form-control btn btn-primary" type="submit" value="Submit"/>
+            </div>
+          </form>
           <div>{this.state.error.message}</div>
-      </div>
+        </div>
     )
   }
 }

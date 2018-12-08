@@ -18,10 +18,18 @@ class Product extends Component{
       return this.state.imageUrl || "/static/images/no-image-icon.png";
     }
 
+    getLink() {
+      let link = this.state.link;
+      if (link && !link.includes('http'))
+        return 'http://' + link;
+
+      return link;
+    }
+
     render() {
         return(
             <div className="App">
-              <Item url={this.getImageUrl()} title={this.state.title}
+              <Item imgUrl={this.getImageUrl()} title={this.state.title} link={this.getLink()}
                     price={this.state.price} description={this.state.description}/>
             </div>
         );
@@ -38,13 +46,14 @@ function Item (props){
                   <h3 className="price">${props.price}</h3>
                 </div>
                 <div id="productPhoto" className="column">
-                  <img src={props.url} alt="" height="100"/>
+                  <img src={props.imgUrl} alt="" height="100"/>
                 </div>
               </div>
               <div className="divider"/>
               <div id="bottom">
                 <h4>Description</h4>
                 <p className="Description">{props.description}</p>
+                <a rel="noopener noreferrer" target="_blank" href={props.link}>{props.link}</a>
               </div>
             </div>
         </div>
