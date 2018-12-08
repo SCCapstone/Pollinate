@@ -35,7 +35,7 @@ class Signup extends Component {
   render() {
     return (
         <div id="SignupPage">
-          <h2 className="text-center mb-3">Welcome Back</h2>
+          <h2 className="text-center mb-3">Join Pollinate</h2>
           <form id="SignupForm" className="mx-auto" onSubmit={e => this.signup(e)}>
             <label htmlFor="name">Name</label>
             <div className="input-group mb-1">
