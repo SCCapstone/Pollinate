@@ -52,7 +52,7 @@ function Item (props){
               <div className="divider"/>
               <div id="bottom">
                 <h4>Description</h4>
-                <p className="Description">{props.description}</p>
+                <p className="description">{props.description}</p>
                 <a rel="noopener noreferrer" target="_blank" href={props.link}>{props.link}</a>
               </div>
             </div>
