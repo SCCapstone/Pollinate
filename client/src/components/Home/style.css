@@ -48,8 +48,10 @@
 }
 
 #HomePage #posts .post .details {
-    flex: 0 1 40px;
-    padding: 0 10px 10px 10px;
+    flex: 1 1 40px;
+    padding: 0 10px 7px 10px;
+    display: flex;
+    align-items: flex-end;
 }
 
 #HomePage #posts .post .details * {

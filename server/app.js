@@ -3,7 +3,7 @@ const express = require('express'),
     bodyParser = require('body-parser');
     //favicon = require('serve-favicon');
 
-//require('dotenv').config();
+require('dotenv').config();
 
 const app = express();
 app.use(require('express-session')({

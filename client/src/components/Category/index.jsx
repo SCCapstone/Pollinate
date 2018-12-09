@@ -22,7 +22,7 @@ class Category extends Component {
   }
 
   fetchData(category) {
-    fetch("/api/category/" + category)
+    fetch("http://localhost:8080/api/category/" + category)
         .then(res => res.json())
         .then(data => this.setState({data}));
   }

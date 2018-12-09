@@ -1,5 +1,5 @@
 function getUser() {
-  return fetch("/api/users/me")
+  return fetch("http://localhost:8080/api/users/me")
       .then(res => {
         if (!res.ok)
           return null;
@@ -10,7 +10,7 @@ function getUser() {
 }
 
 function logout() {
-  return fetch("/api/auth/logout", {method: 'post'})
+  return fetch("http://localhost:8080/api/auth/logout", {method: 'post'})
       .then(res => res.ok);
 }
 

@@ -12,7 +12,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    fetch("/api/posts")
+    fetch("http://localhost:8080/api/posts")
         .then(res => res.json())
         .then(posts => this.setState({posts}))
 
@@ -48,14 +48,16 @@ class Home extends Component {
 
 function Post(props) {
   return (
-      <div className="col-s-12 col-md-4 col-lg-3 mb-4">
+      <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
         <div className="post" onClick={props.navigate}>
           <div className="thumbnail">
             <img src={props.post.imageUrl || "/static/images/no-image-icon.png"} alt=""/>
           </div>
           <div className="details">
-            <span className="title">{props.post.title}</span>
-            <span className="price">${props.post.price}</span>
+            <div>
+              <span className="title">{props.post.title}</span>
+              <span className="price">${props.post.price}</span>
+            </div>
           </div>
         </div>
       </div>
