@@ -48,7 +48,7 @@
 }
 
 #HomePage #posts .post .details {
-    flex: 1 1 40px;
+    flex: 1 1 80px;
     padding: 0 10px 7px 10px;
     display: flex;
     align-items: flex-end;

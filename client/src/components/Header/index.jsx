@@ -26,6 +26,7 @@ class Header extends Component {
   componentDidUpdate(oldProps) {
     if (oldProps.location.key !== this.props.location.key) {
       this.props.auth.getUser().then(user => this.setState({user}));
+      window.scroll(0, 0);
     }
   }
 
