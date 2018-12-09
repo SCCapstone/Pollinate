@@ -11,7 +11,7 @@ exports.login = function (req, res) {
   db.query("SELECT * FROM users WHERE email = ?", [email], function (err, result, fields) {
     if (err)
       return res.status(500).end();
-    if (!result)
+    if (result.length === 0)
       return res.status(401).send("Incorrect username or password");
 
     const user = result[0];
