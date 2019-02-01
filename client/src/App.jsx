@@ -4,15 +4,15 @@ import { BrowserRouter, Switch } from 'react-router-dom';
 import { Route } from 'react-router';
 import auth from './utils/auth';
 
-import Home from './components/Home';
-import About from './components/About';
+import Home from './pages/Home';
+import About from './pages/About';
 import Header from './components/Header'
-import Login from './components/Login'
-import Category from './components/Category'
-import Profile from './components/Profile'
-import Post from './components/Post'
-import Signup from './components/Signup'
-import NewPost from "./components/NewPost";
+import Login from './pages/Login'
+import Category from './pages/Category'
+import Profile from './pages/Profile'
+import Post from './pages/Post'
+import Signup from './pages/Signup'
+import NewPost from "./pages/NewPost";
 
 import './App.css';
 
@@ -27,7 +27,9 @@ class App extends Component {
                 <Route exact path="/" component={Home}/>
                 <Route path="/login" component={Login}/>
                 <Route path="/signup" component={Signup}/>
-                <Route path="/category/:category" component={Category}/>
+                <Route path="/category/:category" render={(props) => (
+                    <Category key={props.match.params.category} {...props} />
+                )}/>
                 <Route path="/post/new" component={NewPost}/>
                 <Route path="/post/:id" component={Post}/>
                 <Route path="/profile" component={Profile}/>

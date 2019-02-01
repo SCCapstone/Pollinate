@@ -23,7 +23,7 @@ class NewPost extends Component {
     createNewPost(e) {
       e.preventDefault();
       const body = this.parseToBody();
-      fetch("http://localhost:8080/api/posts", {method: 'post', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)})
+      fetch("http://localhost:8080/api/posts", {credentials: "same-origin", method: 'post', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)})
           .then(res => {
                 console.log(res);
                 if (res.status === 201)

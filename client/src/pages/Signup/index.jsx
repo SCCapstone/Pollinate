@@ -17,7 +17,7 @@ class Signup extends Component {
         e.preventDefault();
         const body = {email: this.state.email, password: this.state.password, name: this.state.name,
         location: this.state.location, biography: this.state.biography, profileImgUrl: this.state.profileImgUrl};
-        fetch("http://localhost:8080/api/auth/signup", {method: 'post', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)})
+        fetch("http://localhost:8080/api/auth/signup", {credentials: "same-origin", method: 'post', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)})
             .then(
                 (result) => {
                     console.log(result);
@@ -63,7 +63,7 @@ class Signup extends Component {
 
             <label htmlFor="biography">Biography</label>
             <div className="input-group mb-1">
-              <input className="form-control" type="text" name="biography"
+              <textarea className="form-control" name="biography" maxLength="1000" rows="4"
                      onInput={e => this.setState({biography: e.target.value})}/>
             </div>
 

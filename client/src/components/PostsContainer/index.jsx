@@ -1,54 +1,33 @@
 import React, {Component} from 'react';
+import {withRouter} from 'react-router';
 import './style.css';
 
 
-class Home extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      posts: []
-    }
-  }
-
-  componentDidMount() {
-    fetch("http://localhost:8080/api/posts")
-        .then(res => res.json())
-        .then(posts => this.setState({posts}))
-
-  }
-
+class PostsContainer extends Component {
   navigate(id) {
     this.props.history.push("/post/" + id);
   }
 
   render() {
-    var posts = this.state.posts.map(post => {
+    const posts = this.props.posts.map(post => {
       return (
           <Post post={post} navigate={() => this.navigate(post.id)} key={post.id}/>
       )
     });
 
     return (
-
-        <div id="HomePage">
-          <h3 className="deal-title ml-3 mb-3"> Popular Deals </h3>
-          <div id="posts" className="container-fluid">
-            <div className="row">
-              {posts}
-            </div>
-          </div>
-
+      <div id="posts" className="container-fluid">
+        <div className="row">
+          {posts}
         </div>
-
-
+      </div>
     )
   }
 }
 
 function Post(props) {
   return (
-      <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex">
         <div className="post" onClick={props.navigate}>
           <div className="thumbnail">
             <img src={props.post.imageUrl || "/static/images/no-image-icon.png"} alt=""/>
@@ -64,4 +43,4 @@ function Post(props) {
   )
 }
 
-export default Home;
+export default withRouter(PostsContainer);
