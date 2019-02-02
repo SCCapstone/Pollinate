@@ -12,6 +12,7 @@
     "heroku-postbuild": "npm run install && npm run build",
     "dev:server": "npm run server:start",
     "dev:client": "cd client && npm start",
+    "test:unit": "cd client && npm test",
     "start": "npm run server:start"
   }
 }
