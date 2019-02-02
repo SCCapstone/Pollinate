@@ -19,7 +19,7 @@ class Login extends Component {
     login(e) {
       e.preventDefault();
       const body = {email: this.state.email, password: this.state.password};
-      fetch("/api/auth/login", {method: 'post', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)})
+      fetch("/api/auth/login", {credentials: "same-origin", method: 'post', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)})
           .then(res => {
                 if (res.status === 200)
                   this.props.history.push("/");

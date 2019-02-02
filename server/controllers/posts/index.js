@@ -5,7 +5,6 @@ exports.create = function (req, res) {
     let values = {title: req.body.title, price: helper.round(req.body.price, 2),
       imageUrl: req.body.imageUrl, link: req.body.link, description: req.body.description,
       category: req.body.category, "created_at": new Date()};
-    console.log(values);
     values = helper.prepareValuesForDatabase(values);
     db.query("INSERT INTO posts SET ?", values, function (err,result, fields) {
         if (err) res.status(500).end();

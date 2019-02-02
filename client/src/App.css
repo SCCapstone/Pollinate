@@ -23,3 +23,7 @@ body {
   border-color: #2f693e;
 }
 
+.btn.btn-link {
+  border: 0;
+}
+

@@ -26,14 +26,15 @@ class Header extends Component {
   componentDidUpdate(oldProps) {
     if (oldProps.location.key !== this.props.location.key) {
       this.props.auth.getUser().then(user => this.setState({user}));
+      window.scroll(0, 0);
     }
   }
 
   render() {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <Link className="navbar-brand" to="/">
-            <img className="pb-2" src={pic} height="45" alt=""/>
+          <Link className="navbar-brand py-0" to="/">
+            <img className="pb-2" src={pic} height="50" alt=""/>
           </Link>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                   aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,8 +58,8 @@ class Header extends Component {
                 <Link className="nav-link" to="/profile">Profile</Link>
               </li>}
               <li className="nav-item px-2 dropdown">
-                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category</a>
+                <button className="nav-link dropdown-toggle btn btn-link" id="navbarDropdown"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category</button>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <Link className="dropdown-item" to="/category/apparel">Apparel</Link>
                   <Link className="dropdown-item" to="/category/technology">Technology</Link>
@@ -68,7 +69,7 @@ class Header extends Component {
               </li>
               {this.state.user &&
               <li className="nav-item px-2">
-                <a className="nav-link" href="#" onClick={() => this.logout()}>Logout</a>
+                <button className="nav-link btn btn-link" onClick={() => this.logout()}>Logout</button>
               </li>}
             </ul>
             <form className="form-inline my-2 my-lg-0 mr-3" onSubmit={e => this.search(e)}>

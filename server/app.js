@@ -1,12 +1,14 @@
 const express = require('express'),
     path = require('path'),
-    bodyParser = require('body-parser');
-    //favicon = require('serve-favicon');
+    bodyParser = require('body-parser'),
+    session = require('express-session'),
+    store = new session.MemoryStore();
 
 //require('dotenv').config();
 
 const app = express();
-app.use(require('express-session')({
+app.use(session({
+  store: store,
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: false
