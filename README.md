@@ -10,6 +10,13 @@
 <b><br> 4.  `npm run build`</b>
 <b><br> 5.  `npm start`</b>
 
+
+To execute unit tests...<br>
+ <b> `npm run test:unit` </b> inside Pollinate
+
+To execute unit tests...<br> 
+ <b> `npm run test:behavioral` </b> inside Pollinate 
+
 <b>This project has been deployed online here: http://pollinate-usc.herokuapp.com</b>
 
 <p align="center">
