@@ -4,7 +4,8 @@ const express = require('express'),
     session = require('express-session'),
     store = new session.MemoryStore();
 
-//require('dotenv').config();
+if (!process.env['DB_HOST'])
+  require('dotenv').config();
 
 const app = express();
 app.use(session({

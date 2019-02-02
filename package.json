@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "dependencies": {},
   "scripts": {
-    "client:dev": "cd client && npm start",
     "client:install": "cd client && npm install",
     "client:build": "cd client && npm run build",
     "server:install": "cd server && npm install",
@@ -11,6 +10,8 @@
     "install": "npm run client:install && npm run server:install",
     "build": "npm run client:build",
     "heroku-postbuild": "npm run install && npm run build",
+    "dev:server": "npm run server:start",
+    "dev:client": "cd client && npm start",
     "start": "npm run server:start"
   }
 }
