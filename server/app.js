@@ -4,7 +4,7 @@ const express = require('express'),
     session = require('express-session'),
     store = new session.MemoryStore();
 
-require('dotenv').config();
+//require('dotenv').config();
 
 const app = express();
 app.use(session({
