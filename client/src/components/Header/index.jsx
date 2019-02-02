@@ -7,8 +7,12 @@ import pic from "./pollinate logo.png"
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
-    this.props.auth.getUser().then(user => this.setState({user}));
+    this.state = {user: null};
+  }
+
+  componentDidMount() {
+    if (this.props.auth)
+      this.props.auth.getUser().then(user => this.setState({user}));
   }
 
   search(e) {
