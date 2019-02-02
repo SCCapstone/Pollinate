@@ -12,7 +12,8 @@
 
 
 To execute unit tests...<br>
- <b> `npm run test:unit` </b> inside Pollinate
+ <b> `npm run test:unit` </b> <br>
+ <b> Test Location:</b> <i>Pollinate/client/src/components/Header </i>
 
 To execute behavioral tests...<br> 
  <b> `npm run test:behavioral` </b> inside Pollinate 
