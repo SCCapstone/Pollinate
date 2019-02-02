@@ -14,7 +14,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:8080/api/posts", {credentials: "same-origin"})
+    fetch("/api/posts", {credentials: "same-origin"})
         .then(res => res.json())
         .then(posts => this.setState({posts}))
 

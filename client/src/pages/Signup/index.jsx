@@ -17,7 +17,7 @@ class Signup extends Component {
         e.preventDefault();
         const body = {email: this.state.email, password: this.state.password, name: this.state.name,
         location: this.state.location, biography: this.state.biography, profileImgUrl: this.state.profileImgUrl};
-        fetch("http://localhost:8080/api/auth/signup", {credentials: "same-origin", method: 'post', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)})
+        fetch("/api/auth/signup", {credentials: "same-origin", method: 'post', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)})
             .then(
                 (result) => {
                     console.log(result);

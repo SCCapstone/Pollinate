@@ -17,7 +17,7 @@ class Category extends Component {
   }
 
   fetchData(category) {
-    fetch("http://localhost:8080/api/category/" + category, {credentials: "same-origin"})
+    fetch("/api/category/" + category, {credentials: "same-origin"})
         .then(res => res.json())
         .then(posts => this.setState({posts}));
   }
