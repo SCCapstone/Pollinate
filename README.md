@@ -14,7 +14,7 @@
 To execute unit tests...<br>
  <b> `npm run test:unit` </b> inside Pollinate
 
-To execute unit tests...<br> 
+To execute behavioral tests...<br> 
  <b> `npm run test:behavioral` </b> inside Pollinate 
 
 <b>This project has been deployed online here: http://pollinate-usc.herokuapp.com</b>
