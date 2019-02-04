@@ -13,6 +13,7 @@
     "dev:server": "npm run server:start",
     "dev:client": "cd client && npm start",
     "test:unit": "cd client && npm test",
+    "test:behavioral": "cd client && npm run test:behavioral",
     "start": "npm run server:start"
   }
 }
