@@ -60,3 +60,9 @@
 #posts .post .details .price {
   font-weight: bold;
 }
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  #posts .post .thumbnail img {
+    width: 100%;
+  }
+}
