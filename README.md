@@ -16,9 +16,12 @@ To execute unit tests...<br>
  <b> `npm run test:unit` </b> <br>
 
 Behavioral tests are located in the "client/cypress/integration" folder, and end with ".spec.js"<br> 
-To execute behavioral tests...<br> 
- <b> 1. `npm run test:behavioral` </b>
- <b><br> 2.</b> Once cypress is open, click "Run all specs"
+To execute behavioral tests...<br>
+ You will need multiple terminals for this<br>
+ <b> 1. In first terminal, run `npm run dev:server`</b><br>
+ <b> 2. In second terminal, run `npm run dev:client`</b><br>
+ <b> 3. In third terminal, run `npm run test:behavioral`</b><br>
+ <b> 4. Once cypress is open, click "Run all specs"</b>
 
 ### Additional Info
 <b>This project has been deployed online here: http://pollinate-usc.herokuapp.com</b>
