@@ -10,6 +10,7 @@
 <b><br> 4.  `npm run build`</b>
 <b><br> 5.  `npm start`</b>
 
+### Testing
 Unit tests are next to their requisite components or pages in the "client/src" folder tree, and end with ".test.js"<br>
 To execute unit tests...<br>
  <b> `npm run test:unit` </b> <br>
@@ -19,6 +20,7 @@ To execute behavioral tests...<br>
  <b> 1. `npm run test:behavioral` </b>
  <b><br> 2.</b> Once cypress is open, click "Run all specs"
 
+### Additional Info
 <b>This project has been deployed online here: http://pollinate-usc.herokuapp.com</b>
 
 <p align="center">
