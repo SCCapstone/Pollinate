@@ -20,7 +20,7 @@ class Product extends Component{
 
     getLink() {
       let link = this.state.link;
-      if (link && !link.includes('http'))
+      if (link && link.indexOf('http') === -1)
         return 'http://' + link;
 
       return link;
@@ -28,7 +28,7 @@ class Product extends Component{
 
     render() {
         return(
-            <div className="App">
+            <div>
               <Item imgUrl={this.getImageUrl()} title={this.state.title} link={this.getLink()}
                     price={this.state.price} description={this.state.description}/>
             </div>
@@ -38,14 +38,14 @@ class Product extends Component{
 
 function Item (props){
     return (
-        <div id="item">
+        <div id="item" className="col-s-12 col-lg-8">
             <div className="product">
               <div className="flex">
-                <div className="details column">
+                <div className="details mr-auto">
                   <h2 className="Name">{props.title}</h2>
                   <h3 className="price">${props.price}</h3>
                 </div>
-                <div id="productPhoto" className="column">
+                <div id="productPhoto">
                   <img src={props.imgUrl} alt="" height="100"/>
                 </div>
               </div>
@@ -53,7 +53,7 @@ function Item (props){
               <div id="bottom">
                 <h4>Description</h4>
                 <p className="description">{props.description}</p>
-                <a rel="noopener noreferrer" target="_blank" href={props.link}>{props.link}</a>
+                <a className="btn btn-primary" rel="noopener noreferrer" target="_blank" href={props.link}>See Deal</a>
               </div>
             </div>
         </div>
