@@ -20,6 +20,8 @@ exports.login = function (req, res) {
 
     // If user's hash equals generated hash, the password is correct
     if (user.hash === hash) {
+      delete user.hash;
+      delete user.salt;
       req.session.user = user;
       return res.status(200).end();
     }
