@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {withRouter} from 'react-router'
+import Search from '../Search';
 import './style.css';
 import pic from "./pollinate logo.png"
 
@@ -76,17 +77,7 @@ class Header extends Component {
                 <button className="nav-link btn btn-link" onClick={() => this.logout()}>Logout</button>
               </li>}
             </ul>
-            <form className="form-inline my-2 my-lg-0 mr-3" onSubmit={e => this.search(e)}>
-              <div className="input-group">
-                <input type="text" className="form-control" placeholder="Search"
-                       onInput={e => this.setState({search: e.target.value})}/>
-                <div className="input-group-append">
-                  <button className="btn" type="submit">
-                    <i className="fa fa-search"/>
-                  </button>
-                </div>
-              </div>
-            </form>
+            <Search/>
             {this.state.user &&
             <button className="btn btn-primary" onClick={() => this.props.history.push("/post/new")}>Post a Deal
             </button>}
