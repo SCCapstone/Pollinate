@@ -26,11 +26,21 @@ class Product extends Component{
       return link;
     }
 
+    deletePost(){
+        fetch(`/api/posts/${this.state.id}`, {credentials: "same-origin", method: 'delete', headers: {'Content-Type': 'application/json'}})
+            .then(res => {
+                if(res.ok) {
+                    this.props.history.push("/");
+                }
+            })
+
+    }
+
     render() {
         return(
             <div>
               <Item imgUrl={this.getImageUrl()} title={this.state.title} link={this.getLink()}
-                    price={this.state.price} description={this.state.description}/>
+                    price={this.state.price} description={this.state.description} deletePost={() => this.deletePost()}/>
             </div>
         );
     }
@@ -53,7 +63,8 @@ function Item (props){
               <div id="bottom">
                 <h4>Description</h4>
                 <p className="description">{props.description}</p>
-                <a className="btn btn-primary" rel="noopener noreferrer" target="_blank" href={props.link}>See Deal</a>
+                <a className="btn btn-primary mr-3" rel="noopener noreferrer" target="_blank" href={props.link}>See Deal</a>
+                  <button type="button" className="btn btn-danger" onClick={ () => props.deletePost() }>Delete</button>
               </div>
             </div>
         </div>
