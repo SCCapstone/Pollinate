@@ -20,3 +20,8 @@
 .description {
     white-space: pre-wrap;
 }
+
+.voting {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}

@@ -53,6 +53,7 @@ function Item (props){
               <div id="bottom">
                 <h4>Description</h4>
                 <p className="description">{props.description}</p>
+                  <a className="btn btn-primary" rel="noopener noreferrer" target="_blank" href={props.link}>See Deal</a>
                   <div className="voting">
                       <button className="upvoteBtn" type="submit">
                           <i className="fa fa-thumbs-up ml-2 mr-2"/>
@@ -61,7 +62,6 @@ function Item (props){
                           <i className="fa fa-thumbs-down ml-2 mr-2"/>
                       </button>
                   </div>
-                <a className="btn btn-primary" rel="noopener noreferrer" target="_blank" href={props.link}>See Deal</a>
               </div>
             </div>
         </div>
