@@ -15,10 +15,5 @@
     "test:unit": "cd client && npm test",
     "test:behavioral": "cd client && npm run test:behavioral",
     "start": "npm run server:start"
-  },
-  "devDependencies": {
-    "enzyme": "^3.8.0",
-    "enzyme-adapter-react-16": "^1.8.0",
-    "jest": "^24.0.0"
   }
 }
