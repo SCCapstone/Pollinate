@@ -88,7 +88,7 @@ class Header extends Component {
               </div>
             </form>
             {this.state.user &&
-            <button className="btn btn-primary" onClick={() => this.props.history.push("/post/new")}>Post a Deal
+            <button id="postDealBtn" className="btn btn-primary" onClick={() => this.props.history.push("/post/new")}>Post a Deal
             </button>}
           </div>
         </nav>
