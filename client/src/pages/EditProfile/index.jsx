@@ -15,7 +15,7 @@ class EditProfile extends Component {
     componentDidMount() {
         fetch("/api/users/me", {credentials: "same-origin"})
             .then(res => res.json())
-            .then(posts => this.setState({posts}))
+            .then(me => this.setState({me}))
 
     }
 
