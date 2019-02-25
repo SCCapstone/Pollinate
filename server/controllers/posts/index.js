@@ -18,11 +18,20 @@ exports.create = function (req, res) {
 
 exports.deletePost = function (req, res) {
     var productID = req.params.id;
-    db.query("DELETE FROM posts WHERE id = ?", [productID], function (err, result, fields) {
-        if (err) return res.status(500).end();
+    db.query("SELECT * FROM posts WHERE id = ?", [productID], function (err, result, fields) {
+    if(result[0] && result[0].author === req.session.user.id){
+        db.query("DELETE FROM posts WHERE id = ?", [productID], function (err, result, fields) {
+            if (err) return res.status(500).end();
 
-        res.status(204).end();
-    }); //selects by productID
+            return res.status(204).end();
+        }); //selects by productID
+    }
+    else{
+        return res.status(403).end();
+    }
+
+    })
+
 };
 /*Need to add productID*/
 exports.updatePost = function (req, res){
