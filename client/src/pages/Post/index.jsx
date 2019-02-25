@@ -85,7 +85,30 @@ function Item(props) {
 class Counter extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {counter: 0}
+        this.state = {
+            counter: 0, colorUp: 'secondary', colorDown: 'secondary', clicked: false
+        };
+
+        this.handleUp = this.handleUp.bind(this);
+        this.handleDown = this.handleDown.bind(this);
+    }
+
+    handleUp(event) {
+        if (this.state.clicked === false) {
+            this.setState({
+                colorUp: 'success',
+                clicked: true
+            });
+        }
+    }
+
+    handleDown(event) {
+        if (this.state.clicked === false) {
+            this.setState({
+                colorDown: 'danger',
+                clicked: true
+            });
+        }
     }
 
     increment = (e) => {
@@ -95,6 +118,11 @@ class Counter extends React.Component {
         });
     }
 
+    handleUpIncrement() {
+        handleUp(event);
+        increment(e);
+    }
+
     decrement = (e) => {
         e.preventDefault();
         this.setState({
@@ -102,14 +130,21 @@ class Counter extends React.Component {
         });
     }
 
+    handleDownDecrement() {
+        handleDown(event);
+        decrement(e);
+    }
+
     render() {
         return (
             <div className="voting">
                 {this.state.counter}
-                <button className="upvoteBtn" type="submit" onClick={this.increment}>
+                <button className="upvoteBtn" type="submit" variant={this.state.colorUp}
+                        onClick={this.handleUpIncrement()} disabled={this.state.clicked}>
                     <i className="fa fa-thumbs-up ml-2 mr-2"/>
                 </button>
-                <button className="downvoteBtn" type="submit" onClick={this.decrement}>
+                <button className="downvoteBtn" type="submit"
+                        onClick={this.handleDownDecrement()} disabled={this.state.clicked}>
                     <i className="fa fa-thumbs-down ml-2 mr-2"/>
                 </button>
             </div>
