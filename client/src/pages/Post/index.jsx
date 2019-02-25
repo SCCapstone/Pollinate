@@ -44,7 +44,7 @@ class Product extends Component{
             <div>
               <Item imgUrl={this.getImageUrl()} title={this.state.title} link={this.getLink()} author={this.state.author}
                     price={this.state.price} description={this.state.description} deletePost={() => this.deletePost()}
-              user={this.state.user}/>
+                    user={this.state.user}/>
             </div>
         );
     }

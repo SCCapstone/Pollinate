@@ -19,7 +19,7 @@ exports.create = function (req, res) {
 exports.deletePost = function (req, res) {
     var productID = req.params.id;
     db.query("SELECT * FROM posts WHERE id = ?", [productID], function (err, result, fields) {
-    if(result[0].author === req.session.user.id){
+    if(result[0] && result[0].author === req.session.user.id){
         db.query("DELETE FROM posts WHERE id = ?", [productID], function (err, result, fields) {
             if (err) return res.status(500).end();
 
