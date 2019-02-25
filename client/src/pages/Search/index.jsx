@@ -26,7 +26,7 @@ class Search extends Component {
           includeScore: true,
           threshold: 0.33,
           location: 0,
-          distance: 100,
+          distance: 1000,
           maxPatternLength: 32,
           minMatchCharLength: 1,
           keys: [

@@ -14,7 +14,7 @@ class Search extends Component {
         <form className="form-inline my-2 my-lg-0 mr-3" onSubmit={e => this.navigate(e)}>
             <div className="input-group">
                 <input id="headerSearch" type="text" className="form-control" placeholder="Search"
-                       onInput={e => this.setState({search: e.target.value})}/>
+                       onInput={e => this.setState({search: e.target.value})} maxLength={32}/>
                 <div className="input-group-append">
                     <button className="btn" type="submit">
                         <i className="fa fa-search"/>
