@@ -25,3 +25,13 @@
     padding-top: 50px;
     padding-bottom: 50px;
 }
+
+.upvote {
+background-color: #347d4d;
+border-color: #347d4d;
+}
+
+.downvote {
+    background-color: darkred;
+    border-color: darkred;
+}

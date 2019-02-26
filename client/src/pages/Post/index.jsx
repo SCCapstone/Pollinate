@@ -74,6 +74,7 @@ function Item(props) {
                 <div id="bottom">
                     <h4>Description</h4>
                     <p className="description">{props.description}</p>
+                    <Counter> </Counter>
                     <a className="btn btn-primary" rel="noopener noreferrer" target="_blank" href={props.link}>See
                         Deal</a>
                 </div>
@@ -89,23 +90,23 @@ class Counter extends React.Component {
             counter: 0, colorUp: 'secondary', colorDown: 'secondary', clicked: false
         };
 
-        this.handleUp = this.handleUp.bind(this);
-        this.handleDown = this.handleDown.bind(this);
+        // this.handleUp = this.handleUp.bind(this);
+        // this.handleDown = this.handleDown.bind(this);
     }
 
-    handleUp(event) {
+    handleUp() {
         if (this.state.clicked === false) {
             this.setState({
-                colorUp: 'success',
+                colorUp: 'upvote',
                 clicked: true
             });
         }
     }
 
-    handleDown(event) {
+    handleDown() {
         if (this.state.clicked === false) {
             this.setState({
-                colorDown: 'danger',
+                colorDown: 'downvote',
                 clicked: true
             });
         }
@@ -113,40 +114,34 @@ class Counter extends React.Component {
 
     increment = (e) => {
         e.preventDefault();
+        this.handleUp();
         this.setState({
             counter: this.state.counter + 1
         });
     }
 
-    handleUpIncrement() {
-        handleUp(event);
-        increment(e);
-    }
-
     decrement = (e) => {
         e.preventDefault();
+        this.handleDown();
         this.setState({
             counter: this.state.counter - 1
         });
     }
 
-    handleDownDecrement() {
-        handleDown(event);
-        decrement(e);
-    }
-
     render() {
         return (
             <div className="voting">
-                {this.state.counter}
-                <button className="upvoteBtn" type="submit" variant={this.state.colorUp}
-                        onClick={this.handleUpIncrement()} disabled={this.state.clicked}>
-                    <i className="fa fa-thumbs-up ml-2 mr-2"/>
-                </button>
-                <button className="downvoteBtn" type="submit"
-                        onClick={this.handleDownDecrement()} disabled={this.state.clicked}>
-                    <i className="fa fa-thumbs-down ml-2 mr-2"/>
-                </button>
+                <div className="counter">{this.state.counter}</div>
+                <div>
+                    <button className={"upvoteBtn " + this.state.colorUp} type="submit"
+                            onClick={this.increment} disabled={this.state.clicked}>
+                        <i className="fa fa-thumbs-up ml-2 mr-2"/>
+                    </button>
+                    <button className={"downvoteBtn " + this.state.colorDown} type="submit"
+                            onClick={this.decrement} disabled={this.state.clicked}>
+                        <i className="fa fa-thumbs-down ml-2 mr-2"/>
+                    </button>
+                </div>
             </div>
         )
     }
