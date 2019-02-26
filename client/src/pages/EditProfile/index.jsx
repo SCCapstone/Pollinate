@@ -15,7 +15,7 @@ class EditProfile extends Component {
     componentDidMount() {
         fetch("/api/users/me", {credentials: "same-origin"})
             .then(res => res.json())
-            .then(me => this.setState({me}))
+            .then(person => this.setState({person}))
 
     }
 
@@ -42,11 +42,12 @@ class EditProfile extends Component {
     render() {
         return (
             <div id="EditProfilePage">
-                <h2 className="text-center mb-3">Join Pollinate</h2>
+                <h2 className="text-center mb-3">Edit Profile</h2>
                 <form id="EditProfileForm" className="mx-auto" onSubmit={e => this.editprofile(e)}>
                     <label htmlFor="name">Name</label>
                     <div className="input-group mb-1">
                         <input className="form-control" type="text" name="name" required
+                               value={this.state.value}
                                onInput={e => this.setState({name: e.target.value})}/>
                     </div>
 
