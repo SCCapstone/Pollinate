@@ -70,7 +70,7 @@ class Product extends Component {
                 {this.state.link &&
                 <a className="btn btn-primary mr-3" rel="noopener noreferrer" target="_blank" href={this.getLink()}>See
                   Deal</a>}
-                {userId === this.state.author &&
+                {this.state.user && userId === this.state.author &&
                 <button id="deletePostBtn" type="button" className="btn btn-danger"
                         onClick={() => this.deletePost()}>Delete</button>}
               </div>
