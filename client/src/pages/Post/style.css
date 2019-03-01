@@ -1,5 +1,15 @@
-.flex {
+.product .flex {
     display: flex;
+    align-items: flex-end;
+}
+
+.details {
+    flex-grow: 1;
+    flex-basis: 80%;
+}
+
+#productPhoto {
+    flex-basis: 20%;
 }
 
 .column {

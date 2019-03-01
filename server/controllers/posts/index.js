@@ -62,7 +62,7 @@ exports.getPost = function (req, res) {
 };
 
 exports.getAllPosts = function (req, res) {
-    db.query("SELECT * FROM posts", function (err, result, fields) {
+    db.query("SELECT * FROM all_posts", function (err, result, fields) {
         if (err) return res.status(500).end();
         res.status(200).send(result);
     }); //getAllPosts

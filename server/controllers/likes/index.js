@@ -5,8 +5,8 @@ exports.create = function (req, res) {
       return res.status(403).end();
 
     let values = {userId: req.session.user.id, postId: req.params.id};
-    db.query("INSERT INTO likes SET ?", values, function (err,result, fields) {
-        if (err) res.status(500).end();
+    db.query("INSERT INTO likes SET ?", values, function (err, result, fields) {
+        if (err) return res.status(500).end();
 
         if (result.length === 0)
             res.status(401).send("Incorrect entry");

@@ -13,7 +13,7 @@ class PostsContainer extends Component {
     });
 
     return (
-      <div id="posts" className="container-fluid">
+      <div className="posts container-fluid">
         <div className="row">
           {posts}
         </div>

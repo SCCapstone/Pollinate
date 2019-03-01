@@ -16,7 +16,10 @@ class Home extends Component {
   componentDidMount() {
     fetch("/api/posts", {credentials: "same-origin"})
         .then(res => res.json())
-        .then(posts => this.setState({posts}))
+        .then(posts => this.setState({
+          posts: posts.slice(0).reverse(),
+          popularPosts: posts.slice(0).sort((a, b) => b['total_likes'] - a['total_likes']).slice(0, 4),
+        }))
 
   }
 
@@ -27,8 +30,13 @@ class Home extends Component {
   render() {
     return (
       <div id="HomePage">
-        <h3 className="deal-title ml-3 mb-3"> Popular Deals </h3>
-        <PostsContainer posts={this.state.posts}/>
+        {this.state.posts.length !== 0 &&
+        <div>
+          <h3 className="deal-title ml-3 mb-3"> Popular Deals </h3>
+          <div id="popularPosts"><PostsContainer posts={this.state.popularPosts}/></div>
+          <h3 className="deal-title ml-3 mb-3"> Recent Deals </h3>
+          <div id="recentPosts"><PostsContainer posts={this.state.posts}/></div>
+        </div>}
       </div>
     )
   }

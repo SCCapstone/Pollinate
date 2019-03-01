@@ -5,7 +5,6 @@ class VoteCounter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      counter: 0,
       clicked: false
     };
   }
@@ -14,11 +13,9 @@ class VoteCounter extends Component {
     fetch(`/api/likes/${this.props.postId}`, {credentials: "same-origin"})
         .then(res => res.json())
         .then(votes => {
-          console.log(votes);
           // Filters out votes that weren't made by the logged in user, then checks if that array's length is !== 0
           const userVoted = votes.filter(vote => vote.userId === this.props.userId).length !== 0;
-          console.log(userVoted);
-          this.setState({clicked: userVoted, counter: votes.length});
+          this.setState({userVoted, clicked: userVoted, counter: votes.length});
         });
   }
 
@@ -34,12 +31,13 @@ class VoteCounter extends Component {
     const btnClass = 'btn ' + (this.state.clicked ? 'btn-primary' : 'likeBtn');
 
     return (
-          <div className='voting'>
-            <h6 className='mr-2 mb-0'>Deal Score: {this.state.counter}</h6>
-            <button className={btnClass} onClick={() => this.like()} disabled={this.state.clicked}>
-              <i className="fa fa-star"/>
-            </button>
-          </div>
+      <div className='voting'>
+        <h6 className='mr-2 mb-0'>Deal Score: {this.state.counter}</h6>
+        {this.props.userId && this.state.userVoted !== undefined &&
+        <button className={btnClass} onClick={() => this.like()} disabled={this.state.clicked}>
+          <i className="fa fa-star"/>
+        </button>}
+      </div>
     )
   }
 }
