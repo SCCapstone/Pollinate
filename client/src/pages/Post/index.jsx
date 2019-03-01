@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './style.css';
+import VoteCounter from "../../components/VoteCounter";
 
 class Product extends Component {
     constructor(props) {
@@ -26,32 +27,11 @@ class Product extends Component {
         return link;
     }
 
-    /*//Store default state of upvote/downvote value
-    getInitialState() {
-        return {
-            value: 0
-        }
-    }
-
-    //Increment by one function
-    addByOne() {
-        this.setState({
-            value: this.state.value + 1
-        });
-    }
-
-    //Decrement by one function
-    subtractByOne() {
-        this.setState({
-            value: this.state.value - 1
-        });
-    }*/
-
     render() {
         return (
             <div>
                 <Item imgUrl={this.getImageUrl()} title={this.state.title} link={this.getLink()}
-                      price={this.state.price} description={this.state.description}/>
+                      price={this.state.price} description={this.state.description} postId={this.state.id}/>
             </div>
         );
     }
@@ -65,6 +45,7 @@ function Item(props) {
                     <div className="details mr-auto">
                         <h2 className="Name">{props.title}</h2>
                         <h3 className="price">${props.price}</h3>
+                        {props.postId && <VoteCounter postId={props.postId}/>}
                     </div>
                     <div id="productPhoto">
                         <img src={props.imgUrl} alt="" height="100"/>
@@ -74,77 +55,12 @@ function Item(props) {
                 <div id="bottom">
                     <h4>Description</h4>
                     <p className="description">{props.description}</p>
-                    <Counter> </Counter>
-                    <a className="btn btn-primary" rel="noopener noreferrer" target="_blank" href={props.link}>See
-                        Deal</a>
+                <div className="divider mb-3"/>
+                <a className="btn btn-primary" rel="noopener noreferrer" target="_blank" href={props.link}>See Deal</a>
                 </div>
             </div>
         </div>
     );
-}
-
-class Counter extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            counter: 0, colorUp: 'secondary', colorDown: 'secondary', clicked: false
-        };
-
-        // this.handleUp = this.handleUp.bind(this);
-        // this.handleDown = this.handleDown.bind(this);
-    }
-
-    handleUp() {
-        if (this.state.clicked === false) {
-            this.setState({
-                colorUp: 'upvote',
-                clicked: true
-            });
-        }
-    }
-
-    handleDown() {
-        if (this.state.clicked === false) {
-            this.setState({
-                colorDown: 'downvote',
-                clicked: true
-            });
-        }
-    }
-
-    increment = (e) => {
-        e.preventDefault();
-        this.handleUp();
-        this.setState({
-            counter: this.state.counter + 1
-        });
-    }
-
-    decrement = (e) => {
-        e.preventDefault();
-        this.handleDown();
-        this.setState({
-            counter: this.state.counter - 1
-        });
-    }
-
-    render() {
-        return (
-            <div className="voting">
-                <div className="counter">{this.state.counter}</div>
-                <div>
-                    <button className={"upvoteBtn " + this.state.colorUp} type="submit"
-                            onClick={this.increment} disabled={this.state.clicked}>
-                        <i className="fa fa-thumbs-up ml-2 mr-2"/>
-                    </button>
-                    <button className={"downvoteBtn " + this.state.colorDown} type="submit"
-                            onClick={this.decrement} disabled={this.state.clicked}>
-                        <i className="fa fa-thumbs-down ml-2 mr-2"/>
-                    </button>
-                </div>
-            </div>
-        )
-    }
 }
 
 export default Product;
