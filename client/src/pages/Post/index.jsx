@@ -6,9 +6,7 @@ import auth from '../../utils/auth.js';
 class Product extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      user: {}
-    };
+    this.state = {};
   }
 
   componentDidMount() {
