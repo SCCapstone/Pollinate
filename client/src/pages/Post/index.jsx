@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './style.css';
+import VoteCounter from "../../components/VoteCounter";
 import auth from '../../utils/auth.js';
 
 class Product extends Component{
@@ -9,7 +10,7 @@ class Product extends Component{
     }
 
     componentDidMount() {
-        const { id } = this.props.match.params;
+        const {id} = this.props.match.params;
         fetch(`/api/posts/${id}`, {credentials: "same-origin"})
             .then(res => res.json())
             .then(item => this.setState(item));
@@ -40,11 +41,11 @@ class Product extends Component{
     }
 
     render() {
-      return(
+        return(
             <div>
               <Item imgUrl={this.getImageUrl()} title={this.state.title} link={this.getLink()} author={this.state.author}
                     price={this.state.price} description={this.state.description} deletePost={() => this.deletePost()}
-                    user={this.state.user}/>
+                    user={this.state.user} postId={this.state.id}/>
             </div>
         );
     }
@@ -58,6 +59,7 @@ function Item (props){
                 <div className="details mr-auto">
                   <h2 className="Name">{props.title}</h2>
                   <h3 className="price">${props.price}</h3>
+                  {props.postId && <VoteCounter postId={props.postId}/>}
                 </div>
                 <div id="productPhoto">
                   <img src={props.imgUrl} alt="" height="100"/>

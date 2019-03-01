@@ -23,6 +23,12 @@ body {
   border-color: #2f693e;
 }
 
+.btn-primary:disabled {
+  background-color: #306e42;
+  border-color: #2f693e;
+  opacity: 1;
+}
+
 .btn.btn-link {
   border: 0;
 }
