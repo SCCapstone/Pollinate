@@ -30,14 +30,15 @@ describe('Post', function () {
       cy.get('select[name="category"]').select('technology');
       cy.get('#NewPostForm').submit();
 
-      cy.get('.post').last().should('contain', post.title);
+      cy.get('#recentPosts .post').first().should('contain', post.title);
     })
   });
 
   it('Delete new deal', function () {
-    cy.get('.post').last().click();
+    cy.get('#recentPosts .post').first().click();
+    cy.get('.details .Name').should('contain', title);
     cy.get('#deletePostBtn').click();
 
-    cy.get('.post').last().should('not.contain', title);
+    cy.get('#recentPosts .post').first().should('not.contain', title);
   })
 });
