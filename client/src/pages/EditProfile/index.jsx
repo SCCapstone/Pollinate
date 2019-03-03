@@ -15,10 +15,7 @@ class EditProfile extends Component {
     }
 
     componentDidMount() {
-        fetch("/api/users/me", {credentials: "same-origin"})
-            .then(res => res.json())
-            .then(person => this.setState({person}));
-        auth.getUser().then(user => this.setState({user}));
+        auth.getUser().then(user => this.setState(user));
     }
 
     //editprofile helper method
@@ -49,42 +46,28 @@ class EditProfile extends Component {
                     <label htmlFor="name">Name</label>
                     <div className="input-group mb-1">
                         <input className="form-control" type="text" name="name" required
-                               value = {this.state.person.name}
+                               value = {this.state.name}
                                onInput={e => this.setState({name: e.target.value})}/>
-                    </div>
-
-                    <label htmlFor="email">Email</label>
-                    <div className="input-group mb-1">
-                        <input className="form-control" type="email" name="email" required
-                               value = {this.state.person.email}
-                               onInput={e => this.setState({email: e.target.value})}/>
-                    </div>
-
-                    <label htmlFor="password">Password</label>
-                    <div className="input-group mb-1">
-                        <input className="form-control" type="password" name="password" required
-                               value = {this.state.person.password}
-                               onInput={e => this.setState({password: e.target.value})}/>
                     </div>
 
                     <label htmlFor="location">Location</label>
                     <div className="input-group mb-1">
                         <input className="form-control" type="text" name="location"
-                               value = {this.state.person.location}
+                               value = {this.state.location}
                                onInput={e => this.setState({location: e.target.value})}/>
                     </div>
 
                     <label htmlFor="biography">Biography</label>
                     <div className="input-group mb-1">
               <textarea className="form-control" name="biography" maxLength="1000" rows="4"
-                        value = {this.state.person.biography}
+                        value = {this.state.biography}
                         onInput={e => this.setState({biography: e.target.value})}/>
                     </div>
 
                     <label htmlFor="profileImg">Profile Image Url</label>
                     <div className="input-group mb-1">
                         <input className="form-control" type="text" name="profileImg"
-                               value = {this.state.person.profileImgUrl}
+                               value = {this.state.profileImgUrl}
                                onInput={e => this.setState({profileImgUrl: e.target.value})}/>
                     </div>
 
