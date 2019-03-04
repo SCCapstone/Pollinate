@@ -12,6 +12,7 @@ router.get('/', users.getAll);
 
 //me
 router.get('/me', users.me);
+router.put('/me', users.updateMe);
 
 //getById
 router.get('/:id', users.getById);

@@ -40,7 +40,25 @@ exports.me = function(req, res) {
     return res.status(403).end();
   }
 
-  return res.status(200).send(user);
+  db.query("SELECT COUNT(*) as dealsPosted from posts WHERE author=?", user.id, function (err, result, fields) {
+    if (err || result.length === 0) return res.status(200).send(user);
+
+    user.dealsPosted = result[0].dealsPosted;
+    return res.status(200).send(user);
+  });
+};
+
+exports.updateMe = function (req, res) {
+  const user = req.session.user;
+  if (!user)
+    return res.status(403).end();
+
+  db.query("UPDATE users SET ? WHERE id = ?", [req.body, user.id], function (err, result, fields) {
+    if (err) return res.status(500).end();
+
+    req.session.user = {...req.session.user, ...req.body};
+    return res.status(200).end();
+  });
 };
 
 

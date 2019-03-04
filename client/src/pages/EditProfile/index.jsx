@@ -6,12 +6,7 @@ class EditProfile extends Component {
     //Creating a state for our react class
     constructor(props) {
         super(props);
-        this.state = {
-            person: '',
-            error: {
-                message: ''
-            }
-        }
+        this.state = {}
     }
 
     componentDidMount() {
@@ -24,18 +19,10 @@ class EditProfile extends Component {
         const body = {name: this.state.name, location: this.state.location, biography: this.state.biography,
             profileImgUrl: this.state.profileImgUrl};
         fetch("/api/users/me", {credentials: "same-origin", method: 'put', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)})
-            .then(
-                (result) => {
-                    console.log(result);
-                    if (result.status === 201)
-                        this.props.history.push("/login");
-                },
-                (error) => {
-                    this.setState({
-                        error
-                    });
-                }
-            )
+            .then((result) => {
+                    if (result.ok)
+                        this.props.history.push("/");
+                })
     }
 
     render() {
@@ -75,7 +62,6 @@ class EditProfile extends Component {
                         <input className="form-control btn btn-primary" type="submit" value="Submit"/>
                     </div>
                 </form>
-                <div>{this.state.error.message}</div>
             </div>
         )
     }
