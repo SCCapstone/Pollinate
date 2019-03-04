@@ -19,7 +19,7 @@ class Category extends Component {
   fetchData(category) {
     fetch("/api/category/" + category, {credentials: "same-origin"})
         .then(res => res.json())
-        .then(posts => this.setState({posts}));
+        .then(posts => this.setState({posts: posts.reverse()}));
   }
 
   render() {

@@ -2,6 +2,8 @@
   "name": "pollinate",
   "version": "1.0.0",
   "dependencies": {
+    "fuse.js": "^3.4.2",
+    "query-string": "^5.1.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router": "^4.1.1",
@@ -15,7 +17,7 @@
     "eject": "react-scripts eject",
     "test:behavioral": "cypress open"
   },
-  "proxy": "http://localhost:8080",
+  "proxy": "http://localhost:8000",
   "devDependencies": {
     "cross-env": "^5.2.0",
     "cypress": "^3.1.5",

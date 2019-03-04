@@ -25,13 +25,14 @@ app.use('/static', express.static(path.join(__dirname, './public')));
 app.use('/api/users', require('./routes/users'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/posts', require('./routes/posts'));
+app.use('/api/likes', require('./routes/likes'));
 app.use('/api/category', require('./routes/category'));
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8000;
 app.listen(port, function () {
     console.log("Express server listening on port " + port);
 });

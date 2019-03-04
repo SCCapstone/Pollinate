@@ -2,6 +2,10 @@ body {
   background-color: #eaeded;
 }
 
+h6 {
+  font-size: 1.1rem;
+}
+
 .app {
   padding: 20px 40px;
   height: 100%;
@@ -21,6 +25,12 @@ body {
 .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
   background-color: #306e42;
   border-color: #2f693e;
+}
+
+.btn-primary:disabled {
+  background-color: #306e42;
+  border-color: #2f693e;
+  opacity: 1;
 }
 
 .btn.btn-link {

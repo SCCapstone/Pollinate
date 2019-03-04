@@ -1,4 +1,4 @@
-describe('My First Test', function () {
+describe('Header Links', function () {
   it('Clicks login button to navigate to login page', function () {
     cy.viewport(1280, 720);
     cy.visit("/");

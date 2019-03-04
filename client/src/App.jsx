@@ -14,8 +14,9 @@ import Post from './pages/Post'
 import Signup from './pages/Signup'
 import NewPost from "./pages/NewPost";
 import EditProfile from "./pages/EditProfile";
-
+import Search from "./pages/Search";
 import './App.css';
+
 
 class App extends Component {
   render() {
@@ -36,6 +37,9 @@ class App extends Component {
                 <Route path="/profile" component={Profile}/>
                 <Route path="/about" component={About}/>
                 <Route path="/editprofile" component={EditProfile}/>
+                <Route path="/search" render={(props) => (
+                    <Search key={props.location.search} {...props} />
+                )}/>
               </Switch>
             </div>
           </div>
