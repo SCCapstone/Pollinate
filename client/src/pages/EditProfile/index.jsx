@@ -21,8 +21,8 @@ class EditProfile extends Component {
     //editprofile helper method
     editprofile(e) {
         e.preventDefault();
-        const body = {email: this.state.email, password: this.state.password, name: this.state.name,
-            location: this.state.location, biography: this.state.biography, profileImgUrl: this.state.profileImgUrl};
+        const body = {name: this.state.name, location: this.state.location, biography: this.state.biography,
+            profileImgUrl: this.state.profileImgUrl};
         fetch("/api/users/me", {credentials: "same-origin", method: 'put', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)})
             .then(
                 (result) => {
