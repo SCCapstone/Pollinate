@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './style.css';
 import VoteCounter from "../../components/VoteCounter";
 import auth from '../../utils/auth.js';
+import Sidebar from "../../components/Sidebar";
 
 class Product extends Component {
   constructor(props) {
@@ -13,8 +14,17 @@ class Product extends Component {
     const {id} = this.props.match.params;
     fetch(`/api/posts/${id}`, {credentials: "same-origin"})
         .then(res => res.json())
-        .then(item => this.setState(item));
+        .then(item => this.setState(item))
+        .then(() => this.getPopularPosts(5));
     auth.getUser().then(user => this.setState({user}));
+  }
+
+  getPopularPosts(amount) {
+    fetch("/api/posts", {credentials: "same-origin"})
+        .then(res => res.json())
+        .then(posts => this.setState({
+          popularPosts: posts.filter(post => post.id !== this.state.id).sort((a, b) => b['total_likes'] - a['total_likes']).slice(0, amount),
+        }))
   }
 
   getImageUrl() {
@@ -48,30 +58,37 @@ class Product extends Component {
     let userId = this.state.user ? this.state.user.id : undefined;
     return (
         <div>
-          <div id="item" className="col-s-12 col-lg-8 mb-2">
-            <div className="product">
-              <div className="flex">
-                <div className="details">
-                  <h2 className="Name">{this.state.title}</h2>
-                  <h3 className="price">${this.state.price}</h3>
-                  {this.state.id && <VoteCounter postId={this.state.id} userId={userId}/>}
-                </div>
-                <div id="productPhoto" className="flex justify-content-end">
-                  <img src={this.getImageUrl()} alt="" height="100"/>
+          <div className="row mt-4">
+            <div className="col-s-12 col-lg-8 mb-4">
+              <div id="item">
+                <div className="product">
+                  <div className="flex">
+                    <div className="details">
+                      <h2 className="Name">{this.state.title}</h2>
+                      <h3 className="price">${this.state.price}</h3>
+                      {this.state.id && <VoteCounter postId={this.state.id} userId={userId}/>}
+                    </div>
+                    <div id="productPhoto" className="flex justify-content-end">
+                      <img src={this.getImageUrl()} alt="" height="100"/>
+                    </div>
+                  </div>
+                  <div className="divider"/>
+                  <div id="bottom">
+                    <h4>Description</h4>
+                    <p className="description">{this.state.description}</p>
+                    <div className="divider mb-3"/>
+                    {this.state.link &&
+                    <a className="btn btn-primary mr-3" rel="noopener noreferrer" target="_blank" href={this.getLink()}>See
+                      Deal</a>}
+                    {this.state.user && userId === this.state.author &&
+                    <button id="deletePostBtn" type="button" className="btn btn-danger"
+                            onClick={() => this.deletePost()}>Delete</button>}
+                  </div>
                 </div>
               </div>
-              <div className="divider"/>
-              <div id="bottom">
-                <h4>Description</h4>
-                <p className="description">{this.state.description}</p>
-                <div className="divider mb-3"/>
-                {this.state.link &&
-                <a className="btn btn-primary mr-3" rel="noopener noreferrer" target="_blank" href={this.getLink()}>See
-                  Deal</a>}
-                {this.state.user && userId === this.state.author &&
-                <button id="deletePostBtn" type="button" className="btn btn-danger"
-                        onClick={() => this.deletePost()}>Delete</button>}
-              </div>
+            </div>
+            <div className='col-s-12 col-lg-4'>
+              <Sidebar title='Popular Posts' posts={this.state.popularPosts} borderColor='dodgerblue'/>
             </div>
           </div>
         </div>

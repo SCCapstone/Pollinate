@@ -22,9 +22,8 @@
 }
 
 #user-profile hr {
-  margin: 20px auto;
-  width: 50px;
-  border: 1px solid green;
+  width: 300px;
+  border: 1px solid rgba(16, 85, 22, 0.73);
   background-color: transparent;
 }
 

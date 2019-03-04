@@ -1,0 +1,32 @@
+.sidebar {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  font-family: verdana, serif;
+  border: 1px solid #cbcbcb;
+  border-top: 3px solid;
+  border-radius: 3px;
+  padding: 20px 20px 5px 20px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 6px 0 rgba(0, 0, 0, 0.09);
+}
+
+.sidebar .link {
+  color: #5d5d5d;
+  font-size: 16px;
+}
+
+.link-img {
+  padding: 6px;
+  border: solid 1px #e8e8e8;
+  border-radius: 3px;
+}
+
+.sidebar-post {
+  padding-bottom: 15px;
+  border-bottom: solid 1px #d4d4d4;
+}
+
+.sidebar-post:last-of-type {
+  padding: 0;
+  border: none;
+}

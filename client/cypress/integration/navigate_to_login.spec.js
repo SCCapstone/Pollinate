@@ -1,4 +1,8 @@
 describe('Header Links', function () {
+  before(function () {
+    cy.clearCookies();
+  });
+
   it('Clicks login button to navigate to login page', function () {
     cy.viewport(1280, 720);
     cy.visit("/");

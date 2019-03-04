@@ -48,12 +48,12 @@ class NewPost extends Component {
               <div className="center">
                 <h2 id="title">Create New Post</h2>
                 <form id="NewPostForm" onSubmit={e => this.createNewPost(e)}>
-                  <label htmlFor="title">Title</label>
+                  <label htmlFor="title">Title *</label>
                   <div className="input-group mb-1">
                     <input className="form-control" type="text" name="title" required
                            onInput={e => this.setState({title: e.target.value})}/>
                   </div>
-                  <label htmlFor="price">Price</label>
+                  <label htmlFor="price">Price *</label>
                   <div className="input-group mb-1">
                     <div className="input-group-prepend">
                       <span className="input-group-text">$</span>
@@ -66,7 +66,7 @@ class NewPost extends Component {
                     <input className="form-control" type="text" name="imageUrl"
                            onInput={e => this.setState({imageUrl: e.target.value})}/>
                   </div>
-                  <label htmlFor="link">Link</label>
+                  <label htmlFor="link">Link *</label>
                   <div className="input-group mb-1">
                     <input className="form-control" type="text" name="link" required
                            onInput={e => this.setState({link: e.target.value})}/>
@@ -76,8 +76,8 @@ class NewPost extends Component {
                     <textarea className="form-control" rows="4" maxLength="1000" name="description"
                               onInput={e => this.setState({description: e.target.value})}/>
                   </div>
-                  <label htmlFor="category">Category</label>
-                  <div className="input-group mb-4">
+                  <label htmlFor="category">Category *</label>
+                  <div className="input-group mb-1">
                     <select className="form-control" name="category" required
                             onInput={e => this.setState({category: e.target.value})}>
                       <option disabled selected value="" style={{display: "none"}}> -- select an option -- </option>
@@ -87,7 +87,12 @@ class NewPost extends Component {
                       <option value="other">Other</option>
                     </select>
                   </div>
-                  <div className="input-group">
+                  <label htmlFor="expires">Expires</label>
+                  <div className="input-group mb-1">
+                    <input className="form-control" type="date" name="expires" min={new Date().toISOString().split("T")[0]}
+                           onInput={e => this.setState({expires: e.target.value})}/>
+                  </div>
+                  <div className="input-group mt-4">
                     <input className="form-control btn btn-primary" type="submit" value="Submit"/>
                   </div>
                 </form>

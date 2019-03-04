@@ -4,7 +4,8 @@ const db = require('../../utils/database'),
 exports.create = function (req, res) {
     let values = {title: req.body.title, price: helper.round(req.body.price, 2),
       imageUrl: req.body.imageUrl, link: req.body.link, description: req.body.description,
-      category: req.body.category, "created_at": new Date(), author: req.session.user.id};
+      category: req.body.category, "created_at": new Date(), author: req.session.user.id,
+      expires_at: req.body.expires};
     values = helper.prepareValuesForDatabase(values);
     db.query("INSERT INTO posts SET ?", values, function (err,result, fields) {
         if (err) res.status(500).end();
@@ -57,6 +58,8 @@ exports.getPost = function (req, res) {
         if (result.length > 0)
           result = result[0];
 
+        if (result.expires_at)
+          console.log("Post Expires at: " + new Date(Date.parse(result.expires_at)));
         res.status(200).send(result);
     }); //selects by productID
 };
