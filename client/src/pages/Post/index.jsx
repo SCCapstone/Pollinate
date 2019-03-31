@@ -54,6 +54,11 @@ class Product extends Component {
     }
   }
 
+  isEditable () {
+    const created_at = new Date(this.state.created_at);
+    return created_at.getTime() + 15 * 60000 < (new Date()).getTime();
+  }
+
   render() {
     let userId = this.state.user ? this.state.user.id : undefined;
     return (
@@ -83,6 +88,9 @@ class Product extends Component {
                     {this.state.user && userId === this.state.author &&
                     <button id="deletePostBtn" type="button" className="btn btn-danger"
                             onClick={() => this.deletePost()}>Delete</button>}
+
+                      {this.state.id && this.isEditable() && <button id="editDealBtn" className="btn btn-primary" onClick={() => this.props.history.push(`/editdeal/${this.state.id}`)}>Edit deal
+                      </button>}
                   </div>
                 </div>
               </div>
