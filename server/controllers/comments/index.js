@@ -24,7 +24,7 @@ exports.create = function (req, res) {
 
 exports.getComments = function (req, res) {
     const postId = req.params.id;
-    db.query("SELECT * FROM comments_from_post WHERE postId = ?", [postId], function (err, result, fields) {
+    db.query("SELECT * FROM comments_for_post WHERE postId = ?", [postId], function (err, result, fields) {
         if (err) return res.status(500).end();
 
         return res.status(200).send(result);
