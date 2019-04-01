@@ -3,21 +3,28 @@ import './style.css';
 import VoteCounter from "../../components/VoteCounter";
 import auth from '../../utils/auth.js';
 import Sidebar from "../../components/Sidebar";
-
+import Comments from "../../components/Comments";
 class Product extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
 
-  componentDidMount() {
-    const {id} = this.props.match.params;
-    fetch(`/api/posts/${id}`, {credentials: "same-origin"})
+    componentDidMount() {
+        const {id} = this.props.match.params;
+        fetch(`/api/posts/${id}`, {credentials: "same-origin"})
+            .then(res => res.json())
+            .then(item => this.setState(item))
+            .then(() => this.getPopularPosts(5))
+        auth.getUser().then(user => this.setState({user}));
+        this.getComments(id);
+}
+    getComments(id){
+        fetch(`/api/comments/${id}`, {credentials: "same-origin"})
         .then(res => res.json())
-        .then(item => this.setState(item))
-        .then(() => this.getPopularPosts(5));
-    auth.getUser().then(user => this.setState({user}));
-  }
+            .then(comments => this.setState({comments}))
+}
+
 
   getPopularPosts(amount) {
     fetch("/api/posts", {credentials: "same-origin"})
@@ -86,6 +93,7 @@ class Product extends Component {
                   </div>
                 </div>
               </div>
+                {this.state.comments && <Comments comments={this.state.comments}/>}
             </div>
             <div className='col-s-12 col-lg-4'>
               <Sidebar title='Popular Posts' posts={this.state.popularPosts} borderColor='dodgerblue'/>
