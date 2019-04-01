@@ -56,7 +56,8 @@ class Product extends Component {
 
   isEditable () {
     const created_at = new Date(this.state.created_at);
-    return created_at.getTime() + 15 * 60000 < (new Date()).getTime();
+    const after15 = created_at.getTime() + 15 * 60000;
+    return (new Date()).getTime() < after15;
   }
 
   render() {

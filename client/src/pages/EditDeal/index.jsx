@@ -31,7 +31,7 @@ class EditDeal extends Component {
     editDeal(e) {
         e.preventDefault();
         const body = this.parseToBody();
-        fetch("/api/posts", {credentials: "same-origin", method: 'put', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)})
+        fetch(`/api/posts/${this.state.id}`, {credentials: "same-origin", method: 'put', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)})
             .then(res => {
                     console.log(res);
                     if (res.status === 200)
