@@ -54,10 +54,10 @@ class Product extends Component {
     }
   }
 
-  isEditable () {
+  isEditable() {
     const created_at = new Date(this.state.created_at);
-    const after15 = created_at.getTime() + 15 * 60000;
-    return (new Date()).getTime() < after15;
+    return this.state.user && this.state.user.id === this.state.author
+        && (new Date()).getTime() < (created_at.getTime() + 15 * 60000);
   }
 
   render() {
@@ -89,9 +89,9 @@ class Product extends Component {
                     {this.state.user && userId === this.state.author &&
                     <button id="deletePostBtn" type="button" className="btn btn-danger"
                             onClick={() => this.deletePost()}>Delete</button>}
-
-                      {this.state.id && this.isEditable() && <button id="editDealBtn" className="btn btn-primary" onClick={() => this.props.history.push(`/editdeal/${this.state.id}`)}>Edit deal
-                      </button>}
+                    {this.state.id && this.isEditable() &&
+                    <button id="editDealBtn" className="btn btn-primary"
+                            onClick={() => this.props.history.push(`/editdeal/${this.state.id}`)}>Edit deal</button>}
                   </div>
                 </div>
               </div>
