@@ -10,6 +10,16 @@ class VoteCounter extends Component {
   }
 
   componentDidMount() {
+    this.hasUserLikedPost();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.userId !== prevProps.userId) {
+      this.hasUserLikedPost();
+    }
+  }
+
+  hasUserLikedPost() {
     fetch(`/api/likes/${this.props.postId}`, {credentials: "same-origin"})
         .then(res => res.json())
         .then(votes => {
