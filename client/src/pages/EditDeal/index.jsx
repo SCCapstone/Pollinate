@@ -10,11 +10,15 @@ class EditDeal extends Component {
     }
 
     componentDidMount() {
-        posts.getPost().then(post => this.setState(post));
+        const {id} = this.props.match.params;
+        fetch(`/api/posts/${id}`, {credentials: "same-origin"})
+            .then(res => res.json())
+            .then(item => this.setState(item));
     }
 
     parseToBody() {
-        const body = {};
+        const body = {title: this.state.title, price: this.state.price, imageUrl: this.state.imageUrl, link: this.state.link,
+            description: this.state.description, category: this.state.category, expires: this.state.expires};
         for (let key in this.state) {
             const value = this.state[key];
             if (value)
@@ -27,11 +31,11 @@ class EditDeal extends Component {
     editDeal(e) {
         e.preventDefault();
         const body = this.parseToBody();
-        fetch("/api/posts", {credentials: "same-origin", method: 'post', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)})
+        fetch("/api/posts", {credentials: "same-origin", method: 'put', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)})
             .then(res => {
                     console.log(res);
-                    if (res.status === 201)
-                        this.props.history.push("/");
+                    if (res.status === 200)
+                        this.props.history.push(`/post/${this.state.id}`);
                 }
             )
             .catch(err => console.error(err));
@@ -55,6 +59,7 @@ class EditDeal extends Component {
                         <label htmlFor="title">Title *</label>
                         <div className="input-group mb-1">
                             <input className="form-control" type="text" name="title" required
+                                   value = {this.state.title}
                                    onInput={e => this.setState({title: e.target.value})}/>
                         </div>
                         <label htmlFor="price">Price *</label>
@@ -63,26 +68,31 @@ class EditDeal extends Component {
                                 <span className="input-group-text">$</span>
                             </div>
                             <input className="form-control" type="text" name="price" required
+                                   value = {this.state.price}
                                    onInput={e => this.isPriceValid(e)}/>
                         </div>
                         <label htmlFor="imageUrl">Image Url</label>
                         <div className="input-group mb-1">
                             <input className="form-control" type="text" name="imageUrl"
+                                   value = {this.state.imageUrl}
                                    onInput={e => this.setState({imageUrl: e.target.value})}/>
                         </div>
                         <label htmlFor="link">Link *</label>
                         <div className="input-group mb-1">
                             <input className="form-control" type="text" name="link" required
+                                   value = {this.state.link}
                                    onInput={e => this.setState({link: e.target.value})}/>
                         </div>
                         <label htmlFor="description">Description</label>
                         <div className="input-group mb-1">
                     <textarea className="form-control" rows="4" maxLength="1000" name="description"
+                              value = {this.state.description}
                               onInput={e => this.setState({description: e.target.value})}/>
                         </div>
                         <label htmlFor="category">Category *</label>
                         <div className="input-group mb-1">
                             <select className="form-control" name="category" required
+                                    value = {this.state.category}
                                     onInput={e => this.setState({category: e.target.value})}>
                                 <option disabled selected value="" style={{display: "none"}}> -- select an option -- </option>
                                 <option value="technology">Technology</option>
@@ -94,6 +104,7 @@ class EditDeal extends Component {
                         <label htmlFor="expires">Expires</label>
                         <div className="input-group mb-1">
                             <input className="form-control" type="date" name="expires" min={new Date().toISOString().split("T")[0]}
+                                   value = {this.state.expires}
                                    onInput={e => this.setState({expires: e.target.value})}/>
                         </div>
                         <div className="input-group mt-4">
