@@ -86,12 +86,12 @@ class Product extends Component {
                     {this.state.link &&
                     <a className="btn btn-primary mr-3" rel="noopener noreferrer" target="_blank" href={this.getLink()}>See
                       Deal</a>}
-                    {this.state.user && userId === this.state.author &&
-                    <button id="deletePostBtn" type="button" className="btn btn-danger mr-3"
-                            onClick={() => this.deletePost()}>Delete</button>}
                     {this.state.id && this.isEditable() &&
                     <button id="editDealBtn" className="btn btn-primary"
                             onClick={() => this.props.history.push(`/editdeal/${this.state.id}`)}>Edit deal</button>}
+                    {this.state.user && userId === this.state.author &&
+                    <button id="deletePostBtn" type="button" className="btn btn-danger mr-3"
+                            onClick={() => this.deletePost()}>Delete</button>}
                   </div>
                 </div>
               </div>
