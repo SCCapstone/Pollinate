@@ -8,11 +8,17 @@ class Comments extends Component {
         this.state = {};
     }
 
+    //grabbing the comments
     render() {
         let comments = this.props.comments || [];
         comments = comments.map(comment => {
             return (<div className='comment'>
-                    <p>{comment.text}</p>
+                    <p>At {comment.created_at},{comment.author_name} commented: {comment.text}</p>
+                    <label htmlFor="description"></label>
+                    <div className="input-group mb-1">
+                        <input id="commentSearch" type="text" className="form-control" placeholder="Comment..."
+                               onInput={e => this.setState({search: e.target.value})}/>
+                    </div>
                 </div>
             )
         });

@@ -7,7 +7,7 @@ exports.create = function (req, res) {
     {
         return res.status(422).send("Comment is too long; Must be <= 1000 characters");
     }
-    let values = {userId: req.session.user.id, postId: req.body.postId, text:req.body.text};
+    let values = {userId: req.session.user.id, postId: req.body.postId, text:req.body.text, author_name: req.body.author_name};
     if (req.body.quotedCommentId)
     {
         values.quotedCommentId = req.body.quotedCommentId;
