@@ -63,6 +63,8 @@ class Product extends Component {
 
   makeAComment() {
       if (window.confirm("Are you sure you want post this comment?")) {
+          /*
+          ---------- Michael: Need Your Help Here ----------
 
           fetch(`/api/posts/${this.state.id}`, {
               credentials: "same-origin",
@@ -74,7 +76,8 @@ class Product extends Component {
                       this.props.history.push("/");
                   }
               })
-      }
+          */
+        }
 
     }
 
