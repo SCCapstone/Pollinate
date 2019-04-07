@@ -116,8 +116,13 @@ class Product extends Component {
                         </div>
                     </div>
                     {this.state.comments && <Comments comments={this.state.comments}/>}
+                    <label htmlFor="description"></label>
+                    <div className="input-group mb-1">
+                        <input id="commentSearch" type="text" className="form-control" placeholder="Comment..."
+                               onInput={e => this.setState({search: e.target.value})}/>
+                    </div>
                     <button id="deletePostBtn" type="button" className="btn btn-dark"
-                            onClick={() => this.makeAComment()}>Submit
+                            onClick={() => this.makeAComment()}>Post Comment
                     </button>
                 </div>
                 <div className='col-s-12 col-lg-4'>
