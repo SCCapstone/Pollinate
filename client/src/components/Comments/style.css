@@ -1,0 +1,42 @@
+#commentsHeader {
+  padding: 20px;
+}
+
+.commentList {
+  background-color: white;
+  font-family: verdana, serif;
+  border: 1px solid #cbcbcb;
+  border-top: 3px solid firebrick;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 6px 0 rgba(0, 0, 0, 0.09);
+}
+
+.bottomBorder {
+  border-bottom: 1px solid rgba(51, 51, 51, 0.33);
+}
+
+
+.comment {
+  font-family: verdana, serif;
+  border-top: 1px solid rgba(51, 51, 51, 0.33);
+  /*border-bottom: 1px solid rgba(51, 51, 51, 0.33);*/
+  padding: 20px 20px;
+}
+
+#commentArea {
+  margin: 20px 20px 0 20px;
+}
+
+#postCommentBtn {
+  margin: 20px;
+}
+
+.commentHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.commentHeaderText {
+  font-size: 14px;
+  font-weight: bold;
+}

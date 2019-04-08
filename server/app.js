@@ -27,6 +27,7 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/posts', require('./routes/posts'));
 app.use('/api/likes', require('./routes/likes'));
 app.use('/api/category', require('./routes/category'));
+app.use('/api/comments', require('./routes/comments'));
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
