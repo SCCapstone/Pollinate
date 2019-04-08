@@ -9,14 +9,24 @@ class VoteCounter extends Component {
     };
   }
 
-    componentDidMount() {
-        fetch(`/api/likes/${this.props.postId}`, {credentials: "same-origin"})
-            .then(res => res.json())
-            .then(votes => {
-                // Filters out votes that weren't made by the logged in user, then checks if that array's length is !== 0
-                const userVoted = votes.filter(vote => vote.userId === this.props.userId).length !== 0;
-                this.setState({userVoted, clicked: userVoted, counter: votes.length});
-            });
+  componentDidMount() {
+    this.hasUserLikedPost();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.userId !== prevProps.userId) {
+      this.hasUserLikedPost();
+    }
+  }
+
+  hasUserLikedPost() {
+    fetch(`/api/likes/${this.props.postId}`, {credentials: "same-origin"})
+        .then(res => res.json())
+        .then(votes => {
+          // Filters out votes that weren't made by the logged in user, then checks if that array's length is !== 0
+          const userVoted = votes.filter(vote => vote.userId === this.props.userId).length !== 0;
+          this.setState({userVoted, clicked: userVoted, counter: votes.length});
+        });
   }
 
   like() {

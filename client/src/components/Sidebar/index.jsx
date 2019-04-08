@@ -13,7 +13,7 @@ class Sidebar extends Component {
     let posts = this.props.posts || [];
     posts = posts.map(post => {
       return (
-          <div className='mb-3 sidebar-post'>
+          <div className='mb-3 sidebar-post' key={post.id}>
             <a className='link' href={`/post/${post.id}`}>
               <img src={post.imageUrl} width='60px' className='link-img mr-2' alt='icon'/>
               <span>{post.title}</span>
@@ -24,7 +24,7 @@ class Sidebar extends Component {
 
 
     return (
-        <div className='sidebar' style={{'border-top-color': this.props.borderColor}}>
+        <div className='sidebar' style={{'borderTopColor': this.props.borderColor}}>
           <h4 className='mb-3'>{this.props.title}</h4>
           {posts}
         </div>
