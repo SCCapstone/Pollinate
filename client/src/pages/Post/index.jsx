@@ -15,7 +15,7 @@ class Product extends Component {
         fetch(`/api/posts/${id}`, {credentials: "same-origin"})
             .then(res => res.json())
             .then(item => this.setState(item))
-            .then(() => this.getPopularPosts(5))
+            .then(() => this.getPopularPosts(5));
         auth.getUser().then(user => this.setState({user}));
         this.getComments(id);
 }
@@ -23,7 +23,7 @@ class Product extends Component {
         fetch(`/api/comments/${id}`, {credentials: "same-origin"})
         .then(res => res.json())
             .then(comments => this.setState({comments}))
-}
+    }
 
 
   getPopularPosts(amount) {
@@ -61,28 +61,7 @@ class Product extends Component {
     }
   }
 
-  makeAComment() {
-      if (window.confirm("Are you sure you want post this comment?")) {
-          /*
-          ---------- Michael: Need Your Help Here ----------
-
-          fetch(`/api/posts/${this.state.id}`, {
-              credentials: "same-origin",
-              method: 'comment',
-              headers: {'Content-Type': 'application/json'}
-          })
-              .then(res => {
-                  if (res.ok) {
-                      this.props.history.push("/");
-                  }
-              })
-          */
-        }
-
-    }
-
-  render()
-{
+  render() {
     let userId = this.state.user ? this.state.user.id : undefined;
     return (
         <div>
@@ -115,15 +94,8 @@ class Product extends Component {
                             </div>
                         </div>
                     </div>
-                    {this.state.comments && <Comments comments={this.state.comments}/>}
-                    <label htmlFor="description"></label>
-                    <div className="input-group mb-1">
-                        <input id="commentSearch" type="text" className="form-control" placeholder="Comment..."
-                               onInput={e => this.setState({search: e.target.value})}/>
-                    </div>
-                    <button id="deletePostBtn" type="button" className="btn btn-dark"
-                            onClick={() => this.makeAComment()}>Post Comment
-                    </button>
+                    {this.state.comments &&
+                    <Comments comments={this.state.comments} postId={this.props.match.params.id} user={this.state.user}/>}
                 </div>
                 <div className='col-s-12 col-lg-4'>
                     <Sidebar title='Popular Posts' posts={this.state.popularPosts} borderColor='dodgerblue'/>

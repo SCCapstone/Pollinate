@@ -5,9 +5,9 @@ exports.create = function (req, res) {
         return res.status(403).end();
     if (req.body.text.length > 1000)
     {
-        return res.status(422).send("Comment is too long; Must be <= 1000 characters");
+        return res.status(422).send("Comment is too long: Must be <= 1000 characters");
     }
-    let values = {userId: req.session.user.id, postId: req.body.postId, text:req.body.text, author_name: req.body.author_name};
+    let values = {authorId: req.session.user.id, postId: req.body.postId, text: req.body.text};
     if (req.body.quotedCommentId)
     {
         values.quotedCommentId = req.body.quotedCommentId;
@@ -27,6 +27,7 @@ exports.getComments = function (req, res) {
     db.query("SELECT * FROM comments_for_post WHERE postId = ?", [postId], function (err, result, fields) {
         if (err) return res.status(500).end();
 
-        return res.status(200).send(result);
+      console.log(result);
+      return res.status(200).send(result);
     });
 };
