@@ -75,6 +75,7 @@ class Product extends Component {
             <div className="col-s-12 col-lg-8 mb-4">
               <div id="item">
                 <div className="product">
+                  <img className='d-sm-none mb-3' src={this.getImageUrl()} alt="" height="100"/>
                   <div className="flex">
                     <div className="details">
                       <h2 className="Name">{this.state.title}</h2>
@@ -82,7 +83,7 @@ class Product extends Component {
                       {this.state.id && <VoteCounter postId={this.state.id} userId={userId}/>}
                     </div>
                     <div id="productPhoto" className="flex justify-content-end">
-                      <img src={this.getImageUrl()} alt="" height="100"/>
+                      <img src={this.getImageUrl()} alt="" height="100" className='d-none d-sm-block'/>
                     </div>
                   </div>
                   <div className="divider"/>
@@ -91,13 +92,13 @@ class Product extends Component {
                     <p className="description">{this.state.description}</p>
                     <div className="divider mb-3"/>
                     {this.state.link &&
-                    <a className="btn btn-primary mr-3" rel="noopener noreferrer" target="_blank" href={this.getLink()}>See
+                    <a className="btn btn-primary mr-3 mb-2" rel="noopener noreferrer" target="_blank" href={this.getLink()}>See
                       Deal</a>}
                     {this.state.id && this.isEditable() &&
-                    <button id="editDealBtn" className="btn btn-primary mr-3"
+                    <button id="editDealBtn" className="btn btn-primary mr-3 mb-2"
                             onClick={() => this.props.history.push(`/editdeal/${this.state.id}`)}>Edit deal</button>}
                     {this.state.user && userId === this.state.author &&
-                    <button id="deletePostBtn" type="button" className="btn btn-danger"
+                    <button id="deletePostBtn" type="button" className="btn btn-danger mb-2"
                             onClick={() => this.deletePost()}>Delete</button>}
                   </div>
                 </div>

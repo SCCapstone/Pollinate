@@ -18,7 +18,7 @@ class EditDeal extends Component {
 
     parseToBody() {
         const body = {title: this.state.title, price: this.state.price, imageUrl: this.state.imageUrl, link: this.state.link,
-            description: this.state.description, category: this.state.category, expires: this.state.expires};
+            description: this.state.description, category: this.state.category, expires_at: this.state.expires_at};
         for (let key in this.state) {
             const value = this.state[key];
             if (value)
@@ -101,11 +101,11 @@ class EditDeal extends Component {
                                 <option value="other">Other</option>
                             </select>
                         </div>
-                        <label htmlFor="expires">Expires</label>
+                        <label htmlFor="expires_at">Expires</label>
                         <div className="input-group mb-1">
-                            <input className="form-control" type="date" name="expires" min={new Date().toISOString().split("T")[0]}
-                                   value = {this.state.expires}
-                                   onInput={e => this.setState({expires: e.target.value})}/>
+                            <input className="form-control" type="date" name="expires_at" min={new Date().toISOString().split("T")[0]}
+                                   value={this.state.expires_at}
+                                   onInput={e => this.setState({expires_at: e.target.value})}/>
                         </div>
                         <div className="input-group mt-4">
                             <input className="form-control btn btn-primary" type="submit" value="Submit"/>
