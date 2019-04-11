@@ -26,7 +26,7 @@ class Comments extends Component {
   }
 
   formattedDate(date) {
-    const d = new Date(date + ' UTC');
+    const d = new Date(date + 'Z');
     return d.toLocaleString();
   }
 
