@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import moment from 'moment';
+
 import './style.css';
 
 
@@ -25,9 +27,8 @@ class Comments extends Component {
         })
   }
 
-  formattedDate(date) {
-    const d = new Date(date + 'Z');
-    return d.toLocaleString();
+  static formattedDate(date) {
+    return moment.utc(date).local().format('l, LT');
   }
 
   replyClicked(author) {
@@ -42,7 +43,7 @@ class Comments extends Component {
           <div className='comment' key={comment.id}>
             <div className='commentHeader mb-1'>
               <span className='commentHeaderText'>{comment.author_name}</span>
-              <span className='commentHeaderText'>{this.formattedDate(comment.created_at)}</span>
+              <span className='commentHeaderText'>{Comments.formattedDate(comment.created_at)}</span>
             </div>
             <p className='m-0'>{comment.text}</p>
             {this.props.user && <a href="#commentArea" onClick={() => this.replyClicked(comment.author_name)}>reply</a>}
