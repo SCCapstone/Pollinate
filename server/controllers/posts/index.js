@@ -39,7 +39,7 @@ exports.updatePost = function (req, res){
   let productId = req.params.id;
   let values = {title: req.body.title, price: helper.round(req.body.price, 2),
     imageUrl: req.body.imageUrl, link: req.body.link, description: req.body.description,
-    category: req.body.category};
+    category: req.body.category, expires_at: req.body.expires_at};
   values = helper.prepareValuesForDatabase(values);
     db.query("UPDATE posts SET ? WHERE id = ?", [values, productId], function (err,result, fields) {
         if (err) res.status(500).end();
@@ -58,8 +58,6 @@ exports.getPost = function (req, res) {
         if (result.length > 0)
           result = result[0];
 
-        if (result.expires_at)
-          console.log("Post Expires at: " + new Date(Date.parse(result.expires_at)));
         res.status(200).send(result);
     }); //selects by productID
 };

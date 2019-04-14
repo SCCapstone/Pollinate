@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import moment from 'moment';
 import PostsContainer from '../../components/PostsContainer/index';
 
 import './style.css';
@@ -16,6 +17,7 @@ class Home extends Component {
   componentDidMount() {
     fetch("/api/posts", {credentials: "same-origin"})
         .then(res => res.json())
+        .then(posts => posts.filter(post => !post.expires_at || moment().isBefore(moment(post.expires_at))))
         .then(posts => this.setState({
           posts: posts.slice(0).reverse(),
           popularPosts: posts.slice(0).sort((a, b) => b['total_likes'] - a['total_likes']).slice(0, 4),

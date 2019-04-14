@@ -3,6 +3,7 @@ import PostsContainer from '../../components/PostsContainer/index';
 import Fuse from 'fuse.js';
 import queryString from 'query-string';
 import './style.css';
+import moment from "moment";
 
 
 class Search extends Component {
@@ -17,6 +18,7 @@ class Search extends Component {
   componentDidMount() {
       fetch("/api/posts", {credentials: "same-origin"})
         .then(res => res.json())
+        .then(posts => posts.filter(post => !post.expires_at || moment().isBefore(moment(post.expires_at))))
         .then(posts => this.keywordSearchFilter(posts));
   }
 

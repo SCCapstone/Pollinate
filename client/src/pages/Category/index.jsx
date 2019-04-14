@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './style.css';
 import {capitalize} from "../../utils/helper";
 import PostsContainer from "../../components/PostsContainer";
+import moment from "moment";
 
 
 class Category extends Component {
@@ -19,6 +20,7 @@ class Category extends Component {
   fetchData(category) {
     fetch("/api/category/" + category, {credentials: "same-origin"})
         .then(res => res.json())
+        .then(posts => posts.filter(post => !post.expires_at || moment().isBefore(moment(post.expires_at))))
         .then(posts => this.setState({posts: posts.reverse()}));
   }
 

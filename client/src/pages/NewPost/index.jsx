@@ -87,10 +87,10 @@ class NewPost extends Component {
                       <option value="other">Other</option>
                     </select>
                   </div>
-                  <label htmlFor="expires">Expires</label>
+                  <label htmlFor="expires_at">Expires</label>
                   <div className="input-group mb-1">
-                    <input className="form-control" type="date" name="expires" min={new Date().toISOString().split("T")[0]}
-                           onInput={e => this.setState({expires: e.target.value})}/>
+                    <input className="form-control" type="date" name="expires_at" min={new Date().toISOString().split("T")[0]}
+                           onInput={e => this.setState({expires_at: e.target.value})}/>
                   </div>
                   <div className="input-group mt-4">
                     <input className="form-control btn btn-primary" type="submit" value="Submit"/>

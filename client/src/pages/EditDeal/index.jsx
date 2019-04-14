@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 import './style.css';
 
 
@@ -59,8 +60,8 @@ class EditDeal extends Component {
                         <label htmlFor="title">Title *</label>
                         <div className="input-group mb-1">
                             <input className="form-control" type="text" name="title" required
-                                   value = {this.state.title}
-                                   onInput={e => this.setState({title: e.target.value})}/>
+                                   value = {this.state.title || ''}
+                                   onChange={e => this.setState({title: e.target.value})}/>
                         </div>
                         <label htmlFor="price">Price *</label>
                         <div className="input-group mb-1">
@@ -68,32 +69,32 @@ class EditDeal extends Component {
                                 <span className="input-group-text">$</span>
                             </div>
                             <input className="form-control" type="text" name="price" required
-                                   value = {this.state.price}
-                                   onInput={e => this.isPriceValid(e)}/>
+                                   value = {this.state.price || ''}
+                                   onChange={e => this.isPriceValid(e)}/>
                         </div>
                         <label htmlFor="imageUrl">Image Url</label>
                         <div className="input-group mb-1">
                             <input className="form-control" type="text" name="imageUrl"
-                                   value = {this.state.imageUrl}
-                                   onInput={e => this.setState({imageUrl: e.target.value})}/>
+                                   value = {this.state.imageUrl || ''}
+                                   onChange={e => this.setState({imageUrl: e.target.value})}/>
                         </div>
                         <label htmlFor="link">Link *</label>
                         <div className="input-group mb-1">
                             <input className="form-control" type="text" name="link" required
-                                   value = {this.state.link}
-                                   onInput={e => this.setState({link: e.target.value})}/>
+                                   value = {this.state.link || ''}
+                                   onChange={e => this.setState({link: e.target.value})}/>
                         </div>
                         <label htmlFor="description">Description</label>
                         <div className="input-group mb-1">
                     <textarea className="form-control" rows="4" maxLength="1000" name="description"
-                              value = {this.state.description}
-                              onInput={e => this.setState({description: e.target.value})}/>
+                              value = {this.state.description || ''}
+                              onChange={e => this.setState({description: e.target.value})}/>
                         </div>
                         <label htmlFor="category">Category *</label>
                         <div className="input-group mb-1">
                             <select className="form-control" name="category" required
-                                    value = {this.state.category}
-                                    onInput={e => this.setState({category: e.target.value})}>
+                                    value = {this.state.category || ''}
+                                    onChange={e => this.setState({category: e.target.value})}>
                                 <option disabled selected value="" style={{display: "none"}}> -- select an option -- </option>
                                 <option value="technology">Technology</option>
                                 <option value="apparel">Apparel</option>
@@ -104,8 +105,8 @@ class EditDeal extends Component {
                         <label htmlFor="expires_at">Expires</label>
                         <div className="input-group mb-1">
                             <input className="form-control" type="date" name="expires_at" min={new Date().toISOString().split("T")[0]}
-                                   value={this.state.expires_at}
-                                   onInput={e => this.setState({expires_at: e.target.value})}/>
+                                   value={moment(this.state.expires_at).toISOString().split("T")[0]}
+                                   onChange={e => this.setState({expires_at: e.target.value})}/>
                         </div>
                         <div className="input-group mt-4">
                             <input className="form-control btn btn-primary" type="submit" value="Submit"/>
