@@ -9,7 +9,10 @@ exports.create = function(req, res) {
 
   if(values.email && values.hash && values.salt) {
     db.query("INSERT INTO users SET ?", values, function (err, result, fields) {
-      if (err) return res.status(500).end();
+      if (err && err.code === 'ER_DUP_ENTRY')
+        return res.status(200).json({type: 'error', message: 'Email already taken'});
+      else if (err)
+        return res.status(500).end();
 
       res.status(201).end();
     }); //"create" query

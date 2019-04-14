@@ -8,10 +8,7 @@ class Login extends Component {
         super(props);
         this.state = {
             email: '',
-            password: '',
-            error: {
-                message: ''
-            }
+            password: ''
         }
     }
 
@@ -23,11 +20,8 @@ class Login extends Component {
           .then(res => {
                 if (res.status === 200)
                   this.props.history.push("/");
-              })
-          .catch(err => {
-            this.setState({
-              err
-            });
+                else if (res.status === 401)
+                  res.text().then(text => this.setState({error: text}));
           });
     }
 
@@ -47,11 +41,11 @@ class Login extends Component {
                     <input className="form-control" type="password" name="password" required
                            onInput={e => this.setState({password: e.target.value})}/>
                   </div>
+                  <span className='is-invalid'>{this.state.error}</span>
                   <div className="input-group mt-3">
                     <input className="form-control btn btn-primary" type="submit" value="Submit"/>
                   </div>
                 </form>
-                <div>{this.state.error.message}</div>
             </div>
         )
     }

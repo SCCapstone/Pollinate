@@ -6,15 +6,21 @@ h6 {
   font-size: 1.1rem;
 }
 
+input:focus:invalid, select:focus:invalid, textarea:focus:invalid {
+  box-shadow: 0 0 0 0.1rem rgba(255, 0, 0, 0.25);
+  border: 1px solid red;
+}
+
 .app {
   padding: 20px 40px;
   height: 100%;
   width: 100%;
 }
 
-.btn-primary {
+.btn-primary, .btn-primary:focus {
   background-color: #347d4d;
   border-color: #347d4d;
+  color: white;
 }
 
 .btn-primary:hover {
@@ -35,5 +41,9 @@ h6 {
 
 .btn.btn-link {
   border: 0;
+}
+
+span.is-invalid {
+  color: #f20000;
 }
 
