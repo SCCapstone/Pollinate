@@ -33,6 +33,11 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
+const http = require("http");
+setInterval(function() {
+  http.get("http://pollinate-usc.herokuapp.com/");
+}, 600000); // every 10 minutes (600000)
+
 const port = process.env.PORT || 8000;
 app.listen(port, function () {
     console.log("Express server listening on port " + port);
