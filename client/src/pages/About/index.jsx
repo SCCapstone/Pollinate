@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import logo from './logo.png';
 import Jacob from './Jacob.jpg';
-import Bailey from './Bailey.jpeg';
+import Bailey from './Bailey.jpg';
 import Blake from './Blake.jpg';
 import Justin from './Justin.jpg';
 import Mike from './Mike.jpg';
