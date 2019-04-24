@@ -12,43 +12,46 @@ class About extends Component {
         return (
             <div>
                 <div className="headline">
-                    <img src={logo} width="500" height="100" align="middle"/>
+                    <img src={logo} align="middle"/>
                     <p> Pollinate's mission is to organize the internet's best sales and deals, all while making it
                         universally convenient </p>
                 </div>
-                <h4 className="founders">Meet the Founders</h4>
-                <figure>
-
+                <h4 className="founders-header">Meet the Founders</h4>
+                <div className="founders">
+                  <figure className='foundee-figure'>
                     <img className="foundee" src={Jacob}/>
-
+                    <a href="https://www.linkedin.com/in/christopher-jacob-miller/"><i
+                        className="fab fa-linkedin fa-lg"/></a>
                     <figcaption>Jacob Miller</figcaption>
-                </figure>
-                <a href="https://www.linkedin.com/in/christopher-jacob-miller/"><i
-                    className="fab fa-linkedin fa-lg"></i></a>
-                <figure>
+                  </figure>
+
+                  <figure className='foundee-figure'>
                     <img className="foundee" src={Bailey}/>
+                    <a href="https://www.linkedin.com/in/bailey-a-metz/"><i className="fab fa-linkedin fa-lg"/></a>
                     <figcaption>Bailey Metz</figcaption>
-                </figure>
-                <a href="https://www.linkedin.com/in/bailey-a-metz/"><i className="fab fa-linkedin fa-lg"></i></a>
-                <figure>
+                  </figure>
+
+                  <figure className='foundee-figure'>
                     <img className="foundee" src={Blake}/>
+                    <a href="https://www.linkedin.com/in/blake-pathammavong-b65076135/"><i
+                        className="fab fa-linkedin fa-lg"/></a>
                     <figcaption>Blake Pathammavong</figcaption>
-                </figure>
-                <a href="https://www.linkedin.com/in/blake-pathammavong-b65076135/"><i
-                    className="fab fa-linkedin fa-lg"></i></a>
-                <figure>
+                  </figure>
+
+                  <figure className='foundee-figure'>
                     <img className="foundee" src={Justin}/>
+                    <a href="https://www.linkedin.com/in/justindavidmorris/"><i className="fab fa-linkedin fa-lg"/></a>
                     <figcaption>Justin Morris</figcaption>
-                </figure>
-                <a href="https://www.linkedin.com/in/justindavidmorris/"><i className="fab fa-linkedin fa-lg"></i></a>
-                <figure>
+                  </figure>
+
+                  <figure className='foundee-figure'>
                     <img className="foundee" src={Mike}/>
+                    <a href="https://www.linkedin.com/in/michael-afrin/"><i className="fab fa-linkedin fa-lg"/></a>
                     <figcaption>Michael Afrin</figcaption>
-                </figure>
-                <a href="https://www.linkedin.com/in/michael-afrin/"><i className="fab fa-linkedin fa-lg"></i></a>
+                  </figure>
+                </div>
 
-                <div className="grass">.</div>
-
+                <div className="grass"/>
             </div>
 
         )

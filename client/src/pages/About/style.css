@@ -1,35 +1,45 @@
 .headline {
     margin: auto;
-    width: 50%;
-    border: 3px solid green;
     padding: 10px;
     text-align: center;
     font-weight: bold;
 }
 
-.founders {
-    padding: 40px;
+.headline img {
+    width: 20%;
+    min-width: 200px;
+}
+
+.founders-header {
+    padding: 0 30px 30px 30px;
     text-align: center;
-    text-shadow: 2px 2px 8px #008855;
+}
+
+.founders {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 30px;
 }
 
 .foundee {
     border-radius: 50%;
-    width: 300px;
-    height: 380px;
+    width: 200px;
+    height: 250px;
     alignment: center;
     box-sizing: border-box;
-    padding-right: 1px;
-    margin-left: 55px;
+    margin: 0 25px 0 25px;
 }
 
-figure {
+figure.foundee-figure {
     display: inline-block;
+    text-align: center;
 }
 
 figcaption {
     text-align: center;
-    padding-left: 55px;
     font-size: 1.7em;
     font-family: verdana, sans-serif, serif;
     text-shadow: 2px 2px 8px #77ee77;
@@ -37,17 +47,17 @@ figcaption {
 
 .grass {
     height: 132px;
-    background-image: url(./grass2.jpg);
+    background-image: url(grass.svg);
     background-repeat: repeat-x;
-    background-position: center;
+    background-position: bottom;
     border: none;
-    width: 100%;
-    margin: auto;
+    width: calc(100% + 80px);
+    margin: 0 -40px;
 }
 
 .fa-linkedin {
     font-size: 30px;
-    margin-left: -60px;
+    margin-left: -65px;
     margin-top: 100px;
     position: absolute;
 }
