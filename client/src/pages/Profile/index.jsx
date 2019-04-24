@@ -53,7 +53,7 @@ class App extends Component{
               <hr />
               <div id="bottom">
                 <h4>Biography</h4>
-                <ReactMarkdown className="Bio" source={this.state.person.biography}/>
+                <ReactMarkdown className="biography" source={this.state.person.biography}/>
               </div>
 
             </div>
