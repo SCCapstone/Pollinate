@@ -19,4 +19,14 @@
     alignment: center;
     box-sizing: border-box;
     padding-right: 1px;
+    margin-left: 55px;
+}
+
+figure {
+    display:inline-block;
+}
+
+figcaption {
+    text-align: center;
+    padding-left: 55px;
 }

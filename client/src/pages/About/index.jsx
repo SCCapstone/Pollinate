@@ -16,12 +16,29 @@ class About extends Component {
           <p> Pollinate's mission is to organize the internet's best sales and deals, all while making it universally convenient </p>
             </div>
             <h4 className = "founders">Meet the Founders</h4>
+                <figure>
+
                 <img className = "foundee" src={Jacob}/>
+                <figcaption>Jacob Miller</figcaption>
+                </figure>
+                  <figure>
             <img className = "foundee" src={Bailey}/>
+                <figcaption>Bailey Metz</figcaption>
+                  </figure>
+            <figure>
             <img className = "foundee" src={Blake}/>
+                <figcaption>Blake Pathammavong</figcaption>
+            </figure>
+            <figure>
             <img className = "foundee" src={Justin}/>
+                <figcaption>Justin Morris</figcaption>
+            </figure>
+            <figure>
             <img className = "foundee" src={Mike}/>
+                <figcaption>Michael Afrin</figcaption>
+            </figure>
         </div>
+
     )
   }
 }
