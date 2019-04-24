@@ -13,11 +13,18 @@ class About extends Component {
             <div>
                 <div className="headline">
                     <img src={logo} align="middle"/>
-                    <p> Pollinate's mission is to organize the internet's best sales and deals, all while making it
-                        universally convenient </p>
+                    <p>Bringing you the best products at prices you'll love</p>
                 </div>
                 <h4 className="founders-header">Meet the Founders</h4>
                 <div className="founders">
+
+                    <figure className='foundee-figure'>
+                        <img className="foundee" src={Mike}/>
+                        <a href="https://www.linkedin.com/in/michael-afrin/"><i className="fab fa-linkedin fa-lg"/></a>
+                        <figcaption>Michael Afrin</figcaption>
+                    </figure>
+
+
                   <figure className='foundee-figure'>
                     <img className="foundee" src={Jacob}/>
                     <a href="https://www.linkedin.com/in/christopher-jacob-miller/"><i
@@ -25,11 +32,11 @@ class About extends Component {
                     <figcaption>Jacob Miller</figcaption>
                   </figure>
 
-                  <figure className='foundee-figure'>
-                    <img className="foundee" src={Bailey}/>
-                    <a href="https://www.linkedin.com/in/bailey-a-metz/"><i className="fab fa-linkedin fa-lg"/></a>
-                    <figcaption>Bailey Metz</figcaption>
-                  </figure>
+                    <figure className='foundee-figure'>
+                        <img className="foundee" src={Bailey}/>
+                        <a href="https://www.linkedin.com/in/bailey-a-metz/"><i className="fab fa-linkedin fa-lg"/></a>
+                        <figcaption>Bailey Metz</figcaption>
+                    </figure>
 
                   <figure className='foundee-figure'>
                     <img className="foundee" src={Blake}/>
@@ -38,17 +45,14 @@ class About extends Component {
                     <figcaption>Blake Pathammavong</figcaption>
                   </figure>
 
+
+
                   <figure className='foundee-figure'>
                     <img className="foundee" src={Justin}/>
                     <a href="https://www.linkedin.com/in/justindavidmorris/"><i className="fab fa-linkedin fa-lg"/></a>
                     <figcaption>Justin Morris</figcaption>
                   </figure>
 
-                  <figure className='foundee-figure'>
-                    <img className="foundee" src={Mike}/>
-                    <a href="https://www.linkedin.com/in/michael-afrin/"><i className="fab fa-linkedin fa-lg"/></a>
-                    <figcaption>Michael Afrin</figcaption>
-                  </figure>
                 </div>
 
                 <div className="grass"/>
