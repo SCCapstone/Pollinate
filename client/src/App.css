@@ -60,6 +60,10 @@ span.is-invalid {
   max-height: none;
 }
 
+.CodeMirror .editor-preview img {
+  max-width: 250px;
+}
+
 
 blockquote {
   background: #f9f9f9;
