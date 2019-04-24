@@ -3,13 +3,13 @@
     width: 50%;
     border: 3px solid green;
     padding: 10px;
-    text-align:center;
-    font-weight:bold;
+    text-align: center;
+    font-weight: bold;
 }
 
 .founders {
     padding: 40px;
-    text-align:center;
+    text-align: center;
     text-shadow: 2px 2px 8px #008855;
 }
 
@@ -24,7 +24,7 @@
 }
 
 figure {
-    display:inline-block;
+    display: inline-block;
 }
 
 figcaption {
@@ -43,6 +43,13 @@ figcaption {
     border: none;
     width: 100%;
     margin: auto;
+}
+
+.fa-linkedin {
+    font-size: 30px;
+    margin-left: -60px;
+    margin-top: 100px;
+    position: absolute;
 }
 
 html, body {
