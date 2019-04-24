@@ -71,5 +71,6 @@
   text-align: left;
 }
 
-.biography {
+.biography img{
+  max-width: 60%;
 }

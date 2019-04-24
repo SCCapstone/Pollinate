@@ -36,3 +36,7 @@
 .description {
     white-space: pre-wrap;
 }
+
+.description img{
+    max-width: 60%;
+}

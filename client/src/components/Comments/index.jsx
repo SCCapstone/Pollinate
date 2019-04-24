@@ -50,7 +50,7 @@ class Comments extends Component {
                 <Link className='commentHeaderText' to={`/profile/${comment.author_id}`}>{comment.author_name}</Link>
                 <span className='commentHeaderText'>{Comments.formattedDate(comment.created_at)}</span>
               </div>
-              <ReactMarkdown className='' source={comment.text}/>
+              <ReactMarkdown className='commentText' source={comment.text}/>
               {this.props.user && <a href="#commentArea" onClick={() => this.replyClicked(comment.author_name)}>reply</a>}
             </div>
           </div>

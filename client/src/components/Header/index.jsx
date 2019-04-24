@@ -50,14 +50,6 @@ class Header extends Component {
               <li className="nav-item px-2">
                 <Link className="nav-link" to="/">Home</Link>
               </li>
-              {!this.state.user &&
-              <li className="nav-item px-2">
-                <Link className="nav-link" to="/login">Login</Link>
-              </li>}
-              {!this.state.user &&
-              <li className="nav-item px-2">
-                <Link className="nav-link" to="/signup">Signup</Link>
-              </li>}
               {this.state.user &&
               <li className="nav-item px-2">
                 <Link className="nav-link" to="/profile">Profile</Link>
@@ -72,15 +64,26 @@ class Header extends Component {
                   <Link className="dropdown-item" to="/category/other">Other</Link>
                 </div>
               </li>
-              {this.state.user &&
               <li className="nav-item px-2">
-                <button className="nav-link btn btn-link" onClick={() => this.logout()}>Logout</button>
-              </li>}
+                <Link className="nav-link" to="/tutorial">Tutorial</Link>
+              </li>
+              <li className="nav-item px-2">
+                <Link className="nav-link" to="/about">About</Link>
+              </li>
             </ul>
             <Search/>
             {this.state.user &&
-            <button id="postDealBtn" className="btn btn-primary" onClick={() => this.props.history.push("/post/new")}>Post a Deal
+            <button id="postDealBtn" className="btn btn-primary mr-3" onClick={() => this.props.history.push("/post/new")}>Post a Deal
             </button>}
+            {!this.state.user &&
+              <Link className="nav-link" style={{color: 'rgba(0,0,0,0.5)', padding: '0.5rem 0.5rem'}} to="/login">Login</Link>
+            }
+            {!this.state.user &&
+              <Link className="nav-link" style={{color: 'rgba(0,0,0,0.5)', padding: '0.5rem 0.5rem'}} to="/signup">Signup</Link>
+            }
+            {this.state.user &&
+              <button className="nav-link btn btn-link" style={{color: 'rgba(0,0,0,0.5)', padding: '0.5rem 0.5rem'}} onClick={() => this.logout()}>Logout</button>
+            }
           </div>
         </nav>
     )
