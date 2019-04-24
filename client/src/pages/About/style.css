@@ -10,12 +10,13 @@
 .founders {
     padding: 40px;
     text-align:center;
+    text-shadow: 2px 2px 8px #008855;
 }
 
 .foundee {
     border-radius: 50%;
     width: 300px;
-    height: 300px;
+    height: 380px;
     alignment: center;
     box-sizing: border-box;
     padding-right: 1px;
@@ -29,4 +30,21 @@ figure {
 figcaption {
     text-align: center;
     padding-left: 55px;
+    font-size: 1.7em;
+    font-family: verdana, sans-serif, serif;
+    text-shadow: 2px 2px 8px #77ee77;
+}
+
+.grass {
+    height: 132px;
+    background-image: url(./grass2.jpg);
+    background-repeat: repeat-x;
+    background-position: center;
+    border: none;
+    width: 100%;
+    margin: auto;
+}
+
+html, body {
+    height: 80%;
 }

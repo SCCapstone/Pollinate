@@ -37,6 +37,9 @@ class About extends Component {
             <img className = "foundee" src={Mike}/>
                 <figcaption>Michael Afrin</figcaption>
             </figure>
+
+            <div className="grass">.</div>
+
         </div>
 
     )
