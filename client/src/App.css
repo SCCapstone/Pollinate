@@ -47,3 +47,29 @@ span.is-invalid {
   color: #f20000;
 }
 
+.CodeMirror,
+.CodeMirror-scroll {
+  max-height: 300px;
+}
+
+.CodeMirror-fullscreen.CodeMirror {
+  max-height: none;
+}
+
+.CodeMirror-fullscreen .CodeMirror-scroll {
+  max-height: none;
+}
+
+
+blockquote {
+  background: #f9f9f9;
+  border-left: 5px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+
+blockquote p {
+  display: inline;
+}
+

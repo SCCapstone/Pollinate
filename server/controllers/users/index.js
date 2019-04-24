@@ -25,7 +25,13 @@ exports.getById = function (req, res) {
     if (err) return res.status(500).end();
     if (result.length === 0) return res.status(404).end();
 
-    res.status(200).send(result[0]);
+    let user = result[0];
+    db.query("SELECT COUNT(*) as dealsPosted from posts WHERE author=?", id, function (err, result, fields) {
+      if (err || result.length === 0) return res.status(200).send(user);
+
+      user.dealsPosted = result[0].dealsPosted;
+      return res.status(200).send(user);
+    });
   }); //selects by id
 };
 

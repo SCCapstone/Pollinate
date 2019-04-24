@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import ReactMarkdown from 'react-markdown';
+import moment from 'moment';
 import './style.css';
 import VoteCounter from "../../components/VoteCounter";
 import auth from '../../utils/auth.js';
@@ -89,7 +91,8 @@ class Product extends Component {
                   <div className="divider"/>
                   <div id="bottom">
                     <h4>Description</h4>
-                    <p className="description">{this.state.description}</p>
+                    <ReactMarkdown className="description" source={this.state.description}/>
+                    {this.state.expires_at && <b>Expires: {moment(this.state.expires_at).format('l')}</b>}
                     <div className="divider mb-3"/>
                     {this.state.link &&
                     <a className="btn btn-primary mr-3 mb-2" rel="noopener noreferrer" target="_blank" href={this.getLink()}>See

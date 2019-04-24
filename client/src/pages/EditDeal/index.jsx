@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
+import SimpleMDE from 'react-simplemde-editor';
 import './style.css';
 
 
@@ -85,11 +86,10 @@ class EditDeal extends Component {
                                    onChange={e => this.setState({link: e.target.value})}/>
                         </div>
                         <label htmlFor="description">Description</label>
-                        <div className="input-group mb-1">
-                    <textarea className="form-control" rows="4" maxLength="1000" name="description"
-                              value = {this.state.description || ''}
-                              onChange={e => this.setState({description: e.target.value})}/>
-                        </div>
+                        <SimpleMDE name="description" value = {this.state.description || ''}
+                               onChange={value => this.setState({description: value})} options={
+                                   {minHeight: '300px', spellChecker: false}
+                               }/>
                         <label htmlFor="category">Category *</label>
                         <div className="input-group mb-1">
                             <select className="form-control" name="category" required
@@ -105,7 +105,7 @@ class EditDeal extends Component {
                         <label htmlFor="expires_at">Expires</label>
                         <div className="input-group mb-1">
                             <input className="form-control" type="date" name="expires_at" min={new Date().toISOString().split("T")[0]}
-                                   value={moment(this.state.expires_at).toISOString().split("T")[0]}
+                                   value={this.state.expires_at ? moment(this.state.expires_at).toISOString().split("T")[0] : ''}
                                    onChange={e => this.setState({expires_at: e.target.value})}/>
                         </div>
                         <div className="input-group mt-4">

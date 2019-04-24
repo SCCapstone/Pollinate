@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import SimpleMDE from 'react-simplemde-editor';
 import './style.css';
 
 class Signup extends Component {
@@ -64,11 +65,9 @@ class Signup extends Component {
             </div>
 
             <label htmlFor="biography">Biography</label>
-            <div className="input-group mb-1">
-              <textarea className="form-control" name="biography" maxLength="1000" rows="4"
-                        onInput={e => this.setState({biography: e.target.value})}/>
-            </div>
-
+            <SimpleMDE name="biography" onChange={value => this.setState({biography: value})} options={
+              {minHeight: '300px', spellChecker: false}
+            }/>
             <label htmlFor="profileImg">Profile Image Url</label>
             <div className="input-group mb-1">
               <input className="form-control" type="text" name="profileImg"

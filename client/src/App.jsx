@@ -17,6 +17,7 @@ import EditProfile from "./pages/EditProfile";
 import EditDeal from "./pages/EditDeal";
 import Search from "./pages/Search";
 import './App.css';
+import '../node_modules/easymde/dist/easymde.min.css';
 
 
 class App extends Component {
@@ -35,7 +36,8 @@ class App extends Component {
                 )}/>
                 <Route path="/post/new" component={NewPost}/>
                 <Route path="/post/:id" component={Post}/>
-                <Route path="/profile" component={Profile}/>
+                <Route exact path="/profile" component={Profile}/>
+                <Route path="/profile/:id" component={Profile}/>
                 <Route path="/about" component={About}/>
                 <Route path="/editprofile" component={EditProfile}/>
                 <Route path="/editdeal/:id" component={EditDeal}/>

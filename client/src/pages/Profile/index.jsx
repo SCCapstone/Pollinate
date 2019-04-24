@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
 import './style.css';
 
 class App extends Component{
@@ -11,9 +12,25 @@ class App extends Component{
   }
 
   componentDidMount() {
-    fetch("/api/users/me", {credentials: "same-origin"})
-        .then(res => res.json())
-        .then(person => this.setState({person}))
+    this.getData();
+  }
+
+  componentDidUpdate(oldProps) {
+    if (oldProps.match.params.id !== this.props.match.params.id)
+      this.getData();
+  }
+
+  getData() {
+    const id = this.props.match.params.id;
+    if(id) {
+      fetch(`/api/users/${id}`, {credentials: "same-origin"})
+          .then(res => res.json())
+          .then(person => this.setState({person, isLoggedInUser: false}))
+    } else {
+      fetch("/api/users/me", {credentials: "same-origin"})
+          .then(res => res.json())
+          .then(person => this.setState({person, isLoggedInUser: true}))
+    }
   }
 
   static formatDate(date) {
@@ -22,7 +39,6 @@ class App extends Component{
   }
 
   render() {
-    console.log(this.state.person);
     return(
         <div className="App">
           <div id="user-profile">
@@ -37,7 +53,7 @@ class App extends Component{
               <hr />
               <div id="bottom">
                 <h4>Biography</h4>
-                <p className="Bio">{this.state.person.biography}</p>
+                <ReactMarkdown className="Bio" source={this.state.person.biography}/>
               </div>
 
             </div>
@@ -46,11 +62,10 @@ class App extends Component{
 
             <b>Join Date</b><p className="joinDate">{App.formatDate(this.state.person.created_at)}</p>
 
-            {/*<b>Favorite Category</b><p className="favoriteCategory">{this.state.person.favoriteCategory}</p>*/}
-
             <hr />
             <b>Deals Posted</b><p className="dealsPosted">{this.state.person.dealsPosted}</p>
-            <Link to='/editprofile' className='btn btn-primary mt-2'>Edit Profile</Link>
+            {this.state.person && this.state.isLoggedInUser &&
+            <Link to='/editprofile' className='btn btn-primary mt-2'>Edit Profile</Link>}
           </div>
         </div>
     );

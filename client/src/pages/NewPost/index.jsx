@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SimpleMDE from 'react-simplemde-editor';
 import './style.css';
 
 
@@ -72,10 +73,10 @@ class NewPost extends Component {
                            onInput={e => this.setState({link: e.target.value})}/>
                   </div>
                   <label htmlFor="description">Description</label>
-                  <div className="input-group mb-1">
-                    <textarea className="form-control" rows="4" maxLength="1000" name="description"
-                              onInput={e => this.setState({description: e.target.value})}/>
-                  </div>
+                  <SimpleMDE  name="description"
+                              onChange={value => this.setState({description: value})} options={
+                                {minHeight: '300px', spellChecker: false}
+                  }/>
                   <label htmlFor="category">Category *</label>
                   <div className="input-group mb-1">
                     <select className="form-control" name="category" required
