@@ -1,0 +1,44 @@
+#TutorialPage {
+}
+
+#TutorialPage .deal-title {
+    color: #333;
+}
+.headline {
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.headline img {
+    width: 20%;
+    min-width: 200px;
+}
+.scrnmessage {
+    margin: auto;
+    padding: 50px;
+    text-align: center;
+    font-size: 0.9em;
+    font-family: verdana, sans-serif, serif;
+    text-shadow: 2px 2px 8px #77ee77;
+    font-weight: bold;
+}
+.screenshot{
+    margin: auto;
+    padding: 10px;
+    width: 500px;
+    height: 250px;
+    text-align: center;
+    font-size: 1.7em;
+    font-family: verdana, sans-serif, serif;
+    text-shadow: 2px 2px 8px #77ee77;
+}
+.signup{
+    margin: auto;
+    width: 300px;
+    height: 250px;
+    text-align: center;
+}
+
+
