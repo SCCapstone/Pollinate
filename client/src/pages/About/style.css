@@ -1,0 +1,66 @@
+.headline {
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.headline img {
+    width: 20%;
+    min-width: 200px;
+}
+
+.founders-header {
+    padding: 0 30px 30px 30px;
+    text-align: center;
+}
+
+.founders {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.foundee {
+    border-radius: 50%;
+    width: 200px;
+    alignment: center;
+    box-sizing: border-box;
+    margin: 0 25px 0 25px;
+}
+
+figure.foundee-figure {
+    display: inline-block;
+    text-align: center;
+}
+
+figcaption {
+    text-align: center;
+    font-size: 1.7em;
+    font-family: verdana, sans-serif, serif;
+    text-shadow: 2px 2px 8px #77ee77;
+}
+
+.grass {
+    height: 132px;
+    background-image: url(grass.svg);
+    background-repeat: repeat-x;
+    background-position: bottom;
+    border: none;
+    width: calc(100% + 80px);
+    margin: 0 -40px;
+}
+
+.fa-linkedin {
+    font-size: 30px;
+    margin-left: -65px;
+    margin-top: 100px;
+    position: absolute;
+}
+
+html, body {
+    height: 80%;
+}

@@ -8,6 +8,7 @@ class Post extends Component {
     this.props.history.push("/post/" + this.props.post.id);
   }
 
+
   render() {
     return (
         <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex">
