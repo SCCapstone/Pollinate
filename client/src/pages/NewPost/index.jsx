@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import SimpleMDE from 'react-simplemde-editor';
+
+import {enforceMaxLength} from '../../utils/helper';
 import './style.css';
 
 
@@ -73,10 +75,9 @@ class NewPost extends Component {
                            onInput={e => this.setState({link: e.target.value})}/>
                   </div>
                   <label htmlFor="description">Description</label>
-                  <SimpleMDE  name="description"
+                  <SimpleMDE  name="description" getMdeInstance={(i) => i.codemirror.setOption("maxLength", 5000)}
                               onChange={value => this.setState({description: value})} options={
-                                {minHeight: '300px', spellChecker: false}
-                  }/>
+                                {minHeight: '300px', spellChecker: false}} events={{beforeChange: enforceMaxLength}}/>
                   <label htmlFor="category">Category *</label>
                   <div className="input-group mb-1">
                     <select className="form-control" name="category" required

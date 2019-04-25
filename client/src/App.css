@@ -47,6 +47,10 @@ span.is-invalid {
   color: #f20000;
 }
 
+.CodeMirror {
+  box-sizing: content-box !important;
+}
+
 .CodeMirror,
 .CodeMirror-scroll {
   max-height: 300px;

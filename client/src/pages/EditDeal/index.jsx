@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import SimpleMDE from 'react-simplemde-editor';
 import './style.css';
+import {enforceMaxLength} from "../../utils/helper";
 
 
 class EditDeal extends Component {
@@ -87,9 +88,9 @@ class EditDeal extends Component {
                         </div>
                         <label htmlFor="description">Description</label>
                         <SimpleMDE name="description" value = {this.state.description || ''}
+                                   getMdeInstance={(i) => i.codemirror.setOption("maxLength", 5000)}
                                onChange={value => this.setState({description: value})} options={
-                                   {minHeight: '300px', spellChecker: false}
-                               }/>
+                                   {minHeight: '300px', spellChecker: false}} events={{beforeChange: enforceMaxLength}}/>
                         <label htmlFor="category">Category *</label>
                         <div className="input-group mb-1">
                             <select className="form-control" name="category" required

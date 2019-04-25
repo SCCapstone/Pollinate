@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import SimpleMDE from 'react-simplemde-editor';
 import './style.css';
+import {enforceMaxLength} from "../../utils/helper";
 
 class Signup extends Component {
   //Creating a state for our react class
@@ -65,9 +66,9 @@ class Signup extends Component {
             </div>
 
             <label htmlFor="biography">Biography</label>
-            <SimpleMDE name="biography" onChange={value => this.setState({biography: value})} options={
-              {minHeight: '300px', spellChecker: false}
-            }/>
+            <SimpleMDE name="biography" getMdeInstance={(i) => i.codemirror.setOption("maxLength", 1000)}
+                       onChange={value => this.setState({biography: value})} options={
+              {minHeight: '300px', spellChecker: false}} events={{beforeChange: enforceMaxLength}}/>
             <label htmlFor="profileImg">Profile Image Url</label>
             <div className="input-group mb-1">
               <input className="form-control" type="text" name="profileImg"

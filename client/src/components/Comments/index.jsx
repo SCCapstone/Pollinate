@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import SimpleMDE from 'react-simplemde-editor';
 import ReactMarkdown from 'react-markdown';
+import {enforceMaxLength} from '../../utils/helper';
 import './style.css';
 
 
@@ -40,6 +41,11 @@ class Comments extends Component {
       });
   }
 
+  setupEditor(i) {
+      i.codemirror.setOption("maxLength", 1000);
+      this.setState({editor: i});
+  }
+
   //grabbing the comments
   render() {
     let comments = this.props.comments || [];
@@ -72,11 +78,10 @@ class Comments extends Component {
           {this.props.user &&
           <div className='m-3'>
             <SimpleMDE id="commentArea" value={this.state.commentText}
-                       getMdeInstance={instance => this.setState({editor: instance})}
+                       getMdeInstance={(i) => this.setupEditor(i)}
                        onChange={value => this.setState({commentText: value})} options={
-                         {minHeight: '300px',
-                         spellChecker: false,}
-                       }/>
+                         {minHeight: '300px', spellChecker: false,}}
+                       events={{beforeChange: enforceMaxLength}}/>
             <button id="postCommentBtn" type="button" className="btn btn-primary"
                     onClick={() => this.postComment()}>Post Comment
             </button>

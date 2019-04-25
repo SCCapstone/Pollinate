@@ -15,7 +15,7 @@ class Tutorial extends Component {
         <div>
             <h1 className="headline">Video Tutorial</h1>
             <div className="headline">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/rQTtZSnJeoc" frameBorder="0"
+                <iframe title="youtube" width="560" height="315" src="https://www.youtube.com/embed/rQTtZSnJeoc" frameBorder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen/>
             </div>
             <h1 className="scrnmessage">Pollinate Home Page</h1>
