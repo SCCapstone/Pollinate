@@ -54,7 +54,7 @@ class Comments extends Component {
                 <span className='commentHeaderText'>{Comments.formattedDate(comment.created_at)}</span>
               </div>
               <ReactMarkdown className='commentText' source={comment.text}/>
-              {this.props.user && <button className='btn btn-link' onClick={() => this.replyClicked(comment.author_name)}>reply</button>}
+              {this.props.user && <button className='btn btn-link p-0 m-0' onClick={() => this.replyClicked(comment.author_name)}>reply</button>}
             </div>
           </div>
       )
