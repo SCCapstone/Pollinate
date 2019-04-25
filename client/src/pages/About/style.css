@@ -21,13 +21,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
 }
 
 .foundee {
     border-radius: 50%;
     width: 200px;
-    height: 250px;
     alignment: center;
     box-sizing: border-box;
     margin: 0 25px 0 25px;

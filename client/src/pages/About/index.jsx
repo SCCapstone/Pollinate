@@ -25,12 +25,12 @@ class About extends Component {
                     </figure>
 
 
-                  <figure className='foundee-figure'>
-                    <img className="foundee" src={Jacob}/>
-                    <a href="https://www.linkedin.com/in/christopher-jacob-miller/"><i
-                        className="fab fa-linkedin fa-lg"/></a>
-                    <figcaption>Jacob Miller</figcaption>
-                  </figure>
+                    <figure className='foundee-figure'>
+                        <img className="foundee" src={Jacob}/>
+                        <a href="https://www.linkedin.com/in/christopher-jacob-miller/"><i
+                            className="fab fa-linkedin fa-lg"/></a>
+                        <figcaption>Jacob Miller</figcaption>
+                    </figure>
 
                     <figure className='foundee-figure'>
                         <img className="foundee" src={Bailey}/>
@@ -38,20 +38,19 @@ class About extends Component {
                         <figcaption>Bailey Metz</figcaption>
                     </figure>
 
-                  <figure className='foundee-figure'>
-                    <img className="foundee" src={Blake}/>
-                    <a href="https://www.linkedin.com/in/blake-pathammavong-b65076135/"><i
-                        className="fab fa-linkedin fa-lg"/></a>
-                    <figcaption>Blake Pathammavong</figcaption>
-                  </figure>
+                    <figure className='foundee-figure'>
+                        <img className="foundee" src={Blake}/>
+                        <a href="https://www.linkedin.com/in/blake-pathammavong-b65076135/"><i
+                            className="fab fa-linkedin fa-lg"/></a>
+                        <figcaption>Blake Pathammavong</figcaption>
+                    </figure>
 
 
-
-                  <figure className='foundee-figure'>
-                    <img className="foundee" src={Justin}/>
-                    <a href="https://www.linkedin.com/in/justindavidmorris/"><i className="fab fa-linkedin fa-lg"/></a>
-                    <figcaption>Justin Morris</figcaption>
-                  </figure>
+                    <figure className='foundee-figure'>
+                        <img className="foundee" src={Justin}/>
+                        <a href="https://www.linkedin.com/in/justindavidmorris/"><i className="fab fa-linkedin fa-lg"/></a>
+                        <figcaption>Justin Morris</figcaption>
+                    </figure>
 
                 </div>
 
