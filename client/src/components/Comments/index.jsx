@@ -34,7 +34,10 @@ class Comments extends Component {
   }
 
   replyClicked(author) {
-      this.setState({commentText: this.state.commentText + `@${author} `})
+      this.setState({commentText: this.state.commentText + `@${author} `}, () => {
+          this.state.editor.codemirror.focus();
+          this.state.editor.codemirror.setCursor(Number.MAX_SAFE_INTEGER, 0);
+      });
   }
 
   //grabbing the comments
@@ -51,7 +54,7 @@ class Comments extends Component {
                 <span className='commentHeaderText'>{Comments.formattedDate(comment.created_at)}</span>
               </div>
               <ReactMarkdown className='commentText' source={comment.text}/>
-              {this.props.user && <a href="#commentArea" onClick={() => this.replyClicked(comment.author_name)}>reply</a>}
+              {this.props.user && <button className='btn btn-link' onClick={() => this.replyClicked(comment.author_name)}>reply</button>}
             </div>
           </div>
       )
@@ -68,10 +71,11 @@ class Comments extends Component {
           <div className='bottomBorder'/>}
           {this.props.user &&
           <div className='m-3'>
-            <SimpleMDE id="commentArea" placeholder="Comment..." value={this.state.commentText}
+            <SimpleMDE id="commentArea" value={this.state.commentText}
+                       getMdeInstance={instance => this.setState({editor: instance})}
                        onChange={value => this.setState({commentText: value})} options={
                          {minHeight: '300px',
-                         spellChecker: false}
+                         spellChecker: false,}
                        }/>
             <button id="postCommentBtn" type="button" className="btn btn-primary"
                     onClick={() => this.postComment()}>Post Comment
