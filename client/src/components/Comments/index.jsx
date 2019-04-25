@@ -38,6 +38,7 @@ class Comments extends Component {
       this.setState({commentText: this.state.commentText + `@${author} `}, () => {
           this.state.editor.codemirror.focus();
           this.state.editor.codemirror.setCursor(Number.MAX_SAFE_INTEGER, 0);
+          this.state.editor.codemirror.refresh();
       });
   }
 
