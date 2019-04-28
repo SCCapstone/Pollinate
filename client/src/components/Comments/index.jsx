@@ -54,7 +54,7 @@ class Comments extends Component {
 
         const cursor = cm.getSearchCursor(/@\w+(?: \w+)?#(\d+)/);
         while (cursor.findNext()) {
-            cm.markText(cursor.from(), cursor.to(), {css: 'color: #48c7fa'})
+            cm.markText(cursor.from(), cursor.to(), {css: 'color: #007bff'})
         }
     }
 
