@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {withRouter} from 'react-router'
 import Search from '../Search';
 import './style.css';
-import pic from "./pollinate logo.png"
+import pic from "./pollinate logo bold.png"
 
 class Header extends Component {
   constructor(props) {
