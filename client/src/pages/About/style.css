@@ -1,3 +1,8 @@
+#AboutPage {
+    min-height: 100%;
+    min-width: 100%;
+}
+
 .headline {
     margin: auto;
     padding: 10px;
@@ -21,7 +26,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 60px;
+    margin-bottom: calc(55px + 132px);
 }
 
 .foundee {
@@ -45,7 +50,10 @@ figcaption {
 }
 
 .grass {
-    height: 132px;
+    position: fixed;
+    bottom: 0;
+
+    min-height: 132px;
     background-image: url(grass.svg);
     background-repeat: repeat-x;
     background-position: bottom;
