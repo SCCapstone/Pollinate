@@ -3,12 +3,19 @@ import './style.css';
 import {withRouter} from "react-router";
 
 
+
+//Grabs previously posted deals/sales
 class Post extends Component {
   navigate() {
     this.props.history.push("/post/" + this.props.post.id);
   }
 
 
+
+  /*
+      Displaying all deals and sales posted by users with their respective preview images, titles, and prices.
+      This method also renders the deals in a reasonable area size for each item.
+   */
   render() {
     return (
         <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex">
