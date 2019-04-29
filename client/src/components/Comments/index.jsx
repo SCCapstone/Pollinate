@@ -14,7 +14,8 @@ class Comments extends Component {
     }
 
     postComment() {
-        const body = {postId: this.props.postId, text: this.state.commentText};
+        const body = {postId: this.props.postId,
+            text: this.state.commentText.replace(/@\w+(?: \w+)?#(\d+)/g, '[$&](#comment_$1)')};
         const options = {
             credentials: "same-origin",
             method: 'post',
@@ -63,7 +64,7 @@ class Comments extends Component {
         let comments = this.props.comments || [];
         comments = comments.map(comment => {
             return (
-                <div className='comment' key={comment.id}>
+                <div id={`comment_${comment.id}`} className='comment' key={comment.id}>
                     <img width={'50px'} height={'50px'} className='mr-3'
                          src={comment.author_pic || "/static/images/no-image-icon.png"} alt="Profile Pic"/>
                     <div style={{width: '100%'}}>
