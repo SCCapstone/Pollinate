@@ -38,7 +38,6 @@ describe('Post', function () {
     cy.get('#recentPosts .post').first().click();
     cy.get('.details .Name').should('contain', title);
     cy.get('#deletePostBtn').click();
-
     cy.get('#recentPosts .post').first().should('not.contain', title);
   })
 });
