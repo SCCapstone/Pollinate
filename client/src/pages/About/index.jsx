@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import logo from './logo.png';
+import logo from './pollinate logo bold.png';
 import Jacob from './Jacob.jpg';
 import Bailey from './Bailey.jpg';
 import Blake from './Blake.jpg';
