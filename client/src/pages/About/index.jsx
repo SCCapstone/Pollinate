@@ -8,6 +8,10 @@ import Mike from './Mike.jpg';
 import './style.css';
 
 class About extends Component {
+    /*
+    This is our about page that displays all of the founders/developers
+    We also showcase a link to each person's LinkedIn page for future reference
+    */
     render() {
         return (
             <div id="AboutPage">
