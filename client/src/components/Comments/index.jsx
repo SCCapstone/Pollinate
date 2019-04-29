@@ -7,12 +7,15 @@ import {enforceMaxLength} from '../../utils/helper';
 import './style.css';
 
 
+
 class Comments extends Component {
   constructor(props) {
     super(props);
     this.state = {commentText: ''};
   }
 
+
+  //This function allows a user to post a comment and formats the comment appropriately
   postComment() {
     const body = {postId: this.props.postId, text: this.state.commentText};
     const options = {
@@ -30,10 +33,15 @@ class Comments extends Component {
         })
   }
 
+  //Appending the date to the comment
   static formattedDate(date) {
     return moment.utc(date).local().format('l, LT');
   }
 
+  /*
+    This function records a mouse click on the reply button of another user's comment
+    and then allows the user to write an in-line reply to the user who posted that comment.
+  */
   replyClicked(author) {
       this.setState({commentText: this.state.commentText + `@${author} `}, () => {
           this.state.editor.codemirror.focus();
@@ -42,12 +50,16 @@ class Comments extends Component {
       });
   }
 
+  //Setting the maximum length of a comment
   setupEditor(i) {
       i.codemirror.setOption("maxLength", 1000);
       this.setState({editor: i});
   }
 
-  //grabbing the comments
+  /*
+        Displaying the comments and appending the author's name, profile image,
+        the text posted, the date and time, as well as the option to reply to that user
+   */
   render() {
     let comments = this.props.comments || [];
     comments = comments.map(comment => {
@@ -67,7 +79,11 @@ class Comments extends Component {
       )
     });
 
-    //displaying the comments
+    /*
+        Displaying the comment field area with specified formats and dimensions
+        If a user is logged in, the option to enter a new comment in the text field is also available
+        along with a Post Comment button
+     */
     return (
         <div className='commentList mt-5'>
           <h4 id='commentsHeader'>Comments</h4>

@@ -1,6 +1,12 @@
+/*
+    These methods specify the colors and stylistic elements related
+    to the comment area of an item's individual page
+ */
+
 #commentsHeader {
   padding: 20px;
 }
+
 
 .commentList {
   background-color: white;
