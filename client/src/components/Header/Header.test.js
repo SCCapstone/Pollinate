@@ -22,4 +22,22 @@ describe('Header', () => {
     it('Should render Link component with to prop of "/signup"', () => {
         expect(links.find({to: '/signup'}).length).toBe(1);
     });
+    it('Should render Link component with to prop of "/about"', () => {
+        expect(links.find({to: '/about'}).length).toBe(1);
+    });
+    it('Should render Link component with to prop of "/tutorial"', () => {
+        expect(links.find({to: '/tutorial'}).length).toBe(1);
+    });
+    it('Should render Link component with to prop of "/category/apparel"', () => {
+        expect(links.find({to: '/category/apparel'}).length).toBe(1);
+    });
+    it('Should render Link component with to prop of "/category/technology"', () => {
+        expect(links.find({to: '/category/technology'}).length).toBe(1);
+    });
+    it('Should render Link component with to prop of "/category/tools"', () => {
+        expect(links.find({to: '/category/tools'}).length).toBe(1);
+    });
+    it('Should render Link component with to prop of "/category/other"', () => {
+        expect(links.find({to: '/category/other'}).length).toBe(1);
+    });
 });
