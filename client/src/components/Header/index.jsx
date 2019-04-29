@@ -6,10 +6,11 @@ import './style.css';
 import pic from "./pollinate logo bold.png"
 
 
-//User is not signed in -- display default page
+
 class Header extends Component {
   constructor(props) {
     super(props);
+    //User is not signed in -- display default page
     this.state = {user: null};
   }
 

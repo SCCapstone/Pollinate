@@ -4,9 +4,10 @@ import {withRouter} from "react-router";
 
 
 
-//Grabs previously posted deals/sales
+
 class Post extends Component {
   navigate() {
+    //Grabs previously posted deals/sales
     this.props.history.push("/post/" + this.props.post.id);
   }
 
