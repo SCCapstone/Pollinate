@@ -26,7 +26,7 @@ describe('Post', function () {
       cy.get('input[name="price"]').type(post.price, {delay: 0});
       cy.get('input[name="imageUrl"]').type(post.imageUrl, {delay: 0});
       cy.get('input[name="link"]').type(post.link, {delay: 0});
-      cy.get('textarea[name="description"]').type(post.description, {delay: 0});
+      cy.get('.CodeMirror textarea').type(post.description, {force: true, delay: 0});
       cy.get('select[name="category"]').select('technology');
       cy.get('#NewPostForm').submit();
 
