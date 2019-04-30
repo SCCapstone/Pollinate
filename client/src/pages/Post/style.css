@@ -1,3 +1,7 @@
+/*
+    This CSS file specifies the colors and stylistic elements related
+    to the current posts container
+ */
 .product .flex {
     display: flex;
     align-items: flex-end;
