@@ -5,6 +5,9 @@ import queryString from 'query-string';
 import './style.css';
 import moment from "moment";
 
+/*
+This is our search page that displays the deal that is searched for
+*/
 
 class Search extends Component {
 
@@ -22,6 +25,7 @@ class Search extends Component {
         .then(posts => this.keywordSearchFilter(posts));
   }
 
+  //This method designates how the user can search (bounds)
   keywordSearchFilter(posts) {
       const options = {
           shouldSort: true,
@@ -42,6 +46,7 @@ class Search extends Component {
       this.setState({posts:results.map(result => result.item)});
   }
 
+  //This method renders the posts that are being searched for
   render() {
     return (
       <div id="SearchPage">
