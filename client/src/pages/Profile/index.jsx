@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import './style.css';
 
+/*
+This is our profile page that displays the users entered information
+*/
+
 class App extends Component{
   constructor(props) {
     super(props);
@@ -15,11 +19,13 @@ class App extends Component{
     this.getData();
   }
 
+  //This checks to see if the user updated the component recently and gets the data
   componentDidUpdate(oldProps) {
     if (oldProps.match.params.id !== this.props.match.params.id)
       this.getData();
   }
 
+  //This gets the information from the user that is logged in
   getData() {
     const id = this.props.match.params.id;
     if(id) {
@@ -33,11 +39,13 @@ class App extends Component{
     }
   }
 
+  //This method pulls the current date
   static formatDate(date) {
     if (date)
       return new Date(date).toDateString();
   }
 
+  //This method renders the profile information
   render() {
     return(
         <div className="App">
