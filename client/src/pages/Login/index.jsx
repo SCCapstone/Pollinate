@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './style.css';
 
+/*
+This is our login page to log into the app
+*/
 
 class Login extends Component {
     //Creating a state for our react class
@@ -24,7 +27,7 @@ class Login extends Component {
                   res.text().then(text => this.setState({error: text}));
           });
     }
-
+    //This renders the login box that allows users to sign in and displays on the page
     render() {
         return (
             <div id="LoginPage">
