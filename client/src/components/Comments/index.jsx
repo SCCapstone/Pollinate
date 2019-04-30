@@ -71,7 +71,7 @@ class Comments extends Component {
             return (
                 <div id={`comment_${comment.id}`} className='comment' key={comment.id}>
                     <div className="comment_left mr-3">
-                        <Link className='commentHeaderText font-weight-bold'
+                        <Link className='commentHeaderText font-weight-bold text-center'
                               to={`/profile/${comment.author_id}`}>{comment.author_name}</Link>
                         <img width={'50px'} height={'50px'}
                              src={comment.author_pic || "/static/images/no-image-icon.png"} alt="Profile Pic"/>
