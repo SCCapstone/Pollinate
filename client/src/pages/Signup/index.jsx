@@ -40,7 +40,7 @@ class Signup extends Component {
         })
   }
 
-  //This renders the signup information
+  //This renders the signup information...
   render() {
     return (
         <div id="SignupPage">
