@@ -1,3 +1,8 @@
+/*
+    This CSS file specifies the colors and stylistic elements related
+    to the current profile of the user
+ */
+
 #profilePic {
   border-radius: 50%;
   display: block;

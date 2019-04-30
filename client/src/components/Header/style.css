@@ -1,3 +1,7 @@
+/*
+    This function determines the color scheme for the navbar
+ */
+
 .navbar {
-  border-bottom: 1px #e3e3e3 solid;
+  border-bottom: 1px #57ba98 solid;
 }

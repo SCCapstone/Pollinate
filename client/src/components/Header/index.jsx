@@ -5,22 +5,28 @@ import Search from '../Search';
 import './style.css';
 import pic from "./pollinate logo bold.png"
 
+
+
 class Header extends Component {
   constructor(props) {
     super(props);
+    //User is not signed in -- display default page
     this.state = {user: null};
   }
 
+  //A user is currently signed in
   componentDidMount() {
     if (this.props.auth)
       this.props.auth.getUser().then(user => this.setState({user}));
   }
 
+  //Executes a search when typed into the search bar and enter is pressed
   search(e) {
     e.preventDefault();
     console.log(this.state.search);
   }
 
+  //Logs a user out of a signed in status
   logout() {
     this.props.auth.logout().then(ok => {
       if (ok)
@@ -35,6 +41,18 @@ class Header extends Component {
     }
   }
 
+  /*
+      This render method displays everything on a main page area:
+      Navbar, button links to Home Page, Profile Page, Category sorting and the categories available,
+      Tutorial Page, and About Page.
+
+      It also displays buttons redirecting to the Log In Page and Sign Up Page (if a user is not signed in), or the Post a Deal button/page
+      and Log Out button (if a user is signed in).
+
+      There is also a menu-collapse button (if on mobile or running in a small screen area).
+
+
+   */
   render() {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">

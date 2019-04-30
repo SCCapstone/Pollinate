@@ -4,6 +4,9 @@ import SimpleMDE from 'react-simplemde-editor';
 import {enforceMaxLength} from '../../utils/helper';
 import './style.css';
 
+/*
+This is our new post page that is very similar to the edit post page
+*/
 
 class NewPost extends Component {
     //Creating a state for our react class
@@ -11,7 +14,6 @@ class NewPost extends Component {
         super(props);
         this.state = {};
     }
-
     parseToBody() {
       const body = {};
       for (let key in this.state) {
@@ -22,7 +24,7 @@ class NewPost extends Component {
       return body;
     }
 
-    //LogIn helper method
+    //LogIn helper method that will push the new post to the DB
     createNewPost(e) {
       e.preventDefault();
       const body = this.parseToBody();
@@ -35,7 +37,7 @@ class NewPost extends Component {
           )
           .catch(err => console.error(err));
     }
-
+    //This method checks that the price used is within bounds and a number
     isPriceValid(e) {
       if(/^[0-9]*([.][0-9]*)?$/.test(e.target.value)) {
         this.setState({price: e.target.value});
@@ -44,7 +46,7 @@ class NewPost extends Component {
       else
         e.target.setCustomValidity("Must be a number");
     }
-
+    //Renders the new post populating all of the fields
     render() {
         return (
             <div id="NewPost">

@@ -3,6 +3,10 @@ import SimpleMDE from 'react-simplemde-editor';
 import './style.css';
 import {enforceMaxLength} from "../../utils/helper";
 
+/*
+This is our signup page that allows a user to sign up
+*/
+
 class Signup extends Component {
   //Creating a state for our react class
   constructor(props) {
@@ -36,6 +40,7 @@ class Signup extends Component {
         })
   }
 
+  //This renders the signup information...
   render() {
     return (
         <div id="SignupPage">

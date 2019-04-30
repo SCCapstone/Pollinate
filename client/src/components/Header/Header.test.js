@@ -3,6 +3,8 @@ import {shallow} from 'enzyme';
 import {Link} from 'react-router-dom';
 import Header from './';
 
+
+//This test ensures the Login button within the header navbar is clickable by users
 describe('Header', () => {
     let links, wrapper;
 

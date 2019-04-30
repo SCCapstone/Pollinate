@@ -1,6 +1,9 @@
 const db = require('../../utils/database'),
     helper = require('../../utils/helper');
 
+// Takes in title, price, imageUrl, link, description, category, and expires_at
+// Generates created_at and gets author from the currently logged in user
+// Sanitizes these values and creates a post with them
 exports.create = function (req, res) {
     let values = {title: req.body.title, price: helper.round(req.body.price, 2),
       imageUrl: req.body.imageUrl, link: req.body.link, description: req.body.description,
@@ -17,6 +20,7 @@ exports.create = function (req, res) {
     });
 };
 
+// Deletes a post by its id, ensuring the correct user is logged in
 exports.deletePost = function (req, res) {
     var productID = req.params.id;
     db.query("SELECT * FROM posts WHERE id = ?", [productID], function (err, result, fields) {
@@ -34,7 +38,8 @@ exports.deletePost = function (req, res) {
     })
 
 };
-/*Need to add productID*/
+
+// Update post by its id
 exports.updatePost = function (req, res){
   let productId = req.params.id;
   let values = {title: req.body.title, price: helper.round(req.body.price, 2),
@@ -51,6 +56,7 @@ exports.updatePost = function (req, res){
     });
 };
 
+// Returns post by its id
 exports.getPost = function (req, res) {
     var productID = req.params.id;
     db.query("SELECT * FROM posts WHERE id = ?", [productID], function (err, result, fields) {
@@ -59,9 +65,10 @@ exports.getPost = function (req, res) {
           result = result[0];
 
         res.status(200).send(result);
-    }); //selects by productID
+    });
 };
 
+// Retrieves all posts from the all_posts db view
 exports.getAllPosts = function (req, res) {
     db.query("SELECT * FROM all_posts", function (err, result, fields) {
         if (err) return res.status(500).end();

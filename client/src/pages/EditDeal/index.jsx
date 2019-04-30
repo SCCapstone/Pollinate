@@ -4,6 +4,9 @@ import SimpleMDE from 'react-simplemde-editor';
 import './style.css';
 import {enforceMaxLength} from "../../utils/helper";
 
+/*
+This is our edit deal page that displays the deal a user posted available to edit
+*/
 
 class EditDeal extends Component {
     //Creating a state for our react class
@@ -11,14 +14,14 @@ class EditDeal extends Component {
         super(props);
         this.state = {};
     }
-
+    //This method will ensure that the user posted this deal and they can actually edit it
     componentDidMount() {
         const {id} = this.props.match.params;
         fetch(`/api/posts/${id}`, {credentials: "same-origin"})
             .then(res => res.json())
             .then(item => this.setState(item));
     }
-
+    //This method set the base values for the page, pulling the previous states and setting them
     parseToBody() {
         const body = {title: this.state.title, price: this.state.price, imageUrl: this.state.imageUrl, link: this.state.link,
             description: this.state.description, category: this.state.category, expires_at: this.state.expires_at};
@@ -30,7 +33,7 @@ class EditDeal extends Component {
         return body;
     }
 
-    //LogIn helper method
+    //LogIn helper method that pushes the post based on user ID
     editDeal(e) {
         e.preventDefault();
         const body = this.parseToBody();
@@ -43,7 +46,7 @@ class EditDeal extends Component {
             )
             .catch(err => console.error(err));
     }
-
+    //This method checks to see if the price is in a valid range that makes sense and is a number
     isPriceValid(e) {
         if(/^[0-9]*([.][0-9]*)?$/.test(e.target.value)) {
             this.setState({price: e.target.value});
@@ -52,7 +55,7 @@ class EditDeal extends Component {
         else
             e.target.setCustomValidity("Must be a number");
     }
-
+    //This method renders the deal and updates the states based on the edit
     render() {
         return (
             <div id="EditDeal">

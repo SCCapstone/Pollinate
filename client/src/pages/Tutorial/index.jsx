@@ -9,7 +9,12 @@ import SearchPage from './SearchPage.png';
 import SignUpPage from './SignUpPage.png';
 import './style.css';
 
+/*
+This is our tutorial page that teaches users how to use the web app
+*/
+
 class Tutorial extends Component {
+    //This renders our pictures and youtube video
   render() {
     return (
         <div>
