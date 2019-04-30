@@ -4,18 +4,22 @@ import './style.css';
 import auth from '../../utils/auth.js';
 import {enforceMaxLength} from "../../utils/helper";
 
+/*
+This is our edit profile page that displays the profile of a user available to edit
+*/
+
 class EditProfile extends Component {
     //Creating a state for our react class
     constructor(props) {
         super(props);
         this.state = {}
     }
-
+    //This method ensures the user is correct before allowing to edit
     componentDidMount() {
         auth.getUser().then(user => this.setState(user));
     }
 
-    //editprofile helper method
+    //This method set the base values for the page, pulling the previous states and setting them
     editprofile(e) {
         e.preventDefault();
         const body = {name: this.state.name, location: this.state.location, biography: this.state.biography,
@@ -26,7 +30,7 @@ class EditProfile extends Component {
                         this.props.history.push("/");
                 })
     }
-
+    //This method renders the profile and updates the states based on the edit
     render() {
         return (
             <div id="EditProfilePage">
