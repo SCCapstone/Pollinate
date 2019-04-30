@@ -31,6 +31,7 @@ class Product extends Component {
   getPopularPosts(amount) {
     fetch("/api/posts", {credentials: "same-origin"})
         .then(res => res.json())
+        .then(posts => posts.filter(post => !post.expires_at || moment().isBefore(moment(post.expires_at))))
         .then(posts => this.setState({
           popularPosts: posts.filter(post => post.id !== this.state.id).sort((a, b) => b['total_likes'] - a['total_likes']).slice(0, amount),
         }))
