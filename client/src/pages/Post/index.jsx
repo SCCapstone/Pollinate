@@ -12,6 +12,10 @@ class Product extends Component {
         this.state = {};
     }
 
+    /*
+    This is our new post page that is very similar to the edit post page
+    */
+
     componentDidMount() {
         const {id} = this.props.match.params;
         fetch(`/api/posts/${id}`, {credentials: "same-origin"})
@@ -21,13 +25,14 @@ class Product extends Component {
         auth.getUser().then(user => this.setState({user}));
         this.getComments(id);
 }
+    //This method pulls the comments from the database
     getComments(id){
         fetch(`/api/comments/${id}`, {credentials: "same-origin"})
         .then(res => res.json())
             .then(comments => this.setState({comments}))
     }
 
-
+    //This method displays and pulls the popular upvoted deals
   getPopularPosts(amount) {
     fetch("/api/posts", {credentials: "same-origin"})
         .then(res => res.json())
@@ -35,11 +40,12 @@ class Product extends Component {
           popularPosts: posts.filter(post => post.id !== this.state.id).sort((a, b) => b['total_likes'] - a['total_likes']).slice(0, amount),
         }))
   }
-
+    //This method pulls the image URL from the post
   getImageUrl() {
     return this.state.imageUrl || "/static/images/no-image-icon.png";
   }
 
+  //This method pulls the link from the current state
   getLink() {
     let link = this.state.link;
     if (link && link.indexOf('http') === -1)
@@ -48,6 +54,7 @@ class Product extends Component {
     return link;
   }
 
+  //This method deletes the post from the database
   deletePost() {
     if (window.confirm("Are you sure you want to delete this post?")) {
       fetch(`/api/posts/${this.state.id}`, {
@@ -63,12 +70,14 @@ class Product extends Component {
     }
   }
 
+  //This method only displays if the post relates to the logged in user
   isEditable() {
     const created_at = new Date(this.state.created_at);
     return this.state.user && this.state.user.id === this.state.author
         && (new Date()).getTime() < (created_at.getTime() + 15 * 60000);
   }
 
+  //This method renders the current post
   render() {
     let userId = this.state.user ? this.state.user.id : undefined;
     return (
