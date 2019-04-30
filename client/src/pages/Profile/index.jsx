@@ -51,7 +51,6 @@ class App extends Component{
         <div className="App">
           <div id="user-profile">
             <div className="Profile">
-              {/*Until I can get the constructor to work img src is here*/}
               <div id="avatar">
                 <img id="profilePic" src={this.state.person.profileImgUrl || "/static/images/no-image-icon.png"}
                      alt="" width="200" height="200"/>
