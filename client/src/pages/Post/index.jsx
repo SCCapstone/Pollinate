@@ -92,7 +92,7 @@ class Product extends Component {
                   <div className="flex">
                     <div className="details">
                       <h2 className="Name">{this.state.title}</h2>
-                      <h3 className="price">${this.state.price}</h3>
+                      <h3 className="price">${this.state.price_formatted}</h3>
                       {this.state.id && <VoteCounter postId={this.state.id} userId={userId}/>}
                     </div>
                     <div id="productPhoto" className="flex justify-content-end">

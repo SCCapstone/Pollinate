@@ -59,7 +59,7 @@ exports.updatePost = function (req, res){
 // Returns post by its id
 exports.getPost = function (req, res) {
     var productID = req.params.id;
-    db.query("SELECT *, FORMAT(price, 2) as price FROM posts WHERE id = ?", [productID], function (err, result, fields) {
+    db.query("SELECT *, FORMAT(price, 2) as price_formatted FROM posts WHERE id = ?", [productID], function (err, result, fields) {
         if (err) return res.status(500).end();
         if (result.length > 0)
           result = result[0];

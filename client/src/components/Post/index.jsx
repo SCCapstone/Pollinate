@@ -27,7 +27,7 @@ class Post extends Component {
             <div className="details">
               <div>
                 <span className="title">{this.props.post.title}</span>
-                <span className="price">${this.props.post.price}</span>
+                <span className="price">${this.props.post.price_formatted}</span>
               </div>
             </div>
           </div>
