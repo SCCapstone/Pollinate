@@ -1,5 +1,6 @@
 const express = require('express'),
     path = require('path'),
+    favicon = require('serve-favicon'),
     bodyParser = require('body-parser'),
     session = require('express-session'),
     store = new session.MemoryStore();
@@ -16,7 +17,7 @@ app.use(session({
 }));
 
 app.use(require("cors")());
-//app.use(favicon(__dirname + '/public/images/favicon.png'));
+app.use(favicon(__dirname + '/public/images/favicon.png'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../client/build')));

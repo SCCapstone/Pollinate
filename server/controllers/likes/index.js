@@ -1,5 +1,6 @@
 const db = require('../../utils/database');
 
+// Creates a new like attached to the user who is currently logged in and postId from the parameters
 exports.create = function (req, res) {
     if (!req.session.user)
       return res.status(403).end();
@@ -15,6 +16,7 @@ exports.create = function (req, res) {
     });
 };
 
+// Uses postId parameter to get all likes associated with that post
 exports.getLikes = function (req, res) {
     const postId = req.params.id;
     db.query("SELECT * FROM likes WHERE postId = ?", [postId], function (err, result, fields) {

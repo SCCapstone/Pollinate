@@ -3,7 +3,7 @@ const crypto = require('crypto'),
     users = require('../users');
 
 exports.login = function (req, res) {
-  // Use req.body to get POST body. Check if user is in database and match password. Use res.send() to send error if
+  // Use req.body to get POST body. Check if user is in database and match password. Sends 401 status if
   // user doesn't exist/pass doesn't match, or send the non-sensitive user info
   const email = req.body.email;
   const password = req.body.password;
@@ -42,6 +42,10 @@ exports.signup = function (req, res) {
   users.create(req, res);
 };
 
+/*
+    This function hashes the user's password with pbkdf2 and a 16-byte salt and returns it as a hexadecimal value
+    for database storage.
+ */
 function hashPassword(salt, pass) {
   return crypto.pbkdf2Sync(pass, salt,
       1000, 64, `sha512`).toString(`hex`);

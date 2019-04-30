@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import logo from './logo.png';
+import logo from './pollinate logo bold.png';
 import Jacob from './Jacob.jpg';
 import Bailey from './Bailey.jpg';
 import Blake from './Blake.jpg';
@@ -8,9 +8,13 @@ import Mike from './Mike.jpg';
 import './style.css';
 
 class About extends Component {
+    /*
+    This is our about page that displays all of the founders/developers
+    We also showcase a link to each person's LinkedIn page for future reference
+    */
     render() {
         return (
-            <div>
+            <div id="AboutPage">
                 <div className="headline">
                     <img alt="profile-pic" src={logo} align="middle"/>
                     <p>Bringing you the best products at prices you'll love</p>
@@ -51,7 +55,6 @@ class About extends Component {
                         <a href="https://www.linkedin.com/in/justindavidmorris/"><i className="fab fa-linkedin fa-lg"/></a>
                         <figcaption>Justin Morris</figcaption>
                     </figure>
-
                 </div>
 
                 <div className="grass"/>

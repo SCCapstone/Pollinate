@@ -1,5 +1,7 @@
 const db = require('../../utils/database');
 
+// Create a new comment in the database, or return 403 status if no user logged in, or 422 if the text is longer
+// than 1000 characters
 exports.create = function (req, res) {
     if (!req.session.user)
         return res.status(403).end();
@@ -22,6 +24,7 @@ exports.create = function (req, res) {
     });
 };
 
+// Retrieve all comments associated with a given post, using the parameter postId
 exports.getComments = function (req, res) {
     const postId = req.params.id;
     db.query("SELECT * FROM comments_for_post WHERE postId = ?", [postId], function (err, result, fields) {

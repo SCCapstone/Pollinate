@@ -7,12 +7,14 @@ import {enforceMaxLength} from '../../utils/helper';
 import './style.css';
 
 
+
 class Comments extends Component {
     constructor(props) {
         super(props);
         this.state = {commentText: ''};
     }
 
+    //This function allows a user to post a comment and formats the comment appropriately
     postComment() {
         const body = {postId: this.props.postId,
             text: this.state.commentText.replace(/@\w+(?: \w+)?#(\d+)/g, '[$&](#comment_$1)')};
@@ -44,6 +46,7 @@ class Comments extends Component {
         });
     }
 
+    //Setting the maximum length of a comment
     setupEditor(i) {
         i.codemirror.setOption("maxLength", 1000);
         this.setState({editor: i});
@@ -59,7 +62,9 @@ class Comments extends Component {
         }
     }
 
-    //grabbing the comments
+    
+    // Displaying the comments and appending the author's name, profile image,
+    // the text posted, the date and time, as well as the option to reply to that user
     render() {
         let comments = this.props.comments || [];
         comments = comments.map(comment => {

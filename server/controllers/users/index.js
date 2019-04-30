@@ -1,7 +1,9 @@
 const db = require('../../utils/database'),
     helper = require('../../utils/helper');
 
-//takes in name, email, password; could add more variables later if needed
+// Takes in email, hash, salt, name, location, biography, and profileImgUrl from the request body
+// Removes any empty values and ensures necessary values are defined
+// Creates new user with said values or returns an error message if the email is already taken
 exports.create = function(req, res) {
   let values = {email: req.body.email, hash: req.body.hash, salt: req.body.salt, name: req.body.name,
     location: req.body.location, biography: req.body.biography, profileImgUrl: req.body.profileImgUrl};
@@ -19,6 +21,7 @@ exports.create = function(req, res) {
   }
 };
 
+// Returns a user based on the parameter id, or a 404 if no user with that id exists
 exports.getById = function (req, res) {
   var id = req.params.id;
   db.query("SELECT * FROM users WHERE id = ?", [id], function (err, result, fields) {
@@ -40,9 +43,10 @@ exports.getAll = function(req, res) {
     if (err) return res.status(500).end();
 
     res.status(200).send(result);
-  }); //getAll
+  });
 };
 
+// Returns all the non-sensitive data about the currently logged in user, or returns a 403 status if no one is logged in
 exports.me = function(req, res) {
   const user = req.session.user;
   if (!user) {
@@ -57,6 +61,7 @@ exports.me = function(req, res) {
   });
 };
 
+// Updates the currently logged in user, or returns a 403 status if no one is logged in
 exports.updateMe = function (req, res) {
   const user = req.session.user;
   if (!user)
