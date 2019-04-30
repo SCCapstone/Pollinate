@@ -42,6 +42,10 @@ exports.signup = function (req, res) {
   users.create(req, res);
 };
 
+/*
+    This function hashes the user's password with pbkdf2 and a 16-byte salt and returns it as a hexadecimal value
+    for database storage.
+ */
 function hashPassword(salt, pass) {
   return crypto.pbkdf2Sync(pass, salt,
       1000, 64, `sha512`).toString(`hex`);
