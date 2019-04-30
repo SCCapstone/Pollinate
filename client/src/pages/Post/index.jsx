@@ -6,6 +6,7 @@ import VoteCounter from "../../components/VoteCounter";
 import auth from '../../utils/auth.js';
 import Sidebar from "../../components/Sidebar";
 import Comments from "../../components/Comments";
+
 class Product extends Component {
     constructor(props) {
         super(props);

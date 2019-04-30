@@ -70,12 +70,16 @@ class Comments extends Component {
         comments = comments.map(comment => {
             return (
                 <div id={`comment_${comment.id}`} className='comment' key={comment.id}>
-                    <img width={'50px'} height={'50px'} className='mr-3'
-                         src={comment.author_pic || "/static/images/no-image-icon.png"} alt="Profile Pic"/>
+                    <div className="comment_left mr-3">
+                        <Link className='commentHeaderText font-weight-bold'
+                              to={`/profile/${comment.author_id}`}>{comment.author_name}</Link>
+                        <img width={'50px'} height={'50px'}
+                             src={comment.author_pic || "/static/images/no-image-icon.png"} alt="Profile Pic"/>
+                    </div>
                     <div style={{width: '100%'}}>
                         <div className='commentHeader mb-1'>
-                            <Link className='commentHeaderText' to={`/profile/${comment.author_id}`}>{comment.author_name}</Link>
-                            <span className='commentHeaderText'>{Comments.formattedDate(comment.created_at)}</span>
+                            <span className='commentHeaderText font-weight-bold'>{Comments.formattedDate(comment.created_at)}</span>
+                            <span className='commentHeaderText'>#{comment.id}</span>
                         </div>
                         <ReactMarkdown className='commentText' source={comment.text}/>
                         {this.props.user && <button className='btn btn-link p-0 m-0' onClick={() => this.replyClicked(comment)}>reply</button>}

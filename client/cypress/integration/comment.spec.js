@@ -22,6 +22,7 @@ describe('Comments', function () {
         cy.visit("/post/541");
         cy.get('.CodeMirror textarea').type(`test comment ${number}`, {force: true, delay: 0});
         cy.get('#postCommentBtn').click();
+        cy.wait(500);
         cy.get('.commentText').last().should('have.text', `test comment ${number}`);
     })
 });
